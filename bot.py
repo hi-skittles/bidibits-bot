@@ -60,7 +60,7 @@ intents.message_content = True
 intents.presences = True
 """
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 
 """
 Uncomment this if you want to use prefix (normal) commands.
@@ -68,7 +68,7 @@ It is recommended to use slash commands and therefore not use prefix commands.
 
 If you want to use prefix commands, make sure to also enable the intent below in the Discord developer portal.
 """
-# intents.message_content = True
+intents.message_content = True
 
 # Setup both of the loggers
 
@@ -170,9 +170,9 @@ class DiscordBot(commands.Bot):
     @tasks.loop(minutes=1.0)
     async def status_task(self) -> None:
         """
-        Setup the game status task of the bot.
+        Set up the game status task of the bot.
         """
-        statuses = ["with you!", "with Krypton!", "with humans!"]
+        statuses = ["with Maximus", "with your feelings", "with your heart"]
         await self.change_presence(activity=discord.Game(random.choice(statuses)))
 
     @status_task.before_loop
@@ -278,9 +278,8 @@ class DiscordBot(commands.Bot):
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 title="Error!",
-                # We need to capitalize because the command arguments have no capital letter in the code and they are the first word in the error message.
-                description=str(error).capitalize(),
-                color=0xE02B2B,
+                description=str(error),  # .capitalize(),
+                color=discord.Color.brand_red(),
             )
             await context.send(embed=embed)
         else:

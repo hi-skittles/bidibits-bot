@@ -7,7 +7,7 @@ Version: 6.1.0
 """
 
 import discord
-from discord import app_commands
+from discord import app_commands, Message
 from discord.ext import commands
 from discord.ext.commands import Context
 
@@ -106,9 +106,9 @@ class Owner(commands.Cog, name="owner"):
         """
         try:
             await self.bot.load_extension(f"cogs.{cog}")
-        except Exception:
+        except Exception as e:
             embed = discord.Embed(
-                description=f"Could not load the `{cog}` cog.", color=0xE02B2B
+                description=f"{cog}: {e}", color=0xE02B2B
             )
             await context.send(embed=embed)
             return
@@ -213,6 +213,71 @@ class Owner(commands.Cog, name="owner"):
         :param message: The message that should be repeated by the bot.
         """
         embed = discord.Embed(description=message, color=0xBEBEFE)
+        await context.send(embed=embed)
+
+    @commands.hybrid_command(
+        name="send_embed",
+        description="Sends a full embed.",
+    )
+    @app_commands.describe(
+        title="The title of the embed",
+        description="The description of the embed",
+        color="The color of the embed",
+        footer="The footer of the embed",
+    )
+    @commands.is_owner()
+    async def send_embed(
+        self,
+        context: Context,
+        title: str,
+        description: str,
+        color: discord.Color = None,
+        footer: str = None,
+    ) -> None:
+        """
+        Sends a "full" embed.
+
+        :param context: The hybrid command context.
+        :param title: The title of the embed.
+        :param description: The description of the embed.
+        :param color: The color of the embed.
+        :param footer: The footer of the embed.
+        """
+        if color is None or footer is None:
+            if color is None:
+                color = discord.Color.random()
+            if footer is None:
+                footer = f"Requested by {context.author}"
+        embed = discord.Embed(title=title, description=description, color=color)
+        embed.set_footer(text=footer)
+        await context.send(embed=embed)
+
+    @commands.hybrid_command(
+        name="status",
+        description="Change the bot's status.",
+    )
+    @app_commands.describe(message="The message that should be the bot's status")
+    @commands.is_owner()
+    async def status(self, context: Context, *, message: str) -> Message:
+        """
+        Change the bot's status.
+
+        :param context: The hybrid command context.
+        :param message: The message that should be the bot's status.
+        """
+        try:
+            await self.bot.change_presence(activity=discord.Game(name=message))
+        except Exception as e:
+            embed = discord.Embed(
+                description=f"Could not change the bot's status."
+                            f"\nException: {e}",
+                color=discord.Color.brand_red(),
+            )
+            return await context.send(embed=embed)
+        embed = discord.Embed(
+            description=f"The bot's status has been changed to `{message}`.",
+            color=discord.Color.dark_gray(),
+        )
         await context.send(embed=embed)
 
     @commands.hybrid_group(
