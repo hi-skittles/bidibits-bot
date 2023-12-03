@@ -200,59 +200,6 @@ class Owner(commands.Cog, name="owner"):
         await context.send(message)
 
     @commands.hybrid_command(
-        name="embed",
-        description="The bot will say anything you want, but within embeds.",
-    )
-    @app_commands.describe(message="The message that should be repeated by the bot")
-    @commands.is_owner()
-    async def embed(self, context: Context, *, message: str) -> None:
-        """
-        The bot will say anything you want, but using embeds.
-
-        :param context: The hybrid command context.
-        :param message: The message that should be repeated by the bot.
-        """
-        embed = discord.Embed(description=message, color=0xBEBEFE)
-        await context.send(embed=embed)
-
-    @commands.hybrid_command(
-        name="send_embed",
-        description="Sends a full embed.",
-    )
-    @app_commands.describe(
-        title="The title of the embed",
-        description="The description of the embed",
-        color="The color of the embed",
-        footer="The footer of the embed",
-    )
-    @commands.is_owner()
-    async def send_embed(
-        self,
-        context: Context,
-        title: str,
-        description: str,
-        color: discord.Color = None,
-        footer: str = None,
-    ) -> None:
-        """
-        Sends a "full" embed.
-
-        :param context: The hybrid command context.
-        :param title: The title of the embed.
-        :param description: The description of the embed.
-        :param color: The color of the embed.
-        :param footer: The footer of the embed.
-        """
-        if color is None or footer is None:
-            if color is None:
-                color = discord.Color.random()
-            if footer is None:
-                footer = f"Requested by {context.author}"
-        embed = discord.Embed(title=title, description=description, color=color)
-        embed.set_footer(text=footer)
-        await context.send(embed=embed)
-
-    @commands.hybrid_command(
         name="status",
         description="Change the bot's status.",
     )

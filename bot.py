@@ -140,6 +140,7 @@ class DiscordBot(commands.Bot):
         self.logger = logger
         self.config = config
         self.database = None
+        self.test_database = None
 
     async def init_db(self) -> None:
         async with aiosqlite.connect(
@@ -199,6 +200,11 @@ class DiscordBot(commands.Bot):
         self.database = DatabaseManager(
             connection=await aiosqlite.connect(
                 f"{os.path.realpath(os.path.dirname(__file__))}/database/database.db"
+            )
+        )
+        self.test_database = DatabaseManager(
+            connection=await aiosqlite.connect(
+                f"{os.path.realpath(os.path.dirname(__file__))}/database/servers.db"
             )
         )
 

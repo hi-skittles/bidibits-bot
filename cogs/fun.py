@@ -10,6 +10,7 @@ import random
 
 import aiohttp
 import discord
+from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
@@ -21,14 +22,14 @@ class Choice(discord.ui.View):
 
     @discord.ui.button(label="Heads", style=discord.ButtonStyle.blurple)
     async def confirm(
-        self, button: discord.ui.Button, interaction: discord.Interaction
+            self, button: discord.ui.Button, interaction: discord.Interaction
     ) -> None:
         self.value = "heads"
         self.stop()
 
     @discord.ui.button(label="Tails", style=discord.ButtonStyle.blurple)
     async def cancel(
-        self, button: discord.ui.Button, interaction: discord.Interaction
+            self, button: discord.ui.Button, interaction: discord.Interaction
     ) -> None:
         self.value = "tails"
         self.stop()
@@ -107,7 +108,7 @@ class Fun(commands.Cog, name="fun"):
         # This will prevent your bot from stopping everything when doing a web request - see: https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
         async with aiohttp.ClientSession() as session:
             async with session.get(
-                "https://uselessfacts.jsph.pl/random.json?language=en"
+                    "https://uselessfacts.jsph.pl/random.json?language=en"
             ) as request:
                 if request.status == 200:
                     data = await request.json()
@@ -157,6 +158,44 @@ class Fun(commands.Cog, name="fun"):
         """
         view = RockPaperScissorsView()
         await context.send("Please make your choice", view=view)
+
+    @commands.command(
+        name="meow",
+        description="nothing :3",
+    )
+    async def meow(self, context: Context) -> None:
+        """
+        This is a testing command that does nothing.
+
+        :param context: The application command context.
+        """
+        await context.send(f"Hello {context.author.mention}! :3")  # <a:hyper:754213547000725504>
+        meow_face = """
+        ⣤⣤⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⡿⠈⠈⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠿⡇⡀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢦⣧⡇⢰⡇⠀⠀⠀⠀⠀⠀⣾⠉⠙⠲⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣸⣿⣿⠀⣿⠀⠀⠀⠀⠀⠈⢾⣧⠀⠀⠙⢦⣂⡀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⡟⡇⠀⡏⠀⠀⠀⠀⠀⠀⠀⢻⢷⡀⠀⢀⣬⣶⡿⢠⣤⢠⣴⠶⠒⠒⠒⢦⣠⠀⠀⠀⠀⠀⠀⠀⣠⡴⠒⢶⠀⠀⠀⠀⠀⠀
+⣿⡇⡇⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣆⢾⣿⡿⣷⣿⣷⣿⣿⣱⣆⣽⡀⣼⣠⣤⣴⣶⠶⣶⣶⣾⠟⠁⠀⢸⡆⠀⠀⠀⠀⠀
+⣿⡇⡇⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣷⣦⣿⣧⣼⣿⣿⣿⣼⣿⣿⡿⢳⣟⢡⣼⣿⣿⣾⣯⠞⠁⠀⠀⠀⣺⡇⠀⠀⠀⠀⠀
+⣿⡿⡇⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⣻⣿⣿⣿⣯⣿⣿⡏⠘⣿⡗⣾⣿⢾⣿⣿⣿⠟⠁⠀⠀⠀⠀⠤⢶⠃⠀⠀⠀⠀⠀
+⣿⡇⡇⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢨⣿⣿⣿⣿⠋⠛⠉⠁⠀⢹⣿⣿⣇⣼⣿⡿⠏⠀⠲⢠⡴⠆⠀⠀⣸⠀⠀⠀⠀⠀⠀
+⣿⡇⡗⠀⡇⠀⠀⠀⠀⠀⣀⣤⠤⠀⢀⣼⠛⠉⠛⠋⠀⠀⠀⠀⢠⣿⠙⡗⠻⡄⠁⠀⠀⠀⠚⠉⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀
+⣿⣧⠃⠀⡇⠀⠀⣴⣾⣿⣿⣧⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⢷⣦⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠸⢧⡀⠀⠀⠀⠀⠀
+⢿⣿⠀⠀⡇⠀⠀⣿⣿⣿⣿⣿⣿⣿⣶⣮⣕⡠⠀⠀⠀⠀⠀⠀⣀⣀⣀⣠⣼⣧⣤⣤⣄⣀⣀⣀⡤⠿⠀⠀⠀⠙⣧⡀⠀⠀⠀
+⣾⣿⠀⠀⡇⠀⠀⠚⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⢹⡇⠀⠀⠀
+⣿⢽⠇⠀⡇⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣤⠀⠀⠐⠀⠀⠀⠀⠀⠻⣆⠀⠀
+⣿⢸⠀⠀⡇⠀⠀⠀⠀⠀⠈⠻⠿⣿⣿⣿⡿⡏⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠃⠀⠰⣄⠀⠀⠀⠀⠀⠀⢻⣆⠀
+⣿⢸⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣶⣶⡦⠄⠀⠉⠙⠛⠛⠛⠛⠛⠉⠀⠀⠀⠀⠀⠀⠁⠀⠠⡀⠀⠀⠀⠈⢿⡇
+⣿⢸⠀⠘⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠠⢄⣀⣨⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣧
+⣿⢸⡀⠀⠀⠀⢀⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢦⣌⣁⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉
+⠟⠸⠿⢾⣄⣤⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠰⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢰⡟⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠶⠶⠶⠟⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠆⠀⠈⠙⠳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+"""
+        await context.send(meow_face)
 
 
 async def setup(bot) -> None:

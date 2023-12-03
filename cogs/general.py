@@ -248,36 +248,57 @@ class General(commands.Cog, name="general"):
         await context.send(embed=embed)
 
     @commands.hybrid_command(
-        name="bitcoin",
-        description="Get the current price of bitcoin.",
+        name="embed",
+        description="The bot will say anything you want, but within embeds.",
     )
-    async def bitcoin(self, context: Context) -> None:
+    @app_commands.describe(message="The message that should be repeated by the bot")
+    @commands.has_guild_permissions(manage_messages=True)
+    async def embed(self, context: Context, *, message: str) -> None:
         """
-        Get the current price of bitcoin.
+        The bot will say anything you want, but using embeds.
 
         :param context: The hybrid command context.
+        :param message: The message that should be repeated by the bot.
         """
-        # This will prevent your bot from stopping everything when doing a web request - see: https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
-        async with aiohttp.ClientSession() as session:
-            async with session.get(
-                "https://api.coindesk.com/v1/bpi/currentprice/BTC.json"
-            ) as request:
-                if request.status == 200:
-                    data = await request.json(
-                        content_type="application/javascript"
-                    )  # For some reason the returned content is of type JavaScript
-                    embed = discord.Embed(
-                        title="Bitcoin price",
-                        description=f"The current price is {data['bpi']['USD']['rate']} :dollar:",
-                        color=0xBEBEFE,
-                    )
-                else:
-                    embed = discord.Embed(
-                        title="Error!",
-                        description="There is something wrong with the API, please try again later",
-                        color=0xE02B2B,
-                    )
-                await context.send(embed=embed)
+        embed = discord.Embed(description=message, color=0xBEBEFE)
+        await context.send(embed=embed)
+
+    @commands.hybrid_command(
+        name="send_embed",
+        description="Sends a full embed.",
+    )
+    @app_commands.describe(
+        title="The title of the embed",
+        description="The description of the embed",
+        color="The color of the embed",
+        footer="The footer of the embed",
+    )
+    @commands.has_guild_permissions(manage_messages=True)
+    async def send_embed(
+            self,
+            context: Context,
+            title: str,
+            description: str,
+            color: discord.Color = None,
+            footer: str = None,
+    ) -> None:
+        """
+        Sends a "full" embed.
+
+        :param context: The hybrid command context.
+        :param title: The title of the embed.
+        :param description: The description of the embed.
+        :param color: The color of the embed.
+        :param footer: The footer of the embed.
+        """
+        if color is None or footer is None:
+            if color is None:
+                color = discord.Color.random()
+            if footer is None:
+                footer = f"Requested by {context.author}"
+        embed = discord.Embed(title=title, description=description, color=color)
+        embed.set_footer(text=footer)
+        await context.send(embed=embed)
 
 
 async def setup(bot) -> None:

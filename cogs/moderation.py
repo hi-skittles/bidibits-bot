@@ -172,7 +172,8 @@ class Moderation(commands.Cog, name="moderation"):
         """
         if context.invoked_subcommand is None:
             embed = discord.Embed(
-                description="Please specify a subcommand.\n\n**Subcommands:**\n`add` - Add a warning to a user.\n`remove` - Remove a warning from a user.\n`list` - List all warnings of a user.",
+                description="Please specify a subcommand.\n\n**Subcommands:**\n`add` - Add a warning to a "
+                            "user.\n`remove` - Remove a warning from a user.\n`list` - List all warnings of a user.",
                 color=0xE02B2B,
             )
             await context.send(embed=embed)
@@ -199,7 +200,7 @@ class Moderation(commands.Cog, name="moderation"):
         member = context.guild.get_member(user.id) or await context.guild.fetch_member(
             user.id
         )
-        total = await self.bot.database.add_warn(
+        total = await self.bot.test_database.add_warn(
             user.id, context.guild.id, context.author.id, reason
         )
         embed = discord.Embed(

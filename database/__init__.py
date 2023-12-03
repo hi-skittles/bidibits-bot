@@ -6,7 +6,6 @@ Description:
 Version: 6.1.0
 """
 
-
 import aiosqlite
 
 
@@ -15,7 +14,7 @@ class DatabaseManager:
         self.connection = connection
 
     async def add_warn(
-        self, user_id: int, server_id: int, moderator_id: int, reason: str
+            self, user_id: int, server_id: int, moderator_id: int, reason: str
     ) -> int:
         """
         This function will add a warn to the database.
@@ -95,3 +94,20 @@ class DatabaseManager:
             for row in result:
                 result_list.append(row)
             return result_list
+
+    async def get_settings(self, server_id: int) -> list:
+        """
+        This function will get all the settings of a server.
+
+        :param server_id: The ID of the server that should be checked.
+        :return: A list of all the settings of the server.
+        """
+        rows = await self.connection.execute(
+            "SELECT server_id, prefix, language, log_channel_id FROM settings WHERE server_id=?",
+            (
+                server_id,
+            ),
+        )
+        async with rows as cursor:
+            result = await cursor.fetchone()
+            return result if result is not None else []
