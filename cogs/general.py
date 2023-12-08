@@ -8,12 +8,15 @@ Version: 6.1.0
 
 import platform
 import random
+import re
 
 import aiohttp
 import discord
 from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
+
+from utils.definitions import Customs
 
 
 class General(commands.Cog, name="general"):
@@ -27,6 +30,29 @@ class General(commands.Cog, name="general"):
             name="Remove spoilers", callback=self.remove_spoilers
         )
         self.bot.tree.add_command(self.context_menu_message)
+
+    # ---------------
+    # EVENT LISTENERS
+    # ---------------
+
+    @commands.Cog.listener(name="on_message")
+    async def on_message(self, message) -> None:
+        """
+        This event is triggered when a message is sent.
+
+        :param message: The message that was sent.
+        """
+        if message.author.bot or message.content.startswith(self.bot.config["prefix"]):
+            return
+        is_twitter, twitter_username, twitter_status_id = Customs.has_twitter_link(message.content)
+        if is_twitter:
+            await message.channel.send(f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}")
+        if message.guild.id == 737710058431053836:
+            if message.channel.id == 737713464755224586:
+                if re.search(r"discord.gg", message.content):
+                    await message.delete()
+                    await message.channel.send(f"{message.author.mention}, you are not allowed to send invites in "
+                                               f"this channel.")
 
     # Message context menu command
     async def remove_spoilers(
@@ -177,26 +203,6 @@ class General(commands.Cog, name="general"):
         """
         embed = discord.Embed(
             description=f"Invite me by clicking [here]({self.bot.config['invite_link']}).",
-            color=0xD75BF4,
-        )
-        try:
-            await context.author.send(embed=embed)
-            await context.send("I sent you a private message!")
-        except discord.Forbidden:
-            await context.send(embed=embed)
-
-    @commands.hybrid_command(
-        name="server",
-        description="Get the invite link of the discord server of the bot for some support.",
-    )
-    async def server(self, context: Context) -> None:
-        """
-        Get the invite link of the discord server of the bot for some support.
-
-        :param context: The hybrid command context.
-        """
-        embed = discord.Embed(
-            description=f"Join the support server for the bot by clicking [here](https://discord.gg/mTBrXyWxAF).",
             color=0xD75BF4,
         )
         try:

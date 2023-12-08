@@ -5,6 +5,7 @@ Description:
 
 Version: 6.1.0
 """
+from sqlite3 import OperationalError
 from typing import Tuple, Any
 
 import discord
@@ -14,24 +15,6 @@ import re
 
 
 # Here we name the cog and create a new class for the cog.
-def has_twitter_link(url: str) -> tuple[bool, str | Any, str | Any] | bool:
-    """
-    Checks if the given URL is a Twitter link.
-
-    :param url: The URL to check.
-    :return: True if the URL is a Twitter link, False otherwise.
-    """
-    twitter_regex = re.compile(r'https?://twitter\.com/(\w+)/status/(\d+)')
-    # r"(https?:\/\/)?(www\.)?twitter\.com\/([a-zA-Z0-9_]+)\/status\/([0-9]+)"
-
-    match = twitter_regex.search(url)
-
-    if match:
-        return True, match.group(1), match.group(2)
-    else:
-        return False, None, None
-
-
 class Testing(commands.Cog, name="testing"):
     def __init__(self, bot) -> None:
         self.bot = bot
@@ -50,24 +33,14 @@ class Testing(commands.Cog, name="testing"):
         if member.guild.id == 737710058431053836:
             print(f"{member.display_name} joined the guild.")
 
-    @commands.Cog.listener(name="on_message")
-    async def on_message(self, message) -> None:
+    @commands.Cog.listener(name="on_guild_join")
+    async def on_guild_join(self, guild) -> None:
         """
-        This event is triggered when a message is sent.
+        This event is triggered when the bot joins a guild.
 
-        :param message: The message that was sent.
+        :param guild: The guild the bot joined.
         """
-        if message.author.bot:
-            return
-        is_twitter, twitter_username, twitter_status_id = has_twitter_link(message.content)
-        if is_twitter:
-            await message.channel.send(f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}")
-        if message.guild.id == 737710058431053836:
-            if message.channel.id == 737713464755224586:
-                if re.search(r"discord.gg", message.content):
-                    await message.delete()
-                    await message.channel.send(f"{message.author.mention}, you are not allowed to send invites in "
-                                               f"this channel.")
+        await self.bot.servers_database.create_server_table(guild.id, guild.name)
 
     # -------------
     # -- COMMANDS -
@@ -89,6 +62,50 @@ class Testing(commands.Cog, name="testing"):
         """
         member = await context.guild.fetch_member(member_id)
         await self.on_member_join(member)
+
+    @commands.command(
+        name="trigger_on_guild_join",
+        description="Triggers the on_guild_join event.",
+        aliases=["togj"],
+    )
+    @commands.is_owner()
+    @commands.guild_only()
+    async def trigger_on_guild_join(self, context: Context, server_id: int) -> None:
+        """
+        Triggers the on_member_join event.
+
+        :param context: The command context.
+        :param server_id: The ID of the server to trigger the event with.
+        """
+        server = context.bot.get_guild(server_id)
+        await self.on_guild_join(server)
+        await context.send(f"Joined {server.name}.")
+
+    @commands.command(
+        name="grab_data",
+        aliases=["gd"],
+    )
+    @commands.is_owner()
+    @commands.guild_only()
+    async def grab_data(self, context: Context, server_id=None) -> None:
+        """
+        This command will grab data from the database.
+
+        :param context: The command context.
+        :param server_id: The ID of the server to grab the data from. If none, current server.
+        """
+        try:
+            server_id = int(server_id) if server_id is not None else context.guild.id
+        except ValueError:
+            await context.send("The server ID must be an integer.")
+            return
+        try:
+            data = await self.bot.servers_database.get_server_data(server_id)
+        except OperationalError:
+            await context.send(embed=discord.Embed(description="Server not found.", colour=discord.Colour.brand_red()))
+            return
+        embed = discord.Embed(title=data[0], description=f"```{data}```", colour=discord.Colour.blue())
+        await context.send(embed=embed)
 
 
 async def setup(bot) -> None:

@@ -139,15 +139,15 @@ class DiscordBot(commands.Bot):
         """
         self.logger = logger
         self.config = config
-        self.database = None
-        self.test_database = None
+        self.internal_bot_settings = None
+        self.servers_database = None
 
     async def init_db(self) -> None:
         async with aiosqlite.connect(
-            f"{os.path.realpath(os.path.dirname(__file__))}/database/database.db"
+            f"{os.path.realpath(os.path.dirname(__file__))}/database/internal_bot_settings.db"
         ) as db:
             with open(
-                f"{os.path.realpath(os.path.dirname(__file__))}/database/schema.sql"
+                f"{os.path.realpath(os.path.dirname(__file__))}/database/internal_bot_settings_schema.sql"
             ) as file:
                 await db.executescript(file.read())
             await db.commit()
@@ -197,12 +197,12 @@ class DiscordBot(commands.Bot):
         await self.init_db()
         await self.load_cogs()
         self.status_task.start()
-        self.database = DatabaseManager(
+        self.internal_bot_settings = DatabaseManager(
             connection=await aiosqlite.connect(
-                f"{os.path.realpath(os.path.dirname(__file__))}/database/database.db"
+                f"{os.path.realpath(os.path.dirname(__file__))}/database/internal_bot_settings.db"
             )
         )
-        self.test_database = DatabaseManager(
+        self.servers_database = DatabaseManager(
             connection=await aiosqlite.connect(
                 f"{os.path.realpath(os.path.dirname(__file__))}/database/servers.db"
             )

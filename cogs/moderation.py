@@ -200,7 +200,7 @@ class Moderation(commands.Cog, name="moderation"):
         member = context.guild.get_member(user.id) or await context.guild.fetch_member(
             user.id
         )
-        total = await self.bot.test_database.add_warn(
+        total = await self.bot.database.add_warn(
             user.id, context.guild.id, context.author.id, reason
         )
         embed = discord.Embed(

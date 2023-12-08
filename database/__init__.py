@@ -5,6 +5,7 @@ Description:
 
 Version: 6.1.0
 """
+import sqlite3
 
 import aiosqlite
 
@@ -73,41 +74,117 @@ class DatabaseManager:
             result = await cursor.fetchone()
             return result[0] if result is not None else 0
 
-    async def get_warnings(self, user_id: int, server_id: int) -> list:
+    async def get_blacklisted_users(self, count: bool) -> list or int:
         """
-        This function will get all the warnings of a user.
+        This function will get all the blacklisted users.
 
-        :param user_id: The ID of the user that should be checked.
-        :param server_id: The ID of the server that should be checked.
-        :return: A list of all the warnings of the user.
+        :return: A list of all the blacklisted users.
+        """
+        if count:
+            rows = await self.connection.execute(
+                "SELECT COUNT(*) FROM 'blacklisted_users'"
+            )
+            async with rows as cursor:
+                result = await cursor.fetchone()
+                return result[0] if result is not None else 0
+        try:
+            rows = await self.connection.execute("SELECT * FROM 'blacklisted_users' LIMIT 15")
+            async with rows as cursor:
+                result = await cursor.fetchall()
+                result_list = [row for row in result]
+                return result_list
+        except sqlite3.Error as e:
+            print(f"Error while getting blacklisted users.\n{e}")
+            return ["error", e]
+
+    async def is_blacklisted(self, user_id: int) -> bool:
+        """
+        This function will check if a user is blacklisted.
+
+        :param user_id: The ID of the user to check.
+        :return: A boolean indicating if the user is blacklisted or not.
         """
         rows = await self.connection.execute(
-            "SELECT user_id, server_id, moderator_id, reason, strftime('%s', created_at), id FROM warns WHERE user_id=? AND server_id=?",
-            (
-                user_id,
-                server_id,
-            ),
-        )
-        async with rows as cursor:
-            result = await cursor.fetchall()
-            result_list = []
-            for row in result:
-                result_list.append(row)
-            return result_list
-
-    async def get_settings(self, server_id: int) -> list:
-        """
-        This function will get all the settings of a server.
-
-        :param server_id: The ID of the server that should be checked.
-        :return: A list of all the settings of the server.
-        """
-        rows = await self.connection.execute(
-            "SELECT server_id, prefix, language, log_channel_id FROM settings WHERE server_id=?",
-            (
-                server_id,
-            ),
+            "SELECT * FROM 'blacklisted_users' WHERE user_id=?", (user_id,)
         )
         async with rows as cursor:
             result = await cursor.fetchone()
-            return result if result is not None else []
+            return result is not None
+
+    async def add_user_to_blacklist(self, user_id: int, user_name: str, t: int, reason: None = None) -> int:
+        """
+        This function will add a user to the blacklist.
+
+        :param user_id: The ID of the user to add to the blacklist.
+        :param user_name: The name of the user to add to the blacklist.
+        :param reason: The reason why the user should be blacklisted.
+        :param t: The time the user should was blacklisted.
+        """
+        reason = "NYI" if reason is None else reason
+        await self.connection.execute(
+            "INSERT INTO 'blacklisted_users' VALUES (?, ?, ?, ?)", (user_id, user_name, reason, t)  # dont ask...
+        )
+        await self.connection.commit()
+        total = await self.get_blacklisted_users(True)
+        return total
+
+    async def remove_user_from_blacklist(self, user_id: int) -> int:
+        """
+        This function will remove a user from the blacklist.
+
+        :param user_id: The ID of the user to remove from the blacklist.
+        """
+        await self.connection.execute(
+            "DELETE FROM 'blacklisted_users' WHERE user_id=?", (user_id,)
+        )
+        await self.connection.commit()
+        total = await self.get_blacklisted_users(True)
+        return total
+
+    async def create_server_table(self, server_id: int, server_name: str) -> None:
+        """
+        This method will create a new table for each server the bot joins.
+
+        :param server_id: The ID of the server.
+        :param server_name: The name of the server.
+        """
+        await self.connection.execute(
+            f"""CREATE TABLE IF NOT EXISTS "{server_id}" ("server_name" TEXT NOT NULL, "server_id" INTEGER NOT NULL,
+            "custom_joins_channel" INTEGER, PRIMARY KEY("server_id"))"""
+        )
+
+        await self.connection.execute(
+            f"INSERT INTO '{server_id}' VALUES (?, ?, ?)",
+            (server_id, server_name, None)
+        )
+
+        await self.connection.commit()
+
+    async def get_server_data(self, server_id: int) -> list:
+        """
+        This method will fetch the server data from the database.
+
+        :param server_id: The ID of the server.
+        :return: A tuple containing the server data.
+        """
+        rows = await self.connection.execute(
+            f"SELECT * FROM '{server_id}'"
+        )
+        async with rows as cursor:
+            result = await cursor.fetchone()
+            return result
+
+    async def update_server_data(self, server_id: int, column: str, value: str) -> None:
+        """
+        This method will update the server data in the database.
+
+        :param server_id: The ID of the server.
+        :param column: The column to update.
+        :param value: The value to update.
+        """
+        await self.connection.execute(
+            f"UPDATE '{server_id}' SET {column}=?",
+            (value,)
+        )
+
+        await self.connection.commit()

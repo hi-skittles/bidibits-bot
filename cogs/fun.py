@@ -159,7 +159,7 @@ class Fun(commands.Cog, name="fun"):
         view = RockPaperScissorsView()
         await context.send("Please make your choice", view=view)
 
-    @commands.command(
+    @commands.hybrid_command(
         name="meow",
         description="nothing :3",
     )

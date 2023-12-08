@@ -5,6 +5,7 @@ Description:
 
 Version: 6.1.0
 """
+import time
 
 import discord
 from discord import app_commands, Message
@@ -12,7 +13,7 @@ from discord.ext import commands
 from discord.ext.commands import Context
 
 
-class Owner(commands.Cog, name="owner"):
+class Owner(commands.Cog, name="developer"):
     def __init__(self, bot) -> None:
         self.bot = bot
 
@@ -170,21 +171,6 @@ class Owner(commands.Cog, name="owner"):
         await context.send(embed=embed)
 
     @commands.hybrid_command(
-        name="shutdown",
-        description="Make the bot shutdown.",
-    )
-    @commands.is_owner()
-    async def shutdown(self, context: Context) -> None:
-        """
-        Shuts down the bot.
-
-        :param context: The hybrid command context.
-        """
-        embed = discord.Embed(description="Shutting down. Bye! :wave:", color=0xBEBEFE)
-        await context.send(embed=embed)
-        await self.bot.close()
-
-    @commands.hybrid_command(
         name="say",
         description="The bot will say anything you want.",
     )
@@ -239,10 +225,9 @@ class Owner(commands.Cog, name="owner"):
         :param context: The hybrid command context.
         """
         if context.invoked_subcommand is None:
-            embed = discord.Embed(
-                description="You need to specify a subcommand.\n\n**Subcommands:**\n`add` - Add a user to the blacklist.\n`remove` - Remove a user from the blacklist.",
-                color=0xE02B2B,
-            )
+            embed = discord.Embed(description="You need to specify a subcommand.\n\n**Subcommands:**\n`add` - Add a"
+                                              "user to the blacklist.\n`remove` - Remove a user from the blacklist.",
+                                  color=discord.Colour.dark_red(),)
             await context.send(embed=embed)
 
     @blacklist.command(
@@ -257,21 +242,25 @@ class Owner(commands.Cog, name="owner"):
 
         :param context: The hybrid command context.
         """
-        blacklisted_users = await self.bot.database.get_blacklisted_users()
+        blacklisted_users = await self.bot.internal_bot_settings.get_blacklisted_users(False)
         if len(blacklisted_users) == 0:
-            embed = discord.Embed(
-                description="There are currently no blacklisted users.", color=0xE02B2B
-            )
+            embed = discord.Embed(description="There are currently no blacklisted users.",
+                                  color=discord.Colour.blurple())
             await context.send(embed=embed)
             return
 
-        embed = discord.Embed(title="Blacklisted Users", color=0xBEBEFE)
+        if blacklisted_users[0] == ["error"]:
+            embed = discord.Embed(description=f"An error occurred while getting the blacklisted users.\n"
+                                              f"{blacklisted_users[1]}",
+                                  color=discord.Colour.red())
+            await context.send(embed=embed)
+            return
+
+        embed = discord.Embed(title="Blacklisted Users", color=discord.Colour.blue())
         users = []
         for bluser in blacklisted_users:
-            user = self.bot.get_user(int(bluser[0])) or await self.bot.fetch_user(
-                int(bluser[0])
-            )
-            users.append(f"• {user.mention} ({user}) - Blacklisted <t:{bluser[1]}>")
+            user = self.bot.get_user(int(bluser[0])) or await self.bot.fetch_user(int(bluser[0]))
+            users.append(f"• {user.mention} ({user}) - Blacklisted <t:{bluser[3]}>")
         embed.description = "\n".join(users)
         await context.send(embed=embed)
 
@@ -290,21 +279,16 @@ class Owner(commands.Cog, name="owner"):
         :param user: The user that should be added to the blacklist.
         """
         user_id = user.id
-        if await self.bot.database.is_blacklisted(user_id):
-            embed = discord.Embed(
-                description=f"**{user.name}** is already in the blacklist.",
-                color=0xE02B2B,
-            )
+        if await self.bot.internal_bot_settings.is_blacklisted(user_id):
+            embed = discord.Embed(description=f"**{user.name}** is already in the blacklist.",
+                                  color=discord.Colour.red(),)
             await context.send(embed=embed)
             return
-        total = await self.bot.database.add_user_to_blacklist(user_id)
-        embed = discord.Embed(
-            description=f"**{user.name}** has been successfully added to the blacklist",
-            color=0xBEBEFE,
-        )
-        embed.set_footer(
-            text=f"There {'is' if total == 1 else 'are'} now {total} {'user' if total == 1 else 'users'} in the blacklist"
-        )
+        total = await self.bot.internal_bot_settings.add_user_to_blacklist(user_id, user.name, int(time.time()), None)
+        embed = discord.Embed(description=f"**{user.name}** has been successfully added to the blacklist",
+                              color=discord.Colour.green())
+        embed.set_footer(text=f"There {'is' if total == 1 else 'are'} now {total} {'user' if total == 1 else 'users'} "
+                              f"in the blacklist")
         await context.send(embed=embed)
 
     @blacklist.command(
@@ -322,19 +306,18 @@ class Owner(commands.Cog, name="owner"):
         :param user: The user that should be removed from the blacklist.
         """
         user_id = user.id
-        if not await self.bot.database.is_blacklisted(user_id):
-            embed = discord.Embed(
-                description=f"**{user.name}** is not in the blacklist.", color=0xE02B2B
-            )
+        if not await self.bot.internal_bot_settings.is_blacklisted(user_id):
+            embed = discord.Embed(description=f"**{user}** is not in the blacklist.", color=discord.Colour.red())
             await context.send(embed=embed)
             return
-        total = await self.bot.database.remove_user_from_blacklist(user_id)
+        total = await self.bot.internal_bot_settings.remove_user_from_blacklist(user_id)
         embed = discord.Embed(
             description=f"**{user.name}** has been successfully removed from the blacklist",
-            color=0xBEBEFE,
+            color=discord.Colour.green(),
         )
         embed.set_footer(
-            text=f"There {'is' if total == 1 else 'are'} now {total} {'user' if total == 1 else 'users'} in the blacklist"
+            text=f"There {'is' if total == 1 else 'are'} now {total} {'user' if total == 1 else 'users'} "
+                 f"in the blacklist"
         )
         await context.send(embed=embed)
 
