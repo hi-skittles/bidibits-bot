@@ -10,6 +10,7 @@ import sqlite3
 import aiosqlite
 
 
+# TODO: unsafe to use same class for any DB connection
 class DatabaseManager:
     def __init__(self, *, connection: aiosqlite.Connection) -> None:
         self.connection = connection

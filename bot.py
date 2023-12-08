@@ -214,7 +214,7 @@ class DiscordBot(commands.Bot):
 
         :param message: The message that was sent.
         """
-        if message.author == self.user or message.author.bot:
+        if await bot.internal_bot_settings.is_blacklisted(message.author.id) or message.author == self.user or message.author.bot:
             return
         await self.process_commands(message)
 
