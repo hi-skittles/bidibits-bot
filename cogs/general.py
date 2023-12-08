@@ -23,7 +23,7 @@ class General(commands.Cog, name="general"):
     def __init__(self, bot) -> None:
         self.bot = bot
         self.context_menu_user = app_commands.ContextMenu(
-            name="Grab ID", callback=self.grab_id
+            name="User ID", callback=self.grab_id
         )
         self.bot.tree.add_command(self.context_menu_user)
         self.context_menu_message = app_commands.ContextMenu(
