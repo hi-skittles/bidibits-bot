@@ -173,7 +173,7 @@ class DiscordBot(commands.Bot):
         """
         Set up the game status task of the bot.
         """
-        statuses = ["with Maximus", "with your feelings", "with your heart"]
+        statuses = ["with Maximus", "with your feelings", "with your heart", "pycharm", "not with java"]
         await self.change_presence(activity=discord.Game(random.choice(statuses)))
 
     @status_task.before_loop

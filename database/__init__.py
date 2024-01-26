@@ -100,7 +100,9 @@ class DatabaseManager:
 
     async def is_blacklisted(self, user_id: int) -> bool:
         """
-        This function will check if a user is blacklisted.
+        This function will check if a user is blacklisted from using the bot.
+        Blacklisted users can access no functionality of the bot, but are not ignored from its monitoring or events.
+        Blacklisted users will be visibly flagged when a command is ran on them, or an action involving them is made.
 
         :param user_id: The ID of the user to check.
         :return: A boolean indicating if the user is blacklisted or not.
@@ -142,7 +144,7 @@ class DatabaseManager:
         total = await self.get_blacklisted_users(True)
         return total
 
-    async def create_server_table(self, server_id: int, server_name: str) -> None:
+    async def create_server_table(self, server_id: int, server_name: str) -> bool:
         """
         This method will create a new table for each server the bot joins.
 
@@ -159,7 +161,12 @@ class DatabaseManager:
             (server_id, server_name, None)
         )
 
-        await self.connection.commit()
+        try:
+            await self.connection.commit()
+            return True
+        except sqlite3.Error as e:
+            print(f"Error while creating server table.\n{e}")
+            return False
 
     async def get_server_data(self, server_id: int) -> list:
         """

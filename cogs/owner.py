@@ -252,7 +252,7 @@ class Owner(commands.Cog, name="developer"):
         if blacklisted_users[0] == ["error"]:
             embed = discord.Embed(description=f"An error occurred while getting the blacklisted users.\n"
                                               f"{blacklisted_users[1]}",
-                                  color=discord.Colour.red())
+                                  color=discord.Colour.dark_red())
             await context.send(embed=embed)
             return
 
@@ -281,7 +281,7 @@ class Owner(commands.Cog, name="developer"):
         user_id = user.id
         if await self.bot.internal_bot_settings.is_blacklisted(user_id):
             embed = discord.Embed(description=f"**{user.name}** is already in the blacklist.",
-                                  color=discord.Colour.red(),)
+                                  color=discord.Colour.dark_red(),)
             await context.send(embed=embed)
             return
         total = await self.bot.internal_bot_settings.add_user_to_blacklist(user_id, user.name, int(time.time()), None)
@@ -307,7 +307,7 @@ class Owner(commands.Cog, name="developer"):
         """
         user_id = user.id
         if not await self.bot.internal_bot_settings.is_blacklisted(user_id):
-            embed = discord.Embed(description=f"**{user}** is not in the blacklist.", color=discord.Colour.red())
+            embed = discord.Embed(description=f"**{user}** is not in the blacklist.", color=discord.Colour.dark_red())
             await context.send(embed=embed)
             return
         total = await self.bot.internal_bot_settings.remove_user_from_blacklist(user_id)
