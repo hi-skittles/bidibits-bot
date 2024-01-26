@@ -75,6 +75,65 @@ class DatabaseManager:
             result = await cursor.fetchone()
             return result[0] if result is not None else 0
 
+    # TODO: rename this function
+    async def create_server_table(self, server_id: int, server_name: str) -> bool:
+        """
+        This method will create a new table for each server the bot joins.
+
+        :param server_id: The ID of the server.
+        :param server_name: The name of the server.
+        """
+        await self.connection.execute(
+            f"""CREATE TABLE IF NOT EXISTS "{server_id}" ("server_name" TEXT NOT NULL, "server_id" INTEGER NOT NULL,
+            "custom_joins_channel" INTEGER, PRIMARY KEY("server_id"))"""
+        )
+
+        await self.connection.execute(
+            f"INSERT INTO '{server_id}' VALUES (?, ?, ?)",
+            (server_id, server_name, None)
+        )
+
+        try:
+            await self.connection.commit()
+            return True
+        except sqlite3.Error as e:
+            print(f"Error while creating server table.\n{e}")
+            return False
+
+    async def get_server_data(self, server_id: int) -> list:
+        """
+        This method will fetch the server data from the database.
+
+        :param server_id: The ID of the server.
+        :return: A tuple containing the server data.
+        """
+        rows = await self.connection.execute(
+            f"SELECT * FROM '{server_id}'"
+        )
+        async with rows as cursor:
+            result = await cursor.fetchone()
+            return result
+
+    async def update_server_data(self, server_id: int, column: str, value: str) -> None:
+        """
+        This method will update the server data in the database.
+
+        :param server_id: The ID of the server.
+        :param column: The column to update.
+        :param value: The value to update.
+        """
+        await self.connection.execute(
+            f"UPDATE '{server_id}' SET {column}=?",
+            (value,)
+        )
+
+        await self.connection.commit()
+
+
+class InternalBotSettingsDbManager:
+    def __init__(self, *, connection: aiosqlite.Connection) -> None:
+        self.connection = connection
+
     async def get_blacklisted_users(self, count: bool) -> list or int:
         """
         This function will get all the blacklisted users.
@@ -143,56 +202,3 @@ class DatabaseManager:
         await self.connection.commit()
         total = await self.get_blacklisted_users(True)
         return total
-
-    async def create_server_table(self, server_id: int, server_name: str) -> bool:
-        """
-        This method will create a new table for each server the bot joins.
-
-        :param server_id: The ID of the server.
-        :param server_name: The name of the server.
-        """
-        await self.connection.execute(
-            f"""CREATE TABLE IF NOT EXISTS "{server_id}" ("server_name" TEXT NOT NULL, "server_id" INTEGER NOT NULL,
-            "custom_joins_channel" INTEGER, PRIMARY KEY("server_id"))"""
-        )
-
-        await self.connection.execute(
-            f"INSERT INTO '{server_id}' VALUES (?, ?, ?)",
-            (server_id, server_name, None)
-        )
-
-        try:
-            await self.connection.commit()
-            return True
-        except sqlite3.Error as e:
-            print(f"Error while creating server table.\n{e}")
-            return False
-
-    async def get_server_data(self, server_id: int) -> list:
-        """
-        This method will fetch the server data from the database.
-
-        :param server_id: The ID of the server.
-        :return: A tuple containing the server data.
-        """
-        rows = await self.connection.execute(
-            f"SELECT * FROM '{server_id}'"
-        )
-        async with rows as cursor:
-            result = await cursor.fetchone()
-            return result
-
-    async def update_server_data(self, server_id: int, column: str, value: str) -> None:
-        """
-        This method will update the server data in the database.
-
-        :param server_id: The ID of the server.
-        :param column: The column to update.
-        :param value: The value to update.
-        """
-        await self.connection.execute(
-            f"UPDATE '{server_id}' SET {column}=?",
-            (value,)
-        )
-
-        await self.connection.commit()
