@@ -20,3 +20,6 @@ CREATE TABLE IF NOT EXISTS "debug_dev_settings" (
 	"debug_log_channel_id"	INTEGER NOT NULL,
 	"critical_log_channel_id"	INTEGER NOT NULL
 );
+
+-- usable x code --
+-- INSERT INTO "debug_dev_settings" VALUES (737710058431053836, 1200487447017046156, 1200487702240440391, 1200487764328718436);

@@ -231,16 +231,13 @@ class DiscordBot(commands.Bot):
         executed_command = str(split[0])
         if context.guild is not None:
             self.logger.info(
-                f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by {context.author} (ID: {context.author.id})"
+                f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by "
+                f"{context.author} (ID: {context.author.id})"
             )
-            if len(split) > 1:
-                await BOTLOGGER.debug_log(self, context, split)
-            else:
-                await BOTLOGGER.debug_log(self, context, executed_command)
+            await BOTLOGGER.debug_log(self, context, executed_command)
         else:
-            self.logger.info(
-                f"Executed {executed_command} command by {context.author} (ID: {context.author.id}) in DMs"
-            )
+            self.logger.info(f"Executed {executed_command} command by {context.author} "
+                             f"(ID: {context.author.id}) in DMs")
 
     async def on_command_error(self, context: Context, error) -> None:
         """

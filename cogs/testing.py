@@ -27,6 +27,16 @@ class Testing(commands.Cog, name="testing"):
     # ███████╗ ╚████╔╝ ███████╗██║ ╚████║   ██║   ███████║
     # ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
 
+    @commands.Cog.listener(name="on_guild_update")
+    async def on_guild_update(self, before, after) -> None:
+        """
+        This event is triggered when a guild is updated.
+
+        :param before: The guild before the update.
+        :param after: The guild after the update.
+        """
+        print(f"Guild {before.name} updated.")
+
     @commands.Cog.listener(name="on_member_join")
     async def on_member_join(self, member) -> None:
         """

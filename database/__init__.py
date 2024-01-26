@@ -116,7 +116,7 @@ class DatabaseManager:
 
     async def update_server_data(self, server_id: int, column: str, value: str) -> None:
         """
-        This method will update the server data in the database.
+        Update server data. This method is usually called
 
         :param server_id: The ID of the server.
         :param column: The column to update.
@@ -136,8 +136,11 @@ class InternalBotSettingsDbManager:
 
     async def get_blacklisted_users(self, count: bool) -> list or int:
         """
-        This function will get all the blacklisted users.
+        Retrieve all blacklisted users.
+        Blacklisted users can access no functionality of the bot, but are not ignored from its monitoring or events.
+        Blacklisted users will be visibly flagged when a command is ran on them, or an action involving them is made.
 
+        :param count: A boolean indicating if the count of blacklisted users should be returned instead.
         :return: A list of all the blacklisted users.
         """
         if count:
@@ -159,7 +162,7 @@ class InternalBotSettingsDbManager:
 
     async def is_blacklisted(self, user_id: int) -> bool:
         """
-        This function will check if a user is blacklisted from using the bot.
+        Check if a user is blacklisted.
         Blacklisted users can access no functionality of the bot, but are not ignored from its monitoring or events.
         Blacklisted users will be visibly flagged when a command is ran on them, or an action involving them is made.
 
@@ -175,7 +178,7 @@ class InternalBotSettingsDbManager:
 
     async def add_user_to_blacklist(self, user_id: int, user_name: str, t: int, reason: None = None) -> int:
         """
-        This function will add a user to the blacklist.
+        Add a user to blacklist.
 
         :param user_id: The ID of the user to add to the blacklist.
         :param user_name: The name of the user to add to the blacklist.
@@ -192,7 +195,7 @@ class InternalBotSettingsDbManager:
 
     async def remove_user_from_blacklist(self, user_id: int) -> int:
         """
-        This function will remove a user from the blacklist.
+        Remove a user from blacklist.
 
         :param user_id: The ID of the user to remove from the blacklist.
         """

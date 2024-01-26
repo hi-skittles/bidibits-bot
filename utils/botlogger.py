@@ -22,12 +22,9 @@ class Channels:
         if not channel:
             return print(f"CRITICAL: Failed to get channel with ID {channel_id}. Could not send log message. Stopping.")
 
-        if len(command_ctx) > 1:
-            command_ctx = "/" + " ".join(command_ctx)
-
         embed = discord.Embed(
             title="Debug Log",
-            description=f"**Command:** {command_ctx}\n"
+            description=f"**Command:** /{command_ctx}\n"
                         f"**User:** {ctx.author.mention}\n"
                         f"**Guild:** {ctx.guild} ({ctx.guild.id})\n"
                         f"**Channel:** {ctx.channel.mention}",

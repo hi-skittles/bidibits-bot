@@ -1,9 +1,5 @@
 """"
-Copyright © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja)
-Description:
-🐍 A simple template to start to code your own and personalized discord bot in Python programming language.
-
-Version: 6.1.0
+Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
 """
 
 import platform
@@ -26,19 +22,22 @@ class General(commands.Cog, name="general"):
             name="User ID", callback=self.grab_id
         )
         self.bot.tree.add_command(self.context_menu_user)
-        self.context_menu_message = app_commands.ContextMenu(
-            name="Remove spoilers", callback=self.remove_spoilers
-        )
-        self.bot.tree.add_command(self.context_menu_message)
+        # self.context_menu_message = app_commands.ContextMenu(
+        #     name="Remove spoilers", callback=self.remove_spoilers
+        # )
+        # self.bot.tree.add_command(self.context_menu_message)
 
-    # ---------------
-    # EVENT LISTENERS
-    # ---------------
+    # ███████╗██╗   ██╗███████╗███╗   ██╗████████╗███████╗
+    # ██╔════╝██║   ██║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+    # █████╗  ██║   ██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+    # ██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+    # ███████╗ ╚████╔╝ ███████╗██║ ╚████║   ██║   ███████║
+    # ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
 
     @commands.Cog.listener(name="on_message")
     async def on_message(self, message) -> None:
         """
-        This event is triggered when a message is sent.
+        Triggered every time a message is sent.
 
         :param message: The message that was sent.
         """
@@ -47,36 +46,38 @@ class General(commands.Cog, name="general"):
         is_twitter, twitter_username, twitter_status_id = Customs.has_twitter_link(message.content)
         if is_twitter:
             await message.channel.send(f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}")
-        if message.guild.id == 737710058431053836:
-            if message.channel.id == 737713464755224586:
-                if re.search(r"discord.gg", message.content):
-                    await message.delete()
-                    await message.channel.send(f"{message.author.mention}, you are not allowed to send invites in "
-                                               f"this channel.")
+
+        # TODO: implement this better!!
+        # if message.guild.id == 737710058431053836:
+        #     if message.channel.id == 737713464755224586:
+        #         if re.search(r"discord.gg", message.content):
+        #             await message.delete()
+        #             await message.channel.send(f"{message.author.mention}, you are not allowed to send invites in "
+        #                                        f"this channel.")
 
     # Message context menu command
-    async def remove_spoilers(
-        self, interaction: discord.Interaction, message: discord.Message
-    ) -> None:
-        """
-        Removes the spoilers from the message. This command requires the MESSAGE_CONTENT intent to work properly.
-
-        :param interaction: The application command interaction.
-        :param message: The message that is being interacted with.
-        """
-        spoiler_attachment = None
-        for attachment in message.attachments:
-            if attachment.is_spoiler():
-                spoiler_attachment = attachment
-                break
-        embed = discord.Embed(
-            title="Message without spoilers",
-            description=message.content.replace("||", ""),
-            color=0xBEBEFE,
-        )
-        if spoiler_attachment is not None:
-            embed.set_image(url=attachment.url)
-        await interaction.response.send_message(embed=embed, ephemeral=True)
+    # async def remove_spoilers(
+    #     self, interaction: discord.Interaction, message: discord.Message
+    # ) -> None:
+    #     """
+    #     Removes the spoilers from the message. This command requires the MESSAGE_CONTENT intent to work properly.
+    #
+    #     :param interaction: The application command interaction.
+    #     :param message: The message that is being interacted with.
+    #     """
+    #     spoiler_attachment = None
+    #     for attachment in message.attachments:
+    #         if attachment.is_spoiler():
+    #             spoiler_attachment = attachment
+    #             break
+    #     embed = discord.Embed(
+    #         title="Message without spoilers",
+    #         description=message.content.replace("||", ""),
+    #         color=0xBEBEFE,
+    #     )
+    #     if spoiler_attachment is not None:
+    #         embed.set_image(url=attachment.url)
+    #     await interaction.response.send_message(embed=embed, ephemeral=True)
 
     # User context menu command
     async def grab_id(
