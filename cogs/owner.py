@@ -13,6 +13,7 @@ from discord.ext import commands
 from discord.ext.commands import Context
 
 
+# TODO: log and owner 'stuffs' in primary channel please
 class Owner(commands.Cog, name="developer"):
     def __init__(self, bot) -> None:
         self.bot = bot
@@ -144,6 +145,7 @@ class Owner(commands.Cog, name="developer"):
         )
         await context.send(embed=embed)
 
+    # TODO: log any reloading in primary channel
     @commands.hybrid_command(
         name="reload",
         description="Reloads a cog.",

@@ -251,29 +251,34 @@ class DiscordBot(commands.Bot):
             hours, minutes = divmod(minutes, 60)
             hours = hours % 24
             embed = discord.Embed(
-                description=f"**Please slow down** - You can use this command again in {f'{round(hours)} hours' if round(hours) > 0 else ''} {f'{round(minutes)} minutes' if round(minutes) > 0 else ''} {f'{round(seconds)} seconds' if round(seconds) > 0 else ''}.",
-                color=0xE02B2B,
+                description=f"**Please slow down** - You can use this command again in "
+                            f"{f'{round(hours)} hours' if round(hours) > 0 else ''} "
+                            f"{f'{round(minutes)} minutes' if round(minutes) > 0 else ''} "
+                            f"{f'{round(seconds)} seconds' if round(seconds) > 0 else ''}.",
+                color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.NotOwner):
             embed = discord.Embed(
-                description="You are not the owner of the bot!", color=0xE02B2B
+                description="You are not the owner of the bot!", color=discord.Color.dark_red()
             )
             await context.send(embed=embed)
             if context.guild:
                 self.logger.warning(
-                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the guild {context.guild.name} (ID: {context.guild.id}), but the user is not an owner of the bot."
+                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the guild "
+                    f"{context.guild.name} (ID: {context.guild.id}), but the user is not an owner of the bot."
                 )
             else:
                 self.logger.warning(
-                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the bot's DMs, but the user is not an owner of the bot."
+                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the "
+                    f"bot's DMs, but the user is not an owner of the bot."
                 )
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
                 description="You are missing the permission(s) `"
                 + ", ".join(error.missing_permissions)
                 + "` to execute this command!",
-                color=0xE02B2B,
+                color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
@@ -281,7 +286,7 @@ class DiscordBot(commands.Bot):
                 description="I am missing the permission(s) `"
                 + ", ".join(error.missing_permissions)
                 + "` to fully perform this command!",
-                color=0xE02B2B,
+                color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):

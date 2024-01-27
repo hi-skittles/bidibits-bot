@@ -18,10 +18,10 @@ from utils.definitions import Customs
 class General(commands.Cog, name="general"):
     def __init__(self, bot) -> None:
         self.bot = bot
-        self.context_menu_user = app_commands.ContextMenu(
-            name="User ID", callback=self.grab_id
-        )
-        self.bot.tree.add_command(self.context_menu_user)
+        # self.context_menu_user = app_commands.ContextMenu(
+        #     name="User ID", callback=self.grab_id
+        # )
+        # self.bot.tree.add_command(self.context_menu_user)
         # self.context_menu_message = app_commands.ContextMenu(
         #     name="Remove spoilers", callback=self.remove_spoilers
         # )
@@ -37,63 +37,24 @@ class General(commands.Cog, name="general"):
     @commands.Cog.listener(name="on_message")
     async def on_message(self, message) -> None:
         """
-        Triggered every time a message is sent.
+        Universal general message triggers. Stuff that doesn't have any particular category, or is bundled with QoL
+        stuff, will appear here.
 
-        :param message: The message that was sent.
+        :param message: Message object.
         """
         if message.author.bot or message.content.startswith(self.bot.config["prefix"]):
             return
-        is_twitter, twitter_username, twitter_status_id = Customs.has_twitter_link(message.content)
+        is_twitter, twitter_username, twitter_status_id = Customs.has_twitter_link(message.content)  # !!
         if is_twitter:
             await message.channel.send(f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}")
 
-        # TODO: implement this better!!
+        # TODO: implement this better!! add custom options for each guild. good foundation =)
         # if message.guild.id == 737710058431053836:
         #     if message.channel.id == 737713464755224586:
         #         if re.search(r"discord.gg", message.content):
         #             await message.delete()
         #             await message.channel.send(f"{message.author.mention}, you are not allowed to send invites in "
         #                                        f"this channel.")
-
-    # Message context menu command
-    # async def remove_spoilers(
-    #     self, interaction: discord.Interaction, message: discord.Message
-    # ) -> None:
-    #     """
-    #     Removes the spoilers from the message. This command requires the MESSAGE_CONTENT intent to work properly.
-    #
-    #     :param interaction: The application command interaction.
-    #     :param message: The message that is being interacted with.
-    #     """
-    #     spoiler_attachment = None
-    #     for attachment in message.attachments:
-    #         if attachment.is_spoiler():
-    #             spoiler_attachment = attachment
-    #             break
-    #     embed = discord.Embed(
-    #         title="Message without spoilers",
-    #         description=message.content.replace("||", ""),
-    #         color=0xBEBEFE,
-    #     )
-    #     if spoiler_attachment is not None:
-    #         embed.set_image(url=attachment.url)
-    #     await interaction.response.send_message(embed=embed, ephemeral=True)
-
-    # User context menu command
-    async def grab_id(
-        self, interaction: discord.Interaction, user: discord.User
-    ) -> None:
-        """
-        Grabs the ID of the user.
-
-        :param interaction: The application command interaction.
-        :param user: The user that is being interacted with.
-        """
-        embed = discord.Embed(
-            description=f"The ID of {user.mention} is `{user.id}`.",
-            color=0xBEBEFE,
-        )
-        await interaction.response.send_message(embed=embed, ephemeral=True)
 
     @commands.hybrid_command(
         name="help", description="List all commands the bot has loaded."
@@ -177,7 +138,7 @@ class General(commands.Cog, name="general"):
 
     @commands.hybrid_command(
         name="ping",
-        description="Check if the bot is alive.",
+        description="Gives self.bot.latency.",
     )
     async def ping(self, context: Context) -> None:
         """
@@ -186,72 +147,9 @@ class General(commands.Cog, name="general"):
         :param context: The hybrid command context.
         """
         embed = discord.Embed(
-            title="🏓 Pong!",
-            description=f"The bot latency is {round(self.bot.latency * 1000)}ms.",
+            description=f"Hello. Latency is, **{round(self.bot.latency * 1000)}**ms.",
             color=0xBEBEFE,
         )
-        await context.send(embed=embed)
-
-    @commands.hybrid_command(
-        name="invite",
-        description="Get the invite link of the bot to be able to invite it.",
-    )
-    async def invite(self, context: Context) -> None:
-        """
-        Get the invite link of the bot to be able to invite it.
-
-        :param context: The hybrid command context.
-        """
-        embed = discord.Embed(
-            description=f"Invite me by clicking [here]({self.bot.config['invite_link']}).",
-            color=0xD75BF4,
-        )
-        try:
-            await context.author.send(embed=embed)
-            await context.send("I sent you a private message!")
-        except discord.Forbidden:
-            await context.send(embed=embed)
-
-    @commands.hybrid_command(
-        name="8ball",
-        description="Ask any question to the bot.",
-    )
-    @app_commands.describe(question="The question you want to ask.")
-    async def eight_ball(self, context: Context, *, question: str) -> None:
-        """
-        Ask any question to the bot.
-
-        :param context: The hybrid command context.
-        :param question: The question that should be asked by the user.
-        """
-        answers = [
-            "It is certain.",
-            "It is decidedly so.",
-            "You may rely on it.",
-            "Without a doubt.",
-            "Yes - definitely.",
-            "As I see, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes.",
-            "Signs point to yes.",
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again later.",
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful.",
-        ]
-        embed = discord.Embed(
-            title="**My Answer:**",
-            description=f"{random.choice(answers)}",
-            color=0xBEBEFE,
-        )
-        embed.set_footer(text=f"The question was: {question}")
         await context.send(embed=embed)
 
     @commands.hybrid_command(

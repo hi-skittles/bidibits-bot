@@ -43,6 +43,7 @@ class Fun(commands.Cog, name="fun"):
         name="meow",
         description="nothing :3",
     )
+    @commands.cooldown(1, 5, commands.BucketType.channel)
     async def meow(self, context: Context) -> None:
         """
         Meow :3c
