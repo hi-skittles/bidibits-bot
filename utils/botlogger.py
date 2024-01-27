@@ -6,6 +6,7 @@ guild_id = 737710058431053836
 
 
 class Channels:
+    # TODO
     @staticmethod
     def primary_channel(bot: commands.Bot, ctx: Context, command_ctx: str or list[str]):
         pass
@@ -36,8 +37,14 @@ class Channels:
 
         return channel.send(embed=embed)
 
+    # TODO
+    @staticmethod
+    def critical_channel(bot: commands.Bot, ctx: Context, command_ctx: str or list[str]):
+        pass
+
 
 class Dev:
+    # TODO
     @staticmethod
     def primary_log(bot: commands.Bot, ctx: Context, command_ctx: str):
         log = Channels.primary_channel(bot, ctx, command_ctx)
@@ -48,6 +55,8 @@ class Dev:
         log = Channels.debug_channel(bot, ctx, command_ctx)
         return log
 
+    # TODO
     @staticmethod
     def critical_log(bot: commands.Bot, ctx: Context, command_ctx: str):
-        pass
+        log = Channels.critical_channel(bot, ctx, command_ctx)
+        return log
