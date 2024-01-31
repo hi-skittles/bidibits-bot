@@ -8,11 +8,11 @@ guild_id = 737710058431053836
 class Channels:
     # TODO
     @staticmethod
-    def primary_channel(bot: commands.Bot, ctx: Context, command_ctx: str or list[str]):
+    def primary_channel(bot: commands.Bot, ctx: Context, command_ctx: str or list[str], is_action: bool):
         pass
 
     @staticmethod
-    def debug_channel(bot: commands.Bot, ctx: Context, command_ctx: str or list[str]):
+    def debug_channel(bot: commands.Bot, ctx: Context, command_ctx: str or list[str], is_action: bool):
         channel_id = 1200487702240440391
 
         guild = bot.get_guild(guild_id)
@@ -25,7 +25,8 @@ class Channels:
 
         embed = discord.Embed(
             title="Debug Log",
-            description=f"**Command:** /{command_ctx}\n"
+            # f"{value_if_true if condition else value_if_false}"
+            description=f"{f'**Command:** {command_ctx}' if is_action is False else f'**Action:** {command_ctx}'}\n"
                         f"**User:** {ctx.author.mention}\n"
                         f"**Guild:** {ctx.guild} ({ctx.guild.id})\n"
                         f"**Channel:** {ctx.channel.mention}",
@@ -39,7 +40,7 @@ class Channels:
 
     # TODO
     @staticmethod
-    def critical_channel(bot: commands.Bot, ctx: Context, command_ctx: str or list[str]):
+    def critical_channel(bot: commands.Bot, ctx: Context, command_ctx: str or list[str], is_action: bool):
         pass
 
 
@@ -51,8 +52,13 @@ class Dev:
         return log
 
     @staticmethod
-    def debug_log(bot: commands.Bot, ctx: Context, command_ctx: str):
-        log = Channels.debug_channel(bot, ctx, command_ctx)
+    def debug_log(bot: commands.Bot, ctx: Context, command_ctx: str, is_action: bool):
+        log = Channels.debug_channel(bot, ctx, command_ctx, is_action)
+        return log
+
+    @staticmethod
+    def no_command_debug_log(bot: commands.Bot, ctx: Context):
+        log = Channels.debug_channel(bot, ctx, None)
         return log
 
     # TODO

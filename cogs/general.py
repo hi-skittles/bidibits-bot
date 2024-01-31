@@ -13,6 +13,7 @@ from discord.ext import commands
 from discord.ext.commands import Context
 
 from utils.definitions import Customs
+from utils.botlogger import Dev as BOTLOGGER
 
 
 class General(commands.Cog, name="general"):
@@ -47,6 +48,7 @@ class General(commands.Cog, name="general"):
         is_twitter, twitter_username, twitter_status_id = Customs.has_twitter_link(message.content)  # !!
         if is_twitter:
             await message.channel.send(f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}")
+            await BOTLOGGER.debug_log(self.bot, message, executed_command, False)
 
         # TODO: implement this better!! add custom options for each guild. good foundation =)
         # if message.guild.id == 737710058431053836:

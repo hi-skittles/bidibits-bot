@@ -234,7 +234,7 @@ class DiscordBot(commands.Bot):
                 f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by "
                 f"{context.author} (ID: {context.author.id})"
             )
-            await BOTLOGGER.debug_log(self, context, executed_command)
+            await BOTLOGGER.debug_log(self, context, executed_command, False)
         else:
             self.logger.info(f"Executed {executed_command} command by {context.author} "
                              f"(ID: {context.author.id}) in DMs")
