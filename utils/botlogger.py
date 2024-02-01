@@ -30,7 +30,7 @@ class Channels:
             title="Debug Log",
             #  f"{value_if_true if condition else value_if_false}"
             description=f"{f'**Command:** /{command_or_action}' if is_action is False else f'**Action:** '
-                                                                                          f'{command_or_action}'}\n"
+                                                                                           f'{command_or_action}'}\n"
                         f"**User:** {ctx.author.mention}\n"
                         f"**Guild:** {ctx.guild} ({ctx.guild.id})\n"
                         f"**Channel:** {ctx.channel.mention}",
