@@ -43,12 +43,15 @@ class General(commands.Cog, name="general"):
 
         :param message: Message object.
         """
+        ctx = await self.bot.get_context(message)
         if message.author.bot or message.content.startswith(self.bot.config["prefix"]):
             return
         is_twitter, twitter_username, twitter_status_id = Customs.has_twitter_link(message.content)  # !!
         if is_twitter:
-            await message.channel.send(f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}")
-            await BOTLOGGER.debug_log(self.bot, message, executed_command, False)
+            build = f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}"
+            await message.channel.send(build)
+            command_or_action = f"Twitter Embed\n**Contents:** {build}"
+            await BOTLOGGER.debug_log(self.bot, ctx, command_or_action, True)
 
         # TODO: implement this better!! add custom options for each guild. good foundation =)
         # if message.guild.id == 737710058431053836:
