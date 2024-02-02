@@ -9,6 +9,7 @@ import re
 import aiohttp
 import discord
 from discord import app_commands
+from discord.app_commands import TransformerError
 from discord.ext import commands
 from discord.ext.commands import Context
 
@@ -67,7 +68,7 @@ class General(commands.Cog, name="general"):
     async def help(self, context: Context) -> None:
         prefix = self.bot.config["prefix"]
         embed = discord.Embed(
-            title="Help", description="List of available commands:", color=0xBEBEFE
+            description="List of available commands:", color=0xBEBEFE
         )
         for i in self.bot.cogs:
             if i == "owner" and not (await self.bot.is_owner(context.author)):
@@ -86,7 +87,7 @@ class General(commands.Cog, name="general"):
 
     @commands.hybrid_command(
         name="botinfo",
-        description="Get some useful (or not) information about the bot.",
+        description="Descriptive system information about the bot.",
     )
     async def botinfo(self, context: Context) -> None:
         """
@@ -95,20 +96,19 @@ class General(commands.Cog, name="general"):
         :param context: The hybrid command context.
         """
         embed = discord.Embed(
-            description="Used [Krypton's](https://krypton.ninja) template",
-            color=0xBEBEFE,
+            description="Otto is a multifunctional bot designed to be helpful in a range of situations.",
+            color=discord.Colour.og_blurple(),
         )
         embed.set_author(name="Bot Information")
-        embed.add_field(name="Owner:", value="Krypton#7331", inline=True)
-        embed.add_field(
-            name="Python Version:", value=f"{platform.python_version()}", inline=True
-        )
+        embed.add_field(name="Owner:", value="hi_skittles", inline=True)
+        embed.add_field(name="Python Version:", value=f"{platform.python_version()}", inline=True)
         embed.add_field(
             name="Prefix:",
-            value=f"/ (Slash Commands) or {self.bot.config['prefix']} for normal commands",
+            value=f"I support slash commands or the legacy prefix, `{self.bot.config['prefix']}`",
             inline=False,
         )
-        embed.set_footer(text=f"Requested by {context.author}")
+        embed.set_footer(text="Part of this bot uses code from Krypton's (https://krypton.ninja) template.",
+                         icon_url="https://krypton.ninja/_next/image?url=%2Fstatic%2FKrypton-Avatar.png&w=96&q=75")
         await context.send(embed=embed)
 
     @commands.hybrid_command(
@@ -124,7 +124,7 @@ class General(commands.Cog, name="general"):
         roles = [role.name for role in context.guild.roles]
         if len(roles) > 50:
             roles = roles[:50]
-            roles.append(f">>>> Displayin [50/{len(roles)}] Roles")
+            roles.append(f">>>> Displaying [50/{len(roles)}] Roles")
         roles = ", ".join(roles)
 
         embed = discord.Embed(
@@ -189,7 +189,7 @@ class General(commands.Cog, name="general"):
             context: Context,
             title: str,
             description: str,
-            color: discord.Color = None,
+            color: str = None,
             footer: str = None,
     ) -> None:
         """
@@ -201,13 +201,23 @@ class General(commands.Cog, name="general"):
         :param color: The color of the embed.
         :param footer: The footer of the embed.
         """
-        if color is None or footer is None:
+        try:
             if color is None:
                 color = discord.Color.random()
-            if footer is None:
-                footer = f"Requested by {context.author}"
+            else:
+                color = getattr(discord.Color, color)()
+        except AttributeError:
+            embed = discord.Embed(description=f"Seems like you provided an invalid colour..",
+                                  color=discord.Color.dark_red())
+            await context.send(embed=embed)
+            return
+
+        if footer is None:
+            footer = f"Requested by {context.author}"
+
         embed = discord.Embed(title=title, description=description, color=color)
         embed.set_footer(text=footer)
+
         await context.send(embed=embed)
 
 

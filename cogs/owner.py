@@ -161,14 +161,17 @@ class Owner(commands.Cog, name="developer"):
         """
         try:
             await self.bot.reload_extension(f"cogs.{cog}")
-        except Exception:
-            embed = discord.Embed(
-                description=f"Could not reload the `{cog}` cog.", color=0xE02B2B
-            )
+        except commands.ExtensionNotFound:
+            embed = discord.Embed(description=f"Could not find the `{cog}` cog.", color=discord.Colour.dark_red())
+            await context.send(embed=embed)
+            return
+        except commands.ExtensionNotLoaded:
+            embed = discord.Embed(description=f"Could not load the `{cog}` cog. It may not exist.",
+                                  color=discord.Colour.dark_red())
             await context.send(embed=embed)
             return
         embed = discord.Embed(
-            description=f"Successfully reloaded the `{cog}` cog.", color=0xBEBEFE
+            description=f"Successfully reloaded the `{cog}` cog.", color=discord.Color.og_blurple()
         )
         await context.send(embed=embed)
 
