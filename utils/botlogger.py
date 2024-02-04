@@ -58,11 +58,9 @@ class Channels:
         embed = discord.Embed(
             title="Debug Log",
             #  f"{value_if_true if condition else value_if_false}"
-            description=f"{f'**Command:** /{command_or_action}' if is_action is False else f'**Action:** '
-                                                                                           f'{command_or_action}'}\n"
-                        f"**User:** {ctx.author.mention}\n"
-                        f"**Guild:** {ctx.guild} ({ctx.guild.id})\n"
-                        f"**Channel:** {ctx.channel.mention}",
+            #  this seems to be an issue with python 3.11 or something.
+            #  trying to format this line just breaks everything. whatever.
+            description=f"{f'**Command:** /{command_or_action}' if is_action is False else f'**Action:** {command_or_action}'}\n**User:** {ctx.author.mention}\n**Guild:** {ctx.guild} ({ctx.guild.id})\n**Channel:** {ctx.channel.mention}",
             color=discord.Color.dark_blue(),
         )
         embed.set_footer(text=f"User ID: {ctx.author.id}")
