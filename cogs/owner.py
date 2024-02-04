@@ -26,7 +26,7 @@ class Owner(commands.Cog, name="developer"):
     @commands.is_owner()
     async def sync(self, context: Context, scope: str) -> None:
         """
-        Synchonizes the slash commands.
+        Synchronizes the slash commands.
 
         :param context: The command context.
         :param scope: The scope of the sync. Can be `global` or `guild`.

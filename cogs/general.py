@@ -52,7 +52,7 @@ class General(commands.Cog, name="general"):
             build = f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}"
             await message.channel.send(build)
             command_or_action = f"Twitter Embed\n**Contents:** {build}"
-            await BOTLOGGER.debug_log(self.bot, ctx, command_or_action, True)
+            await BOTLOGGER.log_debug(self.bot, ctx, command_or_action, True)
 
         # TODO: implement this better!! add custom options for each guild. good foundation =)
         # if message.guild.id == 737710058431053836:
@@ -61,6 +61,56 @@ class General(commands.Cog, name="general"):
         #             await message.delete()
         #             await message.channel.send(f"{message.author.mention}, you are not allowed to send invites in "
         #                                        f"this channel.")
+
+    @commands.hybrid_command(
+        name="pinit",
+        description="Pin the last message in the current channel or the last message from a specified user.",
+        aliases=["pin", "p"],
+    )
+    @commands.guild_only()
+    @commands.bot_has_guild_permissions(manage_messages=True)
+    @commands.has_guild_permissions(manage_messages=True)
+    async def pinit(self, context: Context, user: discord.User = None) -> None:
+        """
+        Pin the last message in the current channel or the last message from a specified user.
+        https://discordpy.readthedocs.io/en/stable/api.html?highlight=history#discord.TextChannel.history
+
+        :param context: The command context.
+        :param user: Optional argument, a user mention or ID.
+        """
+        if user is None:
+            try:
+                last_message = [message async for message in context.channel.history(limit=2)]
+            except discord.Forbidden:
+                embed = discord.Embed(description="I don't have permission to do that.",
+                                      colour=discord.Colour.brand_red())
+                await context.send(embed=embed)
+                return
+            except discord.HTTPException as _:
+                embed = discord.Embed(description=f"An error occurred while fetching the message.\n{_}",
+                                      colour=discord.Colour.brand_red())
+                await context.send(embed=embed)
+                return
+        else:
+            try:
+                last_message = [message async for message in context.channel.history(limit=2) if message.author == user]
+            except discord.Forbidden:
+                embed = discord.Embed(description="I don't have permission to do that.",
+                                      colour=discord.Colour.brand_red())
+                await context.send(embed=embed)
+                return
+            except discord.HTTPException as _:
+                embed = discord.Embed(description=f"An error occurred while fetching the message.\n{_}",
+                                      colour=discord.Colour.brand_red())
+                await context.send(embed=embed)
+                return
+
+        if last_message[0]:
+            await last_message[0].pin()
+            embed = discord.Embed(description=f"Successfully pinned the last message by "
+                                              f"{last_message[0].author.mention}.",
+                                  colour=discord.Colour.dark_blue())
+            await context.send(embed=embed)
 
     @commands.hybrid_command(
         name="help", description="List all commands the bot has loaded."
@@ -96,7 +146,8 @@ class General(commands.Cog, name="general"):
         :param context: The hybrid command context.
         """
         embed = discord.Embed(
-            description="Otto is a multifunctional bot designed to be helpful in a range of situations.",
+            description="Otto is a multifunctional bot designed to be helpful in a range of situations. "
+                        "He has no sense of humour..",
             color=discord.Colour.og_blurple(),
         )
         embed.set_author(name="Bot Information")

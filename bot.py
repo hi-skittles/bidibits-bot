@@ -216,7 +216,8 @@ class DiscordBot(commands.Bot):
 
         :param message: The message that was sent.
         """
-        if await bot.internal_bot_settings.is_blacklisted(message.author.id) or message.author == self.user or message.author.bot:
+        if (await bot.internal_bot_settings.is_blacklisted(message.author.id)
+                or message.author == self.user or message.author.bot):
             return
         await self.process_commands(message)
 
@@ -234,7 +235,7 @@ class DiscordBot(commands.Bot):
                 f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by "
                 f"{context.author} (ID: {context.author.id})"
             )
-            await BOTLOGGER.debug_log(self, context, split, False)
+            await BOTLOGGER.log_debug(self, context, split, False)
         else:
             self.logger.info(f"Executed {executed_command} command by {context.author} "
                              f"(ID: {context.author.id}) in DMs")

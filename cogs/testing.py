@@ -12,7 +12,11 @@ from typing import Tuple, Any
 import discord
 from discord.ext import commands
 from discord.ext.commands import Context
-import re
+from utils.botlogger import Dev as BotLogger
+
+import csv
+from secrets import choice
+from typing import List
 
 
 # Here we name the cog and create a new class for the cog.
