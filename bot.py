@@ -1,9 +1,5 @@
-"""
-Copyright © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja)
-Description:
-🐍 A simple template to start to code your own and personalized discord bot in Python programming language.
-
-Version: 6.1.0
+""""
+Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
 """
 
 import json
@@ -24,7 +20,7 @@ from database import DatabaseManager, InternalBotSettingsDbManager
 from utils.botlogger import Dev as BOTLOGGER
 
 if not os.path.isfile(f"{os.path.realpath(os.path.dirname(__file__))}/config.json"):
-    sys.exit("'config.json' not found! Please add it and try again.")
+    sys.exit("Help! I couldn't find the 'config.json' file! Please make sure it is in the same directory as bot.py.")
 else:
     with open(f"{os.path.realpath(os.path.dirname(__file__))}/config.json") as file:
         config = json.load(file)
@@ -170,12 +166,12 @@ class DiscordBot(commands.Bot):
                         f"Failed to load extension {extension}\n{exception}"
                     )
 
-    @tasks.loop(minutes=1.0)
+    @tasks.loop(minutes=15.0)
     async def status_task(self) -> None:
         """
         Set up the game status task of the bot.
         """
-        statuses = ["with Maximus", "with your feelings", "with your heart", "pycharm", "not with java"]
+        statuses = ["with Maximus", "with your feelings", "with your heart", "pycharm", "not with java", "LWJGL", "Minecraft!", "90% bug free", "Euclidian", "OpenGL 1.2", "not Spock", "sqrt(-1)", "[] == []", "20 GOTO 10", "[[]] lines of code!", "OICU812", "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch", "Llanfairpwllgwyngyll", "Jason!", "idspispopd", "Stop This Flame (MK edit)"]
         await self.change_presence(activity=discord.Game(random.choice(statuses)))
 
     @status_task.before_loop

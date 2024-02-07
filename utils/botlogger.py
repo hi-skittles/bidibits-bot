@@ -78,7 +78,7 @@ class Channels:
 class Dev:
     # TODO
     @staticmethod
-    def log_primary(bot: commands.Bot, ctx: Context, command_or_action: str, is_action: bool, log_content: str,
+    def log_primary(bot: commands.Bot, ctx: Context, command_or_action: list[str] or str, is_action: bool, log_content: str,
                     colour_override: discord.Color = None):
         if log_content is None:
             log_content = "*👀 No info was entered for this log...*"
@@ -86,12 +86,12 @@ class Dev:
         return log
 
     @staticmethod
-    def log_debug(bot: commands.Bot, ctx: Context, command_or_action: str, is_action: bool):
+    def log_debug(bot: commands.Bot, ctx: Context, command_or_action: list[str] or str, is_action: bool):
         log = Channels.debug_channel(bot, ctx, command_or_action, is_action)
         return log
 
     # TODO
     @staticmethod
-    def log_critical(bot: commands.Bot, ctx: Context, command_or_action: str, is_action: bool):
+    def log_critical(bot: commands.Bot, ctx: Context, command_or_action: list[str] or str, is_action: bool):
         log = Channels.critical_channel(bot, ctx, command_or_action, is_action)
         return log
