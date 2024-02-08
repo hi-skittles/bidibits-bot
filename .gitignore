@@ -2,7 +2,7 @@
 .DS_Store
 
 # For dev reasons, config.json will be added manually
-#config.json
+config.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
