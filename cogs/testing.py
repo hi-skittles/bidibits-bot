@@ -71,6 +71,37 @@ class Testing(commands.Cog, name="testing"):
     # ██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║  ██║╚════██║
     # ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║██████╔╝███████║
     #  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+
+    @commands.command(
+        name="online_members",
+        description="Display the first 20 online members with access to the channel.",
+        aliases=["om"],
+    )
+    async def online_members(self, ctx):
+        """
+        Display the first 20 online members with access to the channel.
+
+        :param ctx: The command context.
+        """
+        # Get the members with access to the channel
+        members_with_access = [member for member in ctx.guild.members if
+                               ctx.channel.permissions_for(member).read_messages]
+
+        # Filter online members
+        online_members = [member for member in members_with_access if member.status == discord.Status.online]
+
+        # Take the first 20 online members
+        online_members = online_members[:20]
+
+        if online_members:
+            # Display the online members
+            online_members_str = "\n".join([member.display_name for member in online_members])
+            embed = discord.Embed(title="Online Members", description=online_members_str,
+                                  colour=discord.Colour.dark_blue())
+            await ctx.send(embed=embed)
+        else:
+            await ctx.send("No online members with access to this channel.")
+
     @commands.command(
         name="trigger_on_member_join",
         description="Triggers the on_member_join event.",
