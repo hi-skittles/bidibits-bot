@@ -5,13 +5,18 @@ Description:
 
 Version: 6.1.0
 """
+import typing
 from sqlite3 import OperationalError
 from typing import Tuple, Any
 
 import discord
 from discord.ext import commands
 from discord.ext.commands import Context
-import re
+from utils.botlogger import Dev as BotLogger
+
+import csv
+from secrets import choice
+from typing import List
 
 
 # Here we name the cog and create a new class for the cog.
@@ -19,9 +24,22 @@ class Testing(commands.Cog, name="testing"):
     def __init__(self, bot) -> None:
         self.bot = bot
 
-    # ---------------
-    # EVENT LISTENERS
-    # ---------------
+    # ███████╗██╗   ██╗███████╗███╗   ██╗████████╗███████╗
+    # ██╔════╝██║   ██║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+    # █████╗  ██║   ██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+    # ██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+    # ███████╗ ╚████╔╝ ███████╗██║ ╚████║   ██║   ███████║
+    # ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+
+    @commands.Cog.listener(name="on_guild_update")
+    async def on_guild_update(self, before, after) -> None:
+        """
+        This event is triggered when a guild is updated.
+
+        :param before: The guild before the update.
+        :param after: The guild after the update.
+        """
+        print(f"Guild {before.name} updated.")
 
     @commands.Cog.listener(name="on_member_join")
     async def on_member_join(self, member) -> None:
@@ -30,8 +48,7 @@ class Testing(commands.Cog, name="testing"):
 
         :param member: The member that joined the guild.
         """
-        if member.guild.id == 737710058431053836:
-            print(f"{member.display_name} joined the guild.")
+        print(f"{member.display_name} joined the (a) guild.")
 
     @commands.Cog.listener(name="on_guild_join")
     async def on_guild_join(self, guild) -> None:
@@ -40,11 +57,50 @@ class Testing(commands.Cog, name="testing"):
 
         :param guild: The guild the bot joined.
         """
-        await self.bot.servers_database.create_server_table(guild.id, guild.name)
+        print(f"GUILD_JOIN_TRIGGER: {guild.name}.")
 
-    # -------------
-    # -- COMMANDS -
-    # -------------
+        db_simple_callback = await self.bot.servers_database.create_server_table(guild.id, guild.name)
+        if db_simple_callback is False:
+            print(f"Failed to create table for {guild.name}.")
+        else:
+            print(f"Created table for {guild.name} successfully.")
+
+    #  ██████╗ ██████╗ ███╗   ███╗███╗   ███╗ █████╗ ███╗   ██╗██████╗ ███████╗
+    # ██╔════╝██╔═══██╗████╗ ████║████╗ ████║██╔══██╗████╗  ██║██╔══██╗██╔════╝
+    # ██║     ██║   ██║██╔████╔██║██╔████╔██║███████║██╔██╗ ██║██║  ██║███████╗
+    # ██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║  ██║╚════██║
+    # ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║██████╔╝███████║
+    #  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+
+    @commands.command(
+        name="online_members",
+        description="Display the first 20 online members with access to the channel.",
+        aliases=["om"],
+    )
+    async def online_members(self, ctx):
+        """
+        Display the first 20 online members with access to the channel.
+
+        :param ctx: The command context.
+        """
+        # Get the members with access to the channel
+        members_with_access = [member for member in ctx.guild.members if
+                               ctx.channel.permissions_for(member).read_messages]
+
+        # Filter online members
+        online_members = [member for member in members_with_access if member.status == discord.Status.online]
+
+        # Take the first 20 online members
+        online_members = online_members[:20]
+
+        if online_members:
+            # Display the online members
+            online_members_str = "\n".join([member.display_name for member in online_members])
+            embed = discord.Embed(title="Online Members", description=online_members_str,
+                                  colour=discord.Colour.dark_blue())
+            await ctx.send(embed=embed)
+        else:
+            await ctx.send("No online members with access to this channel.")
 
     @commands.command(
         name="trigger_on_member_join",
@@ -77,9 +133,15 @@ class Testing(commands.Cog, name="testing"):
         :param context: The command context.
         :param server_id: The ID of the server to trigger the event with.
         """
-        server = context.bot.get_guild(server_id)
-        await self.on_guild_join(server)
-        await context.send(f"Joined {server.name}.")
+        try:
+            server = context.bot.get_guild(server_id)
+            await self.on_guild_join(server)
+            await context.send(f"Joined {server.name}.")
+        except AttributeError as att:
+            print(f"An error occurred while fetching the server.\n{att}\n\nThis is likely because the bot isn't "
+                  f"actually in the server.")
+            await context.send(f"An error occurred while fetching the server. The action failed."
+                               f"\n{att}\nThis is likely because the bot isn't actually in the server.")
 
     @commands.command(
         name="grab_data",
@@ -87,7 +149,7 @@ class Testing(commands.Cog, name="testing"):
     )
     @commands.is_owner()
     @commands.guild_only()
-    async def grab_data(self, context: Context, server_id=None) -> None:
+    async def grab_data(self, context: Context, server_id: typing.Optional[int] = None) -> None:
         """
         This command will grab data from the database.
 
@@ -95,12 +157,13 @@ class Testing(commands.Cog, name="testing"):
         :param server_id: The ID of the server to grab the data from. If none, current server.
         """
         try:
-            server_id = int(server_id) if server_id is not None else context.guild.id
-        except ValueError:
+            target_server_id = int(server_id) if server_id is not None else context.guild.id
+        except ValueError as value_error:
+            print(f"Error while converting server ID to integer.\n{value_error}")
             await context.send("The server ID must be an integer.")
             return
         try:
-            data = await self.bot.servers_database.get_server_data(server_id)
+            data = await self.bot.servers_database.get_server_data(target_server_id)
         except OperationalError:
             await context.send(embed=discord.Embed(description="Server not found.", colour=discord.Colour.brand_red()))
             return

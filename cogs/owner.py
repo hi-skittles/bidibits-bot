@@ -13,6 +13,7 @@ from discord.ext import commands
 from discord.ext.commands import Context
 
 
+# TODO: log and owner 'stuffs' in primary channel please
 class Owner(commands.Cog, name="developer"):
     def __init__(self, bot) -> None:
         self.bot = bot
@@ -25,7 +26,7 @@ class Owner(commands.Cog, name="developer"):
     @commands.is_owner()
     async def sync(self, context: Context, scope: str) -> None:
         """
-        Synchonizes the slash commands.
+        Synchronizes the slash commands.
 
         :param context: The command context.
         :param scope: The scope of the sync. Can be `global` or `guild`.
@@ -144,6 +145,7 @@ class Owner(commands.Cog, name="developer"):
         )
         await context.send(embed=embed)
 
+    # TODO: log any reloading in primary channel
     @commands.hybrid_command(
         name="reload",
         description="Reloads a cog.",
@@ -159,14 +161,17 @@ class Owner(commands.Cog, name="developer"):
         """
         try:
             await self.bot.reload_extension(f"cogs.{cog}")
-        except Exception:
-            embed = discord.Embed(
-                description=f"Could not reload the `{cog}` cog.", color=0xE02B2B
-            )
+        except commands.ExtensionNotFound:
+            embed = discord.Embed(description=f"Could not find the `{cog}` cog.", color=discord.Colour.dark_red())
+            await context.send(embed=embed)
+            return
+        except commands.ExtensionNotLoaded:
+            embed = discord.Embed(description=f"Could not load the `{cog}` cog. It may not exist.",
+                                  color=discord.Colour.dark_red())
             await context.send(embed=embed)
             return
         embed = discord.Embed(
-            description=f"Successfully reloaded the `{cog}` cog.", color=0xBEBEFE
+            description=f"Successfully reloaded the `{cog}` cog.", color=discord.Color.og_blurple()
         )
         await context.send(embed=embed)
 
@@ -252,7 +257,7 @@ class Owner(commands.Cog, name="developer"):
         if blacklisted_users[0] == ["error"]:
             embed = discord.Embed(description=f"An error occurred while getting the blacklisted users.\n"
                                               f"{blacklisted_users[1]}",
-                                  color=discord.Colour.red())
+                                  color=discord.Colour.dark_red())
             await context.send(embed=embed)
             return
 
@@ -281,7 +286,7 @@ class Owner(commands.Cog, name="developer"):
         user_id = user.id
         if await self.bot.internal_bot_settings.is_blacklisted(user_id):
             embed = discord.Embed(description=f"**{user.name}** is already in the blacklist.",
-                                  color=discord.Colour.red(),)
+                                  color=discord.Colour.dark_red(),)
             await context.send(embed=embed)
             return
         total = await self.bot.internal_bot_settings.add_user_to_blacklist(user_id, user.name, int(time.time()), None)
@@ -307,7 +312,7 @@ class Owner(commands.Cog, name="developer"):
         """
         user_id = user.id
         if not await self.bot.internal_bot_settings.is_blacklisted(user_id):
-            embed = discord.Embed(description=f"**{user}** is not in the blacklist.", color=discord.Colour.red())
+            embed = discord.Embed(description=f"**{user}** is not in the blacklist.", color=discord.Colour.dark_red())
             await context.send(embed=embed)
             return
         total = await self.bot.internal_bot_settings.remove_user_from_blacklist(user_id)

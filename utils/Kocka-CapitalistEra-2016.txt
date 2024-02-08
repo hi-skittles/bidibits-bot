@@ -1,0 +1,2035 @@
+Chapter Title: The Capitalist Era
+Book Title: Capitalism
+Book Subtitle: A Short History
+Book Author(s): Jürgen Kocka
+Published by: Princeton University Press
+
+
+
+The Capitalist Era
+
+Just as unlikely as it was that the Age of Enlightenment’s
+optimism about progress could be sustained, equally slim
+were the chances that interpreting capitalism as the core
+of a civilizing mission might outlast that era. This buoyant
+interpretation sprang from the soil of preindustrial capi-
+talism but did not survive the rise of industrial capitalism
+in the nineteenth century. At the beginning of the twenti-
+eth century, intellectuals like Werner Sombart and Max
+Weber were indeed convinced of capitalism’s superior eco-
+nomic rationality, but they did not see it as a driving force
+behind moral advancement and progress in civilization.
+On the contrary, liberals like Weber feared the capital-
+ist system’s growing tendency to become compulsive and
+meaningless, and that the system might be imperiling
+freedom, spontaneity, and humanity in the fullest sense.
+Conservatives and leftists alike feared capitalism as an un-
+stoppable erosive force replacing traditional morals with
+contracts, community with society, and social ties with
+market calculation. The socialist critique castigated exploi-
+tation, alienation, and injustice in capitalism while pre-
+dicting its collapse from internal contradictions. Today
+attitudes toward capitalism fluctuate between acceptance
+and severe criticism. Many regard it as unfit to meet the
+
+
+96
+
+chapter 4
+
+challenges of the future. The idea of capitalism as a utopia
+appears obsolete, at least in Europe. One aim of this chap-
+ter is to understand this reversal and provide perspectives
+for its assessment.
+the contours of Industrialization and
+Globalization since 1800
+To be sure, developments that had started in the preceding
+centuries continued, to some extent, between 1800 und
+2000. Agrarian capitalism conquered new regions as the
+feudal order was eliminated step by step, which happened
+almost everywhere on the European continent during the
+nineteenth century. In the twentieth century, agrarian
+capitalism grew into “agribusiness” on a global scale. With
+growing urbanization and innovations that revolutionized
+commerce, transportation, and communications, merchant
+capitalism gained enormously in importance during the
+nineteenth and twentieth century; the dynamic growth of
+mass consumption, especially in the twentieth century,
+opened up new and highly profitable opportunities that
+changed the lives of many, from department and discount
+stores to the great retail concerns and chains of the pres-
+ent. Little could be accomplished without finance capitalism, already established by the eighteenth century but now
+expanding and increasingly differentiated, initially with
+banks, stock exchanges, and insurance companies as the
+most important institutions, later with investment com-
+panies and mutual funds; in the late twentieth and early
+twenty-first centuries, finance capitalism underwent an ex-
+orbitant expansion, without which the international fi-
+nancial and economic crisis of 2008 would presumably
+have been avoided. But what was truly revolutionary and
+novel after 1800 was industrialization, a process that, among
+other things, profoundly altered capitalism. As industrial
+capitalism, it took on a new quality.
+Industrialization refers to a complex and far-reaching so-
+cioeconomic transformation process at the core of which
+stood three interlocking developments: first of all, innova-
+tions in technology and organization, from the develop-
+ment of the steam engine and mechanization of spinning
+and weaving in the eighteenth century to the digitaliza-
+tion of production and communications in the late twen-
+tieth and early twenty-first centuries; second, the massive
+exploitation of new energy sources (initially coal, later elec-
+tricity from different sources, then oil, atomic energy, and
+renewable energies) that has fundamentally changed and
+endangered the relationship of humankind to nature;
+third, the spread of the factory as a manufacturing plant
+that, in contrast to the old putting-out system, was central-
+ized, and in contrast to a craft workshop, used motors and
+machine tools and made a clear distinction between man-
+agement and execution. The site of this ever-accelerating
+innovation process was, first of all, the sphere of indus-
+trial production, yet it soon also influenced agriculture
+(new cultivation methods, fertilization, mechanization)
+and transportation (application of new forms of energy
+and machines in new types of locomotion, from the rail-
+road and steamship to air traffic and today’s interdepen-
+dent transportation systems), communications (from the
+mid-nineteenth century telegraphs to the Internet and new
+media), and with some delay also different administrative
+services, which soon grew disproportionately within an
+overall division of labor that was becoming more differen-
+tiated. All this led to an unprecedented increase in the pro-
+ductivity of most factors of production, including human
+labor, which became increasingly skilled but also more
+intense and disciplined. It also led to economic growth,
+which proceeded unevenly and fluctuated cyclically yet
+remained sustainable, even on a per capita basis and in
+spite of a burgeoning population. But most of all it led—
+and for the most part this happened after a precarious ini-
+tial phase in which scarcity and poverty were aggravated—
+to a fundamental improvement of living conditions that
+could be seen by looking at real income gains. These im-
+provements also showed up in significantly better mate-
+rial provisions that allowed the population, including the
+broad masses, to share in the progress of health care and
+longer lifespans, growing consumption, and a broader va-
+riety of everyday choices. Everywhere, industrialization and
+urbanization went hand in hand, and everywhere there
+was a decline in the share of the population devoted to
+agriculture. The agricultural sector now lost first place in
+favor of the industrial. In the second half of the twentieth
+century, the “tertiary” sector (especially trade and services)
+supplanted what had by now become a shrinking indus-
+trial sector. That lends a certain plausibility to talk of a “post-
+industrial” present, in some regions of the world.
+Industrialization initially started to take place in the
+second half of the eighteenth century in England, and
+then, beginning in the first half or second third of the
+nineteenth century, in large parts of the European conti-
+nent and North America, with offshoots in eastern and
+southern Europe. Japan was the first Asian country to in-
+dustrialize, starting in the late nineteenth century. In the
+late twentieth century it was followed by large parts of
+Asia, especially Southeast Asia, and accelerating in the 1980s
+at rapid speed, China. Seldom do entire countries industri-
+alize; it was always just individual regions. Depending on
+the time of industrialization and on economic, social, po-
+litical, and cultural conditions, the processes of industrial-
+ization in these different countries and regions varied
+greatly from each other. Nowhere was the English model,
+and then that of the other early industrializers like the
+United States and Germany, simply adopted, no matter
+how much all these industrializations influenced each
+other by way of reciprocal observation and knowledge
+transfers, with strategies of imitation, avoidance, and ad-
+aptation. Although one cannot regard industrialization as
+the only path to prosperity, the prosperity gap between
+industrialized and nonindustrialized regions has grown
+enormously over the last two hundred years, both in-
+side Europe and worldwide. As a rule, the only way to
+have made up in prosperity is some form of industrializa-
+tion.1 At core a socioeconomic transformation, industrial-
+ization has nonetheless worked its way into almost all
+areas of life and dramatically changed the world in a short
+amount of time, so that some authors have referred to
+industrialization as “the most fundamental transforma-
+tion of human life in the history of the world recorded in
+written documents” (Hobsbawm) or as the “most impor-
+tant break in the history of mankind since the Neolithic
+period” (Cipolla.)2 Industrialization has been extremely
+well researched. What is its connection to capitalism?
+On the one hand, when industrialization began, capital-
+ism already had a long history to look back on. Not even in
+its proto-industrially expanded form did merchant capital-
+ism, which was widespread throughout the world, lead in-
+escapably to full-fledged industrialization. There are many
+cases illustrating this point. Conversely, the case of the So-
+viet Union substantiates how it is also possible for industri-
+alization to exist in a noncapitalist form. The concepts of
+capitalism and industrialization are defined by different
+features, and it is advisable to make a sharp distinction be-
+tween the two of them.
+On the other hand, preindustrial-commercial traditions
+of capitalism, wherever they persisted, significantly pro-
+moted the breakthrough to industrialization, wherever that
+happened in the nineteenth and twentieth century. In the
+nineteenth century, industrialization took place within capi-
+talist structures everywhere. Alternative models of a cen-
+trally administrated economy were tried out under Com-
+munist auspices between 1917 and 1991. They proved to
+be inferior.3 China’s rapid industrialization also began to
+take off only when the country’s party leadership decided
+to loosen political controls step by step and make room
+for capitalist principles. There obviously was (and is) a pro-
+nounced affinity between capitalism and industrialization:
+for both, investments are of decisive importance. An inher-
+ent part of industrialization is the permanent search for
+new projects, as is constant engagement in new configura-
+tions; to this end, pointers and feedback from markets
+were and are irreplaceable. A decentralized structure that
+disperses decision-making among many different enter-
+prises has proven indispensable. So far, any effort at indus-
+trialization expecting to be successful over the long run
+has presupposed capitalism.
+
+
+Finally, industrialization changed capitalism:
+1. Wage labor on a contractual basis turned into a
+mass phenomenon. This meant that, for the first
+time, the capitalist commodity form—embodied
+in the exchange of labor power for wages—was
+applied to human labor fully and en masse. La-
+bor relations became capitalistic—that is, depen-
+dent on fluctuating labor markets, subjugated to
+strict calculation for capitalist purposes, and the
+object of direct supervision by the employer and
+manager. The class distinction inherent to capi-
+talism thus became manifest, taking a tangible
+form as a conflict over power and the distribu-
+tion of income, and becoming operative as the
+basis for social mobilization.
+2. With factories, mines, and new transportation
+systems, with mechanization and the expansion
+of manufacturing plant, the accumulation of
+fixed capital reached a scale like nothing before.
+Alongside the numerically dominant small and
+medium-size businesses, large concerns and
+mergers came into being. This brought with it
+a rising need for precise control of profitability
+and led in principle—with significant qualifica-
+tions in reality—to making entrepreneurial
+structure more systematic. Planned and hierar-
+chical organization based on the division of
+labor gained ground as an element of capitalism
+along with, and connected to, the principle of
+the market.
+
+
+3. Technological and organizational innovations be-
+came incomparably more important than they
+had been in preindustrial varieties of capitalism.
+There was now a faster pace of innovation. In
+Schumpeter’s analysis, “creative destruction” has
+been the core component of the capitalist pro-
+duction method. In fact, it only got to be this way
+when industrial capitalism emerged. Factories re-
+placed proto-industrial cottage industry for spin-
+ning yarn and weaving cloth. Steamship routes
+displaced towpaths and other traditional modes
+of transport on rivers and canals. Suppliers of
+electric lights quickly triumphed over gaslight
+companies. A hundred years later, the manufac-
+turers of typewriters lost their market to the pro-
+ducers of word-processing computers. To be sure,
+such changes opened up new chances of success
+and earnings opportunities for enterprising men
+and women of business and their employees. As a
+rule, consumers profited. At the same time there
+were many losers. However, “constant revolution-
+izing of production, uninterrupted disturbance of
+all social conditions, everlasting uncertainty and
+agitation distinguish the bourgeois epoch from all
+earlier ones.”4 This contributed to the unpopular-
+ity of capitalism, and certainly to its continually
+renewed delegitimization, most apparent during
+capitalism’s big, recurring crises, such as the ones
+that broke out in 1873, 1929, and 2008.
+4. These crises usually arose out of excessive specu-
+lation and erroneous trends in the financial
+sector, yet they also affected the “real economy.”
+They imperiled not only a few speculators but
+also the life chances of broad sections of the pop-
+ulation, and they could lead to profound social
+and political disruptions. Crises thus brought
+home another thing that distinguished capital-
+ism in the age of industrialization from previous
+variants: namely, that it had become the econo-
+my’s dominant regulatory mechanism, inten-
+sively influencing society, culture, and politics all
+at the same time. This was in contrast to centu-
+ries past, when capitalism had mostly led an
+insular existence and was embedded in non-
+capitalist structures and mentalities.
+If capitalism in its developed form had been confined to
+a few regions in northwestern Europe prior to the epochal
+cusp of 1800, the kind of capitalism dynamized by indus-
+trialization took on global dimensions in the nineteenth
+century, and particularly in the twentieth. This can be
+seen not only, as already mentioned, by the capitalist pen-
+etration of new countries and regions, one after another,
+especially in East Asia. It is also demonstrated by the grow-
+ing interdependence among capitalist processes across na-
+tional and continental borders, that is, by the globalization
+of capitalism. This is not a new phenomenon as such, but
+rather something that could be observed in rudimentary
+outline for centuries, as was shown in the previous chap-
+ter. Yet from the 1860s through 1914, and again since the
+1970s, but especially since 1990, there have been phases
+where globalization accelerated significantly. This faster
+pace of globalization could be discerned in the expansion
+of world trade, a certain convergence in commodity prices
+in different regions of the globe, the rapidly growing vol-
+ume of worldwide financial transactions, the widespread
+rise of multinational enterprises, an increase in border-
+crossing labor migration, and the global range of crises.
+Globalization is not, to be sure, only an economic phe-
+nomenon; rather, it also occurs as a cross-border linkage
+connecting the fields of communications, politics, and
+culture. Yet capitalism is more than one of the important
+forces driving globalization; it is also a field on which glob-
+alization takes place, even if this does not always happen
+across the board or in a way that renders nation-states any
+less important than they used to be.5
+From Ownership to Managerial capitalism
+Analytically, the capital-labor relationship is central to all
+variants of industrial capitalism. Historically, it varies a
+great deal. One of the factors determining this was the
+profound gestalt switch that unfolded in the structure and
+strategies of enterprises in the last two hundred years.
+A conceptual distinction needs to be made between cap-
+italists and entrepreneurs. The capitalist provides capital
+and decides in principle about where and for what it is
+used, assumes the risk involved (in theory, at least), and
+pockets the profits that arise. The central responsibility of
+the entrepreneur is to manage the enterprise, to that end
+making decisions about the enterprise’s goals in detail, its
+position on the market, its internal structure, and also
+about how its workforce is employed.6
+
+
+At the top of an enterprise in the first phase of industrial-
+ization, sometimes also called the Industrial Revolution, the
+roles of capitalist and entrepreneur were combined in one
+and the same person. He—it was usually a male person, but
+there were women as entrepreneurs, too—owned his enter-
+prise and managed it. He raised capital, as a rule, from his
+own savings, through personal loans, more rarely by way of
+a bank credit, perhaps also through cooperation with a part-
+ner, and he was liable with his entire fortune. Even when
+the factory had become fully grown—for example, a me-
+chanical spinning and weaving mill with one or two hun-
+dred workers—it usually remained a manageable enterprise
+constituted as a partnership, under the control of an owner-
+entrepreneur who frequently preferred seeing himself as
+“king of the castle” exercising sweeping authority. That the
+boss was simultaneously capitalist and entrepreneur had le-
+gitimating advantages for him. The entrepreneur’s claim to
+leadership could be justified by reference to the risk ulti-
+mately born by the capitalist, the claim to profits with refer-
+ence to the work of the successful entrepreneur.
+During the early phases of industrialization, entrepre-
+neurs had close ties with their social milieu almost every-
+where, above all through their families. Start-up capital was
+frequently raised within the circle of family and relatives.
+The history of the Rothschild international banking house;
+of the Siemens brothers’ close cooperation in establishing
+their enterprises in Berlin, London, and Petersburg; or of
+the role of the Brown family in the network of commer-
+cial enterprises in Great Britain and the United States (Liv-
+erpool, New York, Philadelphia, and Baltimore) illustrate,
+for the second third of the nineteenth century, how the
+cohesion of entrepreneurial families contributed to solving
+management problems, to creating cross-border business
+ties, and to networking with relevant social milieus. The
+family was thus both a precondition for and means to mar-
+ket success. Economic and cultural capital was passed on
+within the family: family firms often resulted from inheri-
+tance, which was also their goal. This expectation evidently
+motivated many owner-entrepreneurs to undertake invest-
+ments that were future oriented. For the most part, these
+owner-entrepreneurs were energetic, coolly calculating per-
+sons ruthlessly pursuing advantage—typically men, rarely
+women—who knew how to outdo their competitors and
+exploit their workers. Yet their close family ties gave addi-
+tional meaning, beyond the pure profit motive, to their
+efforts, to their struggle with competitors, and to their ex-
+ploitation of workers. How little profit was regarded as an
+absolute value is demonstrated by situations in which fam-
+ily entrepreneurs dispensed with taking steps that might
+expand the firm. This was a relinquishment deliberately in-
+tended to avoid endangering family control over the busi-
+ness, a fate that might have threatened them if capital
+expansion had been resolutely undertaken by relying on a
+bank or by floating shares on the stock market. Still, the
+constraints of the market set limits to such noneconomic
+priorities. Whoever purposely relinquished dynamism was
+casually putting his business livelihood at risk. It was essen-
+tial to push forward so as not to fall behind; merely securing
+the status quo was either not permitted by this competitive
+system, with its continuous innovation, or tolerated only
+within narrow limits.
+
+One can see, looking at the link between family and busi-
+ness, how capitalism was by no means substituting brand-
+new social institutions for old ones it had destroyed. Rather,
+at least during lengthy transitional periods, it amalgamated
+the social arrangements capitalism itself had brought forth
+with previously existing ones, implanting itself in older
+structures and only changing them over the long run. To
+this extent, it acted and continues to act in a manner that
+is not exactly revolutionary. It accommodates different so-
+cial realities. This explains the variety of guises in which
+industrial capitalism has appeared to this day.
+Close ties between family and enterprise are still fre-
+quent, especially in small and medium-size enterprises,
+which make up the majority of enterprises everywhere
+even today and are constantly being replenished with
+start-ups. Even in the management bodies of major com-
+panies that had been transformed long ago from their
+original form as partnerships, or that had been founded
+from the very start as joint-stock companies, the influence
+of owner-families, both founding and current, remained
+considerable, even in the second half of the twentieth
+century and especially in Great Britain and Japan.8 Yet, on
+the whole, it was managerial capitalism that prevailed in
+the ever-growing field of large and giant enterprises, which
+as a rule were constituted as joint-stock companies based
+on stocks or shares (or as limited liability corporations of
+a similar kind). That means that the managerial function
+gradually shifted into the hands of salaried entrepreneurs
+(“managers”) with limited liability. It also means that a
+certain separation of the capitalist and entrepreneurial
+function occurred, although there were, as mentioned,
+durable forms of cooperation between members of the
+owning family and managers. In any event, the owners of
+capital continue to exercise influence over basic decisions
+of the enterprise as stakeholders even in fully formed
+managerial capitalism. Germany and the United States
+were in the lead on the path to managerial capitalism,
+along with Japan in its own way. The driving forces were
+growth, capital requirements, and organization.
+The German electrical engineering firm Siemens em-
+ployed 90 people at home in Germany in 1854, 650 in
+1874, nearly 4,000 in 1894, but by 1914 a good 57,000. Em-
+ployment at the largest German enterprise—Krupp—
+reached 20,000 in 1887 and 64,000 by 1907, while the
+Thyssen-based corporation Vereinigte Stahlwerke ( United
+Steelworks) had 200,000 employees by 1927, and the larg-
+est American enterprise U.S. Steel a respectable 100,000 in
+1901 and 440,000 employees by 1929. In the late 1960s,
+the number of people working at Siemens worldwide was
+270,000, compared to 30,000 workers and salaried em-
+ployees at Deutsche Bank. By 2010 these numbers had
+jumped to 370,000 and 98,000 respectively. In the same
+year, the German post office Deutsche Post with 425,000
+and Siemens with 405,000 employees occupied the top
+spots in the German rankings, yet they were only in
+eleventh and thirteenth place on the list of the largest en-
+terprises worldwide, a list that was led by the retail con-
+glomerate Walmart (with 2.1 million employees) and
+China National Petroleum (with 1.65 million employees).
+What stood behind these exorbitant increases in employ-
+ment was a mixture of highly diverse events—mergers of
+firms, above all, in addition to firms’ internal growth—
+and diverse goals: taking advantage of “economies of
+scale,” that is, of opportunities for sales and profits under
+changing technological and marketing conditions (mass
+production and mass markets), the pursuit of bigness and
+thus also of wealth, prestige, and power, even if these as-
+pirations did not always pay off in business terms. Fre-
+quently, too, this was expansion driven by defensive mo-
+tives, since self-containment in the face of aggressive
+competition can easily lead to a firm’s downfall.
+In the first phase of industrialization, even the most ex-
+pensive enterprises got by with relatively modest capital,
+as in German mining during the 1850s, where the order of
+magnitude ranged from 1 to 2, or at most 3, million marks;
+the capital for factories in other sectors, especially in the
+extended textile branch, was without exception much
+lower than this. But between 1887 and 1927 average capi-
+tal for the hundred largest German enterprises increased
+from 9.4 to 59 million marks. In 1901, U.S. Steel was capi-
+talized at $1.4 billion. In 1970 Deutsche Bank’s own capi-
+tal resources still amounted to 1.4 billion DM, but by 2010
+it was already €49 billion. In the same year, Siemens’s own
+capital resources amounted to €28 billion. As a rule, these
+kinds of sums exceeded and still exceed the means avail-
+able to individual owner-families. Financing via the capi-
+tal market and, along with this, the organizational form of
+the joint-stock company became obligatory.
+Sometimes it is said that there was a “Second Industrial
+Revolution” that happened during the last quarter of the
+nineteenth century and first few decades of the twentieth,
+specifically in those countries of Europe and North America
+that had enjoyed a relatively early head start with the first
+round of industrialization. This alludes to the spectacular
+rise of “new industries” in electrical manufacturing, chemi-
+cals, and vehicle production; to the initial exploitation of
+petroleum as an energy source; and to the enormous in-
+crease in importance of technology and science in indus-
+trial production. But the designation also tries to capture
+the centralization of capital that took place via comprehen-
+sive combinations in the form of mergers, conglomerates,
+holdings, cartels, and interest associations. These mergers
+and alliances, which surfaced partly in reaction to the pre-
+ceding cyclical downturns in the 1870s, were trying to limit
+or even eliminate competition. Among the driving forces
+were major entrepreneurs like John D. Rockefeller, archi-
+tect of Standard Oil of New Jersey (starting in the 1870s), or
+Emil Kirdorf, the general director of the Gelsenkirchen
+Mining Company Inc. and architect of the 1893 Rhenish-
+Westphalian Coal Syndicate. Acting in supportive roles
+were often major banks that, in contrast to earlier practice,
+invested massively in industry and worked closely with in-
+dividual industrial enterprises. Integration via stock owner-
+ship and mutual representation on executive committees
+proved to be tried and tested methods leading to a compre-
+hensive networking of industrial and bank capital, without
+it being possible to say—in contrast to what is frequently
+assumed—that one side (either industry or banks) dom-
+inated the other. Subsequently there was an unprecedented
+concentration of power and wealth in the hands of a few
+major industrialists, especially in the United States, where
+Rockefeller—the richest man in the world, with a for-
+tune worth about $330 billion (in 2008 values)—Carnegie,
+
+Vanderbilt, Duke, Stanford, and others were already labeled
+by contemporaries with the critical and polemical designa-
+tion “robber barons.” Some of these major companies con-
+centrated, like the British-American Tobacco Corporation
+founded in 1902, on cross-border business and developed
+multinational structures. Most of the big firms were highly
+integrated in functional terms and diversified by product:
+this means that inside a single company they combined, in
+whole or in part, the functions of raw material supply, pro-
+duction, processing, and distribution; at the same time,
+they produced entire ranges of different goods and ser-
+vices. They thus combined by organizational means what
+in other, earlier cases had been handled by independent
+enterprises that were more highly specialized and linked to
+each other through market ties.
+As a result, there emerged highly complex, systemati-
+cally structured, elaborately coordinated megastructures
+with managerial personnel who were, increasingly, aca-
+demically certified. In the late nineteenth and early twen-
+tieth centuries, these corporate structures were vertically
+integrated, centralized, and rather hierarchic, after 1945
+in the West more likely to be rather decentralized and
+structured as federations of semiautonomous units. Over-
+all, this was a profound change of form for capitalism. What
+was once the clearly dominating form of coordination
+via market mechanisms was now, much more strongly than
+before, complemented by coordination using organiza-
+tional and quasi-political methods. This was referred to as
+organized capitalism, although, in spite of all the alliances
+and monopolistic tendencies, severe competition contin-
+ued to take place even between these gigantic enterprises,
+competitive challenges that could even threaten these
+firms’ autonomy and existence. Relative to the many more
+numerous small and medium-size enterprises, the big en-
+terprises did remain in the minority everywhere. Yet they
+were extremely important. In 1962 the fifty largest Amer-
+ican industrial enterprises had over a third, and the five
+hundred largest together over two-thirds, of the country’s
+commercial-industrial capital. They were, incidentally
+and without exception, managed by white, predominantly
+Protestant men from a background that was (at least) middle
+class and with (at least) a college degree.9
+The rise of managerial capitalism was accompanied by
+great hopes and great fears. Both have, as a rule, proven to
+be exaggerated.
+It was hoped that managerial capitalism—owing to the
+dispersion of ownership it made possible and to owner-
+ship’s declining importance for recruiting management—
+would produce a bit of democratization. On the one hand,
+the dispersion of stock ownership, its growing attractive-
+ness for investors both small and large, and its increas-
+ing importance for insuring against life risks and for care
+of the elderly did indeed significantly strengthen and
+broaden capitalism’s anchoring in society. It has tied life
+for the multitude even more clearly than before to the ups
+and downs of capitalist business. One need only think of
+the widespread policies for old-age provision via pension
+funds that are among the biggest actors on financial mar-
+kets. In addition, the criterion “ownership of the means of
+production” has become less important for recruiting and
+promoting management, and there is a difference between
+the typical career paths of owner-entrepreneurs and man-
+agers. Yet access to the bastions of economic power overall
+have hardly opened up much further. Rising from dish-
+washer to millionaire has remained the exception. A high
+degree of intergenerational status inheritance is also
+brought about by the selection process typical of manage-
+rial capitalism. This process, in addition to training ac-
+quired both scholastically and practically, puts a premium
+on the cultural capital imparted by social background and
+the networking relationships associated therewith.
+Conversely, it was feared that the rise of managers would
+increase irresponsible action in the upper echelons of firms,
+since salaried entrepreneurs would certainly no longer be
+forced to answer for their failures by putting their entire
+economic and social livelihood on the line, just as (con-
+versely) they would only profit personally in a limited way
+from any entrepreneurial success. In the light of recent ex-
+periences with “structured irresponsibility” in today’s fi-
+nance capitalism, it is important to understand why this
+fear did not, on the whole, come true during the classical
+era of managerial capitalism—which, in the West, lasted
+through the 1970s and 1980s. On the one hand, those com-
+ponents of managerial earnings linked to a company’s suc-
+cess, including managers’ shares in capital, contributed to
+managerial responsibility. On the other, this occupational
+group developed professional attitudes, with corresponding
+techniques for mutual social control. But, above all, in spite
+of growing mobility, success and failure, even for salaried
+entrepreneurs, remained quite visibly tied to the success
+and failure of certain enterprises—“their” enterprises—both
+for the managers themselves and for others. This proved de-
+cisive (whereas it seems to be different in today’s financial
+market capitalism). The identification of an Emil Rathenau
+with “his” managerially run enterprise AEG around 1910
+was certainly not much weaker than the way that the son of
+rival company founder Wilhelm von Siemens identified
+with “his” traditional enterprise, still controlled by family
+even after having become a joint-stock company.
+As a whole, however, managers were less influenced and
+constrained by extra-economic (e.g., family-related) con-
+siderations than were owner-entrepreneurs. For the sala-
+ried entrepreneurs of managerial capitalism, therefore, eco-
+nomic motives were actually more clear-cut than they were
+for the owner-entrepreneurs of the Industrial Revolution.
+On the whole, therefore, the salaried entrepreneurs should
+have been able to reach decisions more dynamically and
+behave more expansively than owner-capitalists.10
+Financialization
+The tendency to detach economic action from social con-
+texts, the concentration on goals of profit and growth cou-
+pled with a simultaneous indifference to other goals, the
+autotelic character of capitalism, a feature already inherent
+in managerial capitalism though not yet made absolute—
+over the last several decades, all these trends reached new
+heights with the arrival of “financialization,” the rise of
+what can be called financial market capitalism, finance capitalism, or investor capitalism. The level attained by finan-
+cialization is of a degree that has imparted a new quality to
+the system and has presented it with new, yet unsolved,
+challenges. Finance capitalism—as the epitome of business
+transactions that have little to do with production and
+exchange of goods but that are made above all with money
+and (in the milieu of) money changers, brokers, banks,
+stock exchanges, investors, and capital markets—is an old
+phenomenon, as was shown above. Yet since the 1970s
+something new has happened, in three respects:
+1. What happened was connected with the end of
+the Bretton Woods system of international cur-
+rency regulation and the drastic oil price increases
+of the 1970s, with the onset of deregulation, and
+with a certain degree of deindustrialization in
+some Western countries that led to a rapid expan-
+sion and upgrading of the financial sector, espe-
+cially in England and the United States, where
+this sector’s share of overall production grew from
+2 percent in the 1950s to approximately 8 or
+9 percent in 2008. The assets of banks grew explo-
+sively. Cross-border capital movements swelled
+from 4 percent of overall product worldwide in
+the 1980s to 13 percent in 2000 and 20 percent
+in 2007. Much of this was accounted for by the
+transfer from oil-producing and emerging market
+countries (China, Southeast Asia, India, Brazil) to
+Europe and North America. But foreign invest-
+ments from the first countries to industrialize also
+boomed, with finance and insurance getting the
+lion’s share. As the investor George Soros wrote
+in 1998: “The system is very favorable to financial
+capital, which is free to pick and choose where
+to go. . . . It can be envisaged as a gigantic circu-
+latory system. . . . It is market fundamentalism
+that has put financial capital into the driver’s
+seat.” Jürgen Stark, longtime chief economist at
+the European Central Bank, decreed in 2011 that
+the financial sector had long since left its ancil-
+lary role in service to the economy behind, that
+it had become too large and self-referential. The
+“neoliberal” policy of deregulation that started
+in England and the United States but soon took
+effect internationally contributed greatly to this
+trend, as it did to the exorbitant rise of profits for
+bankers. In order to participate in the boom of
+the financial sector,11 major industrial enterprises
+like General Motors and General Electric added
+on their own financial service providers, which
+soon brought in higher profits than each compa-
+ny’s core business itself. Investment banks, in-
+vestment funds, over-the-counter private equity
+companies, and other capital investment and
+holding companies sprang up in large numbers.
+There was talk of “financialization.” A large share
+of capital movements served (and serves), not
+investment for productive purposes, but rather
+speculation, even if the two are often hard to dis-
+tinguish clearly from one another. Sizable profits
+were earned that did not correspond to any added
+value. Expectations of garnering the highest pos-
+sible profits increased, along with eagerness to
+undertake great risks. It must be conceded that
+the financial sector was and is also intrinsically
+heterogeneous; municipal savings banks or coop-
+erative banks remained more strongly committed
+to the traditional banking business. But aggres-
+sive hedge funds, acting like “locusts” (as Ger-
+many’s former Social Democratic labor minister
+and party chair Franz Müntefering called them),
+bought up profitable businesses, “rationalized”
+them, cannibalized them, and divided them up
+in order to resell them at a profit and then move
+on. Ivan Berend writes: “The morals of solid
+banking, together with trust in institutions, were
+lost. Gambling replaced a solid business attitude
+and increased both gains and risks. The boom
+culminated in the first years of the twenty-first
+century.” Left to itself, driven by tough compe-
+tition, and largely detached from embedment
+in the real economy or society, at least this part
+of the capitalist economy proved incapable
+of developing and implementing generally ac-
+cepted rules for conducting business.12 The ma-
+thematicization and digitalization of speculative
+transactions has led to an economy in which
+money managers have acted not only as driving
+forces but increasingly also as driven entities ad-
+dicted to their own techniques and ever stiffer
+competition.13
+2. Credit and thus debt have characterized capital-
+ism from the start. But in the last quarter of the
+twentieth and in the first decade of the twenty-
+first century, the inclination to indebtedness has
+grown exorbitantly in many countries and sec-
+tors. For example, the quotient of government
+debt rose, and indeed this was happening long
+before the international financial crisis of 2008
+led governments to renew their massive borrow-
+ing with the aim of bailing out their countries’
+banks. Germany’s national debt quotient (mea-
+sured as a share of gross domestic product) os-
+cillated between 16 and 24 percent from the
+beginning of the 1950s through 1975, yet by
+1985 it had climbed to 41 percent, by 1995 to
+56 percent, and by 2005 to 69 (81 percent by
+2011). The corresponding figures for France are
+16 percent (1975), 31 percent (1985), 55 percent
+(1995), 67 percent (2005), and 86 percent (2011).
+In Sweden the quotient rose between 1975 and
+2005 from 28 percent to 50 percent (with an in-
+terim peak of 84 per cent in 1996), in the United
+States from 33 percent to 68 percent, in Brazil
+from 30 percent to 69 percent, and in Japan from
+24 percent to 186 percent.14 A second example:
+the savings quotient of Americans ( private house-
+holds) was almost 5 percent in 1930, reached
+more than 10 percent in the early 1980s, but then
+fell to 0 percent by 2005–2007 (and was at 2 per-
+cent in 2013). A third example: the average eq-
+uity capital of many American and European
+banks before the recent crisis was less than 10 per-
+cent, frequently less than 5 percent, and some-
+times not even 1 percent of their proven total
+assets, compared with around 25 percent at the
+beginning of the twentieth century; most of the
+remainder consisted of outside capital, that is, of
+“debts.”
+
+Each one of these three phenomena is quite
+complex and has different causes: first, peculiari-
+ties of government policy, which frequently has
+no reliable mechanisms for self-restraint and
+readily postpones solutions to problems into the
+future; then the rapid rise of consumer capitalism
+since the 1950s, which solidifies acceptance of
+capitalism among the broad population but si-
+multaneously stimulates an inclination to live
+beyond one’s means by making available highly
+attractive sales pitches, permanent demand stim-
+ulus, and seductive offers of credit; and, finally,
+decision-making structures inside banks, which
+cause high earnings not to be reinvested but in-
+stead distributed to stockholders and managers.
+Yet, at a general level, all three of the variants
+of indebtedness mentioned here may be under-
+stood as indicators of one and the same funda-
+mental change, which the sociologist Ralf
+Dahrendorf described in 2009 as the problematic
+transition from “savings capitalism” to “pump
+capitalism.” In 1979 another sociologist, Daniel
+Bell, had already analyzed the tension between the
+necessity of saving inherent to capitalism, that is,
+of postponing rewards into the future, and the
+equally system-inherent necessity of spending on
+consumption in the capitalist present. In the
+meantime, this contradiction has intensified. We
+are dealing with a lasting source of destabiliza-
+tion for capitalism in the age of its financializa-
+tion, with the core of an unresolved crisis and
+with, on top of this, a fundamental problem of
+culture and politics in the relatively affluent
+countries of the present time.16
+3. Power relations and decision-making processes at
+the higher echelons of major enterprises have also
+shifted over the last several years and decades, on
+the road from managerial to finance or investor
+capitalism. In managerial enterprises, which were
+clearly dominant among large firms through the
+1980s, the executive committee, company board,
+or even CEO had considerable autonomy and
+weight vis-à-vis owners’ interests, especially when
+business was going well. Either the bank—often
+closely linked with a production, trade, or service
+enterprise in a long-term relationship—saw to it
+that there was managerial autonomy, since the
+bank was less interested in short-term profits than
+it was in long-term success and therefore backed
+management (with credit, among other things)
+even in opposition to stockholder interests (espe-
+cially in Germany and Japan). Or the board of the
+enterprise enjoyed relative independence because
+ownership of the company was dispersed among
+numerous small and medium-size stockholders
+who, given their fragmentation, were hardly in a
+position to issue a collective challenge and were
+content with decent returns on their investment
+even if the last opportunity to squeeze out in-
+creased profits was not always fully exhausted (as
+in the United States, above all). In both cases the
+chances were great that the management of the
+enterprise would reinvest large portions of the
+profits made, rather than distribute them to
+owners—which strengthened management’s rela-
+tive autonomy vis-à-vis the capital market.
+This changed with the rise of asset management
+companies (especially the large investment and
+pension funds) and of increasingly aggressive
+firms specializing in investment banking. They are
+in tough competition with each other for inves-
+tors and savers, whom they promise yields on in-
+terest or shares in future profits that are favorable.
+Their track record can be expressed in a few key
+figures and is highly transparent. Even small dif-
+ferences count in their competition for investors
+and savers, whose assets they bundle together into
+weightier securities and whose interests as owners
+(“shareholder value”) they promise to make their
+own and represent very toughly, professionally,
+and constantly against those of management.17
+The logic of the capital markets now penetrates
+much more directly into company strategies than
+was the case in times when ownership or mana-
+gerial capitalism was the distinctive model. The
+market becomes more ubiquitous and more com-
+pulsive. Room to maneuver for individual com-
+pany managements is shrinking. Enterprises are
+becoming more like one another. The influence
+of the banks is declining. The representatives of
+the funds exercise control, but they are simulta-
+neously controlled; they demand permanent ac-
+counting, which they must permanently render
+themselves. They can sell at any time and restruc-
+ture their portfolios, which gives them great power.
+Volatility is on the rise. On average, an investor
+from the 1960s held his stocks (in New York) for
+eight to nine years, but now it is less than a year.
+Important decisions are made by fund directors,
+investment bankers, stockbrokers, analysts, and
+rating experts, who are managers but often speak
+in the name of the owners and represent their in-
+terests in obtaining high returns. They usually
+have no ties to the many enterprises over whose
+fate they help decide, so to speak, from the out-
+side. They are not particularly interested in these
+enterprises’ contents, traditions, and agents. They
+decide on the basis of usual performance indica-
+tors and sensitive market signals, and they are
+oriented one-dimensionally to profit or share-
+holder value. This is what they must do; other-
+wise they will damage their fund.18
+In this relatively aloof and still, at core, deregu-
+lated system of investor capitalism, it is neither
+urgent nor possible to justify the very abstract ac-
+tivity of these “money managers” in the context
+of more far-reaching, perhaps noneconomic pur-
+poses. In one revealing scene from his reality-
+saturated novel Bonfire of the Vanities, Tom Wolfe
+depicts how the successful, prosperous investment
+banker and Wall Street broker Sherman McCoy
+attempts to explain to his inquiring six-year-old
+daughter what he does for a living so that she can
+understand and admire his job. At his beach club
+on Long Island, the assembled family members
+await his answer with anticipation. The attempt
+at explaining his job fails, the daughter breaks
+into tears, and it remains for the reader to decide
+if this is owing to the complexity of McCoy’s line
+of work or to whether his occupation really makes
+no sense beyond the job itself and the goal of
+enrichment.
+It cannot be emphasized strongly enough that
+(mostly smaller, but quite numerous) owner-
+run businesses, manager-capitalists of the classic
+kind, and the new type of globally active finance
+capitalists exist everywhere alongside each other
+and in the greatest variety of overlapping forms.
+Certainly, contemporary capitalism cannot be
+reduced to finance, financial market, or investor
+capitalism. The rise of finance and investor cap-
+italism during the last several decades does,
+however, represent a far-reaching change in the
+overall system. Functional differentiation within
+capitalism has advanced significantly: mobilizing
+capital and investing have been separated even
+more sharply from other dimensions of leading
+firms. Raising and investing capital were made
+the responsibility of specialized actors operating
+strictly according to the logic of capital markets.
+This has considerably strengthened the weight of
+the capitalist function relative to the entrepre-
+neurial and the managerial functions. More radi-
+cally than ever before, fundamental investment
+decisions have been detached from the contexts
+in which they were once embedded. The logic of
+markets has further emancipated itself from any
+consideration of noneconomic interests and ori-
+entations. Furthermore, decision-making struc-
+tures have clearly overstepped the boundaries
+within which individual enterprises operate, the
+outer edges of which have become more fluid.
+The international financial crisis of 2008 conspic-
+uously demonstrated what self-destructive and
+all-around dangerous potentials lurk inside the
+dynamic of the new investor capitalism when
+this new type of capitalism is left to itself—and
+that means left to the banks, investors, stock-
+brokers, and other “money managers.”20 What
+is at stake is finding new forms of embedding.
+Whether that can be done remains an open
+question.
+Work in capitalism
+Since Marx, Weber, and many others, “free” wage labor on
+a contractual basis has been regarded as the central form as-
+sumed by work in capitalism. Yet the debate about whether
+this is accurate and how this should be understood is once
+again in full swing. The move toward more global perspec-
+tives has intensified historians’ awareness of how capitalist
+businesses could and can also flourish on the basis of un-
+free labor. We need only think of the colonial and postcolo-
+nial plantation economy with slave labor and other forms
+of forced labor, of the exploitation of prisoners and inmates
+of camps in the wars and dictatorships of the twentieth
+century, but also of new forms of unfree labor today, espe-
+cially in the global South. Historians have, moreover, be-
+come more intensely aware of how forms of bound labor
+and extra-economic compulsion have also played a major
+role for a long time in European and North American agrar-
+ian and industrial capitalism, as is demonstrated by the his-
+tory of serfdom and farm servants, but also of peonage and
+“indentured laborers.” Is not the very distinction between
+unfree labor and free labor on a contractual basis altogether
+quite permeable and blurry in light of the many elements
+of unfreedom in the reality of wage work? Should one not
+draw the logical conclusion and expand the usual defini-
+tions of the “working class” so that all types of subaltern
+persons or families—and not just wage workers and the
+members of their families—are included?21 In this book,
+nevertheless, I hold to the notion of wage labor as the cen-
+tral form of work in capitalism for these reasons:
+1. For one thing, the trend toward comprehensive
+commodification represents a key component of
+the capitalist system, and wage labor is the most
+consistent application of this principle to human
+labor (although not the only one).
+2. For another, in spite of numerous exceptions and
+countervailing tendencies, in the long run wage
+labor has become and is becoming more extensive
+and widespread, and not just in the course of capi-
+talist industrialization in the West but (in the
+meantime) worldwide. As capitalism, industrial
+capitalism in particular, has widened and deep-
+ened, wage labor became, and is still becoming,
+step by step, the prevailing form of work, al-
+though it appears in many forms and combina-
+tions. This had, and still has, something to do
+with the fact that free wage labor on a contractual
+basis corresponds best, in principle, to the particu-
+lar kind of instrumental rationality inherent in
+capitalist enterprises. For, unlike workers who per-
+form bonded labor with their entire person over
+long periods of time (such as slaves), wage workers
+who are contractually obligated to perform certain
+services temporarily but are otherwise free as well
+as terminable—wage workers like this allow busi-
+nesses and employers to recruit, shift, and if need
+be also quickly dismiss employees with a view to-
+ward entrepreneurial objectives. This is advanta-
+geous to the company’s interest. Under conditions
+of developed, differentiated labor markets, and in
+the face of rapid economic change as capitalist
+normality, it was and is in the interest of capitalist
+actors to prefer wage labor to unfree labor.
+3. Finally, it should be taken into consideration that
+an employment relationship under wage labor
+can be terminated by the worker as well as by the
+employer. The employment relationship may sub-
+jugate the worker’s labor power, but not his or her
+entire person, to the employer’s order-giving au-
+thority and the constraints of the enterprise. This
+is an important and coveted element of freedom.
+The transition to wage work could and can have a
+liberating effect, even though entry into such an
+exchange relationship of work for wages is fre-
+quently a matter of urgency for the worker on
+sheer grounds of survival, and although the em-
+ployment relationship, once accepted, is usually
+characterized by much control and discipline.
+This social and legal quality distinguished and
+still distinguishes wage labor, in principle, from
+the different forms of unfree labor, and this dis-
+tinction needs to be taken seriously from the
+standpoint of life histories and historiography.22
+Yet, on the other hand, it bears repeating one more time
+that, under certain conditions, capitalism has functioned
+and can continue to do so on the basis of unfree labor,
+and that, again under certain conditions, capitalist agents
+have sometimes preferred and continue to prefer exploit-
+ing unfree labor. They preferred and prefer whatever,
+under given conditions, promises higher and sustainable
+profits. And above all it needs to be emphasized that, in
+the long history of capitalism, free wage labor has mostly
+not appeared in any pure form, but rather in amalgam-
+ation with other forms of employment.
+In an elementary sense, and to a limited extent, wage
+labor existed prior to capitalism. Certainly, before capital-
+ism the largest share of dependent labor was performed
+under conditions of bondage—as slave labor or (as in medi-
+eval and early modern Europe) by serfs and peasant under-
+lings, by servants and maids in servile status, and by
+journeymen dependent on masters and guilds. Nonethe-
+less, over the centuries, there were numerous persons with
+either few or no possessions—men, women, and children—
+who performed work for remuneration, usually for short
+periods and constantly changing jobs, often also at differ-
+ent sites, for lords and peasants, for artisans and merchants,
+in parishes and monasteries, at construction sites or in
+workshops: they were employed as agricultural workers
+
+with different designations, as day laborers, casual laborers,
+seasonal or migratory workers, as temporary workers of
+many different kinds. One barely made a living this way,
+and yet the payments in kind or money wages achieved this
+way frequently supplemented the small incomes that the
+individual or his family drew at the same time from other
+sources, for example, from the ownership of tiny properties.
+In one and the same family, at one and the same place of
+work, there were often persons with different occupational
+status working together, as in early modern plantations
+where slaves, “indentured laborers” obligated to work for a
+time, and free wage workers coexisted. With the penetra-
+tion of capitalism into agriculture and cottage industry,
+there was an increase in the number of wage workers above
+all on the land. Through the gradual loosening of tradi-
+tional ties (e.g., of the journeyman’s dependence on his
+master and his master’s guild) and the growing inclusion
+of working people such as artisans and cottage workers in
+supraregional market relationships, moreover, capitalism
+reinforced the elements of wage labor inside traditional em-
+ployment relationships. With respect to dependent labor-
+ers, too, it was the case that social relationships shaped by
+capitalism seldom made their appearance abruptly and by
+quickly destroying old ways; instead, they ensconced them-
+selves in traditional social relationships, expanding, loosen-
+ing, and relativizing them (under the impact, to be sure, of
+tensions and conflicts), changing them step by step. One
+and the same person might, in the course of his life, occupy
+many different positions, and these often included distinc-
+tive phases of underemployment and unemployment, and
+certainly also of dire poverty.23
+
+It will be evident that this hodgepodge of wage labor
+marked by countless transitions and mixed forms cannot
+be neatly subdivided and is therefore very difficult to quan-
+tify. And yet, if one employs a generous conception of
+“proletarian” that includes day laborers and casual labor-
+ers, agricultural workers and homeworkers, workers in
+manufactories and mines as well as servants and journey-
+men, then one can concur with Charles Tilly’s estimate
+that in 1550 about one-quarter and in 1750 almost 60 per-
+cent of Europe’s population should be included in the pro-
+letarian classes. More than half of these lived on the land.
+It was therefore not some idyllic world, clearly ordered or
+even static, that was then transformed by nineteenth-
+century industrial capitalism. Instead, this was a world in
+motion, with little in the way of formalized employment
+relationships and living conditions, a world replete with
+scarcity, destitution, and distress—at least in the large and
+rapidly growing sector of society underneath the rural and
+urban middle classes.24
+Yet only in the nineteenth and twentieth centuries did
+fully developed wage labor start to become an overwhelm-
+ing mass phenomenon, especially in the West, although
+there were rudiments of modern wage labor in other parts
+of the world as well. One thing that helped in the West—
+something partly accomplished by revolution and war (as
+in France, the United States, and Haiti), though more of-
+ten because of reforms (incremental changes that usually
+dragged on for decades)—was the abolition of those tradi-
+tional social orders in which unfree labor had become sta-
+bilized. The list of changes favoring wage labor would have
+to include the prohibition of the slave trade (starting in
+1808), followed by the ban on slavery itself, but also the
+judicially enforced outlawing (starting in the 1820s in the
+United States) of “indentured” servitude, that form of tem-
+porary bondage in which workers were contractually
+bound to work off a debt for transport costs paid in ad-
+vance (for example, to cover a journey across the Atlantic).
+Also on the list would be the emancipation of the peas-
+antry and the abolition of serfdom (which finally hap-
+pened in Russia after 1861), along with the abolition or
+dilution of guild regulations in the course of implement-
+ing “freedom of trade.” Against this background, what
+happened in most countries was a quite gradual advance-
+ment of wage labor going hand in hand with the gradual
+implementation of capitalistic principles, often through
+mixed forms of work that persisted for a long time.
+The “temporary servitude” of “indentured laborers”
+(contract workers) represented such a mixed form; it was a
+category that included the important group of “coolies,”
+half-free laborers from Asia who were transported across
+long distances in order to be employed in the plantations
+(sugar, rubber, tobacco, etc.) that underwent renewed ex-
+pansion after 1860, mostly in tropical and subtropical re-
+gions of Asia, America, and Africa. Another example would
+be the slaves for hire who were rented out by their owners
+to entrepreneurs in the southern states of the United
+States, Latin America, and West Africa and who did tem-
+porary work for wages, some of which they had to pass on
+from their temporary employers to their permanent own-
+ers. Russian serfs were also employed from time to time
+as wage workers, on assignment from their masters. In
+the South African diamond mines during the nineteenth
+century, “closed compounds” were set up in which miners
+were locked up under prisonlike conditions: an example
+of mixing wage and forced labor. One must certainly recall
+the millions of homeworkers in the European putting-out
+system, who basically performed wage work but still did
+this in the form of traditional outwork, within the family
+unit and inside their own four walls. This usually hap-
+pened in the countryside, although after 1870 more and
+more in the big cities, too, where clothing and other
+ready-made apparel would be manufactured in home in-
+dustries, as a rule by women and children under the heavy
+supervision of intermediate entrepreneurs and under op-
+pressive working conditions: the sweatshops of New York,
+Paris and Berlin around 1900 come to mind. In Prussia
+and other German states, a legally codified servile status
+(Gesinderecht) lasted until 1918, a status that curtailed
+liberties for large categories of agricultural workers and
+household servants; nonetheless, farmhands, maids, and
+domestic servants gradually became wage laborers of a
+special kind. There were other relationships of mixed em-
+ployment in which wage labor appeared as one element
+among many. In the long run, however, the wage labor
+element prevailed.25
+In addition to the gigantic construction sites of the
+time, it was above all in and by way of industrial factories
+and mining that wage labor became a mass phenomenon.
+This was not only because this sector grew disproportion-
+ately large during the first phases of industrialization, be-
+cause workers appeared here in huge crowds, and because
+this was also a field where small and large enterprises were
+active, an area in which the transition from ownership to
+managerial capitalism as described above was notably tak-
+ing place. More to the point, it also had to do with the
+structure of industrial enterprises and their relationship to
+their social environment. In factories and mines, wage
+labor was taking place at sites spatially separated from the
+households of those working there. Moreover, these were
+enterprises with a division of labor, a separation of man-
+agement and execution, work sequences that were becom-
+ing more instrumentally rational, and with corresponding
+requirements of discipline. This included adjustment to
+specific structures of time and meant that, more clearly
+than before, the sphere of labor was divorced from other
+areas of life, spatially and temporally. Its capitalist logic
+could unfold relatively independently in that distinct in-
+dustrial sphere. Here wage labor developed in a fairly pure
+form. It was experienced as such. Indeed, workers encoun-
+tered wage labor as something that united them a bit be-
+yond their specialization and distinguished them from
+management. A worker might come across instances of co-
+operation between capital and labor but also times when
+the relationship was fraught with conflicts and tensions.
+These conflicts revolved in part around questions about
+how to distribute the product being made (e.g., in the
+conflict over wages and work time); they also concerned
+questions of power, of who had precedence or would be
+subordinated, for example in controversies about the or-
+ganization of work or about autonomy and, later on,
+codetermination.
+Of course, industrial work had precursors in the less nu-
+merous early modern manufactories and mines. But in all
+these respects, “big industry” in the form of textile facto-
+ries, coal mines, steelworks, and mechanical engineering
+companies was something new in the era of industrializa-
+tion, separated from what people had been accustomed to
+by a certain hiatus with respect to time, space, and experi-
+enced structures. Accordingly, it captured the imagination
+of contemporaries, who were both fascinated and shocked
+by it. “Big industry” had shaped the emerging discussion
+about “capitalism” since the middle of the nineteenth cen-
+tury. This industrial capitalism also shaped the concepts
+and views of Marx.26 In the first phase of industrialization,
+workers suffered poverty and deprivation under the harsh-
+est kind of exploitation, enduring extremely long working
+hours and low wages, and being subject to sharp disci-
+pline, both inside and outside industrial factories. The
+children laboring in mine shafts, the long, uniform rows
+of young women lined up next to their mechanized work
+stations in huge textile mills, the living quarters in dark
+cellars of overcrowded tenements in the working-class sec-
+tions of the rapidly growing city, the desperate uprising of
+starving outworkers facing pressure from more productive
+industrial factories, like the Silesian weavers in the 1840s
+whose plight was later on dramatized by the popular poet
+Gerhart Hauptmann on the stage—these are pictures of
+misery and capitalist exploitation that have been engraved
+in collective memory.
+These constellations cannot be explored in detail here,
+any more than it is possible to describe every aspect of the
+gradual upward trend (though a trend frequently inter-
+rupted by crises and wars) of improved working and living
+conditions that took place in large parts of the world in
+spite of lingering and newly emerging pockets of exploita-
+tion and poverty that accompanied the ongoing process
+of industrialization. After countless tribulations and con-
+flicts, innovations and reforms in the world of work as
+well as in politics and society, the character of wage labor
+has profoundly changed. In a large core sector dominated
+by large private firms and public enterprises, the practices
+implemented extensively by the third quarter of the twen-
+tieth century were earnings increases geared toward the
+family wage, forceful reduction in working hours (even if
+accompanied by equally forceful intensification of work),
+hedging against risk by guaranteed entitlements in case of
+accident, sickness, old age, and dismissal, as well as indi-
+vidual and collective labor rights. This is true, at least, for
+large portions of the industrialized world. The applica-
+ble term is “standard employment”—“normal working
+conditions” (Normalarbeitsverhältnis in German)—but this
+makes it easy to forget that, for centuries, this achieve-
+ment was anything but standard or normal, that even
+today it represents an exception, and that it is called into
+question by new developments even in places where it
+had already been implemented.27 Here is a brief list of the
+three most important motors driving those developments
+that somewhat helped achieve such “normal working
+conditions.” All three are fundamentally connected with
+wage labor.
+1. In businesses, advances in productivity were
+achieved that first made the above-mentioned
+improvements possible. In the interest of increas-
+ing productivity, numerous business manage-
+ments at an advanced stage of industrialization
+discovered that shortening working hours, care-
+ful treatment of “labor power” as a resource, and
+certain concessions to workers’ demands also
+served business success. These changes were fa-
+vored not only by philanthropically- and reform-
+minded entrepreneurs, like Robert Owen in
+Scotland or Ernst Abbe in Jena, who were always
+around. There were also soberly calculating man-
+agers and owners of capital who became, to some
+extent, reformers within their own businesses, es-
+pecially in branches that made high demands on
+the skills of their personnel.
+2. Yet that would not have been enough to initiate
+change. Equally important, therefore, was a sec-
+ond impetus: government intervention. The
+readiness of state institutions to use laws, ordi-
+nances, and controls in order to combat abuses
+in the working world and secure rights for work-
+ers had many motives. One such motive, how-
+ever, was connected to the public visibility that
+wage labor gained when it no longer took place
+at home, on a peasant’s holding, or in some
+other traditional relationship, but rather at a sep-
+arate site, in the factory or coal mine. This was
+the case, for example, with child labor. It once
+had been regarded as a normal part of any agri-
+cultural operation or of proto-industrial cottage
+work. But now that it was detached from the
+family and the household, it became a prob-
+lem to be monitored and subjected to critical
+scrutiny, especially by a public concerned about
+education: this scrutiny made an important con-
+tribution by politicizing the problem and getting
+the state to actively fight child labor. For exam-
+ple, in Prussia after 1839, a ban implemented in
+several stages contributed decisively to the even-
+tual disappearance of industrial child labor in
+mines and in factories.28 The next section of this
+chapter examines the role of state interventions
+in capitalism.
+Finally, a word about the labor movement. Wage
+labor is, in key respects, not free at all. Not free-
+dom, but subordination and discipline are what
+the wage labor relationship entails for workers
+after they have entered into it. One may, more-
+over, regard it as frivolous or cynical to regard
+nonownership of the means of production as
+proof of “freedom,” as sometimes happens. But
+wage workers are indeed free—unlike forced
+laborers, slaves, serfs, indentured laborers, ser-
+vants, farmhands in servile positions, and artisan
+journeymen embedded in corporative rules—
+to the extent that they enter an employment re-
+lationship that is, in principle, free of extra-
+economic compulsion, that they can decide to
+terminate of their own free will, and that in-
+volves the labor services of the worker but not
+the subordination of him or her as a whole
+person. This is the emancipatory element of
+wage labor, in contrast to the varieties of bonded
+labor that were once dominant. One should not
+lose sight of this emancipatory element even
+when correctly emphasizing the asymmetry built
+into the employer-employee relationship, when
+clarifying how “free” and “unfree” labor have
+differed from each other more gradually than in
+principle with respect to many of their everyday
+effects, and when appreciating how freedom
+from extra-economic compulsion only gradually
+prevailed in the course of capitalist industrializa-
+tion and how, as is well known, this freedom was
+repeatedly rolled back by the massive use of
+forced labor in the wars and dictatorships of the
+twentieth century.
+An immediate expression of wage laborers’
+freedom was and is their ability, individually and
+collectively, either to defend themselves or—
+much more frequently—to formulate and enforce
+claims to improvements in working conditions.
+Only in capitalism could autonomous labor
+movements become strong, and only in the indus-
+trial capitalism of the nineteenth century did this
+happen in an era when wage labor became a
+mass phenomenon inside (but also outside) the
+factory.
+The energy of the labor movement was ignited,
+to put the point in systematic terms, by three
+challenges: First, labor movements grew out of ef-
+forts to protect against the kinds of insecurity that
+routinely increased when the capitalist way of
+doing business took hold. Welfare funds, coop-
+eratives, and friendly societies come to mind.
+Second, the labor movement grew out of the above-
+mentioned conflicts over distribution and author-
+ity that are inherent in the capital-labor relation-
+ship; this was manifested by spontaneous and
+organized protests, above all by strikes. Finally,
+though, labor movements gained and continue
+to gain their energy from defending traditional,
+noncapitalist forms of work and living against an
+ever more pervasive capitalism, as when the prin-
+ciples of a traditional culture embodied in a “moral
+economy” (with its emphasis on the “just price”)
+were defended against the capitalist logic of indi-
+vidualization, competition, changing prices, and
+growth.29 In altered form, this thrust has had a
+long life, basically lasting through the present time,
+as in the struggle for a minimum wage today: it has
+taken the form of defending or demanding work
+that is just and humane, as opposed to the routi-
+nization, degradation, instrumentalization, and
+commodification of work under capitalism, a cause
+classically formulated in Karl Marx’s critique of
+alienation.
+This resulted in the development of what was
+certainly Europe’s most important movement of
+protest and emancipation in the nineteenth and
+early twentieth centuries, a movement that con-
+tributed mightily to the democratization of poli-
+tics and society, even if during the twentieth
+century it split into an (internally diverse) social
+democratic branch and a Communist-totalitarian
+branch that has since become discredited. It was
+the pressure of workers’ demands on the shop
+floor, during strikes, by trade unions, and in poli-
+tics that contributed to the aforementioned im-
+provements in working conditions and thus, one
+might say, to civilizing capitalism.
+Historical comparison makes it clear that labor
+movements of this kind were not the inevitable
+outcome of the tension between capital and labor.
+Instead, underlying the growth of labor move-
+ments was a long series of cultural and political
+preconditions that existed to a great degree in
+large parts of the West in the nineteenth and
+early twentieth centuries. These same prerequi-
+sites have not survived at the same level of
+strength until the present day, nor can they nec-
+essarily be found in other regions of the world.
+For example, Chinese wage workers today cer-
+tainly experience commodification, capitalist in-
+strumentalization, uprooting, and exploitation in
+a manner that is roughly comparable with what
+European workers suffered during the first phase
+of industrialization, even if the Chinese experi-
+ence has been compressed into a shorter time,
+making it especially disruptive. Chinese wage
+workers also protest and rebel, in large numbers,
+almost daily. Yet in a People’s Republic that con-
+tinues to be partially dictatorial, Chinese workers’
+actions, without exception local events—protests
+and petitions at the workplace, strikes boycotts,
+blockades, sit-ins—have so far not coalesced to be-
+come a supra-local, supraregional protest and
+emancipation movement.30
+Two developments in the history of wage labor whose
+future is hard to predict merit special mention. For one, in
+a trend parallel to the financialization of capitalism, and as
+a consequence of changes in technology and market orga-
+nization, there has been a discernible fragmentation of
+work, including of wage labor, in space and time. Whereas
+in the Federal Republic of Germany in 1970, the ratio be-
+tween workers in fulltime employment and all others in the
+workforce doing part-time and short-time work or are tem-
+porarily and marginally employed—in other words, work-
+ers in so-called atypical employment conditions—was 5:1,
+this shifted by 1990 to 4:1 and 2:1 by 2013. Every third
+person in 2013, then, was working either part time, tem-
+porarily, on subcontract, or in a mini-job. The elasticity of
+gainful employment and the fluidity of working conditions
+are on the rise. Demands on the individual’s flexibility are
+increasing. The workplace is losing the clear contours that it
+first acquired in the nineteenth century. The new commu-
+nications media are facilitating new forms of outwork. A
+new regime of time is emerging in the gray areas between
+working time and free time, with part-time work and flex-
+time bringing fresh opportunities as well as new dependen-
+cies and risks. The findings need to be assessed in a differ-
+entiated way. Not every employment relationship that is
+“atypical” in this sense is precarious, especially not every
+part-time employment. Undoubtedly, this fluidity also har-
+bors new opportunities, for example, to link earning a liv-
+ing with other activities, to connect work with leisure, and
+to reconcile professional with family life. On the other
+hand, there is the danger that making employment condi-
+tions more flexible and work more fragmented will lead to
+a perilous erosion of individual identities and of social co-
+hesion, to the extent that these fixtures of modern life de-
+pend on continuous work of the kind that has been the case
+in the “work societies” of the West ever since the nineteenth
+century. In any event, the binding force of work, its power
+to shape structures of social welfare, create cultural ties, and
+socialize individuals, seems to have diminished recently.31
+Finally, it is worth looking at capitalism and wage labor
+in the regions of the “global South” that industrialized
+thoroughly only in the last several decades: wage labor
+there, which is extremely diverse, is usually researched and
+discussed in categories like “informal” and “nonstandard.”
+These terms refer to different forms of little-regulated,
+barely codified, and therefore highly unprotected and vul-
+nerable work in dependent, changing positions. The range
+of work includes migrant, seasonal, and casual labor, usu-
+ally with extremely low remuneration, in positions of ex-
+treme dependency, and mostly linked to other activities as
+well as other types of income that need to be put in a fam-
+ily context, since one cannot survive on just one of these
+income sources. This type of capitalistically influenced
+wage labor is justifiably regarded as highly precarious, and
+it is performed by workers of both genders (most frequently
+by women), also by many children, in the export-oriented
+agricultural and foodstuffs industries, in workshops and fac-
+tories, and for a wide variety of services, often in slums,
+under conditions of extreme insecurity, and in the face
+of great and growing inequality. Entrepreneurs, businesses,
+and factories—including many multinational concerns
+with headquarters in the “global North”—contribute to
+the spread of these precarious working conditions through
+targeted “outsourcing.” They supply goods for cheap mass
+consumption in affluent countries. In Asia, Africa, and
+Latin America, they make use of low-paid workers, often
+without formally hiring them, and often with the help of
+intermediary contractors, subcontractors, or agents. Legal
+protections, to the extent they even exist, are frequently
+half hearted and frequently circumvented or ignored. State
+authorities are often too weak, too partisan, or too corrupt
+to proceed effectively against such practices. The category
+of those working “informally” is difficult to demarcate and
+nearly impossible to register statistically. Rough estimates
+indicate a billion worldwide, with the trend on the rise.32
+In Europe and North America, the “labor question” has
+long since lost the agitating character it once possessed as
+a force that stirred up radical protest and unsettled the
+class society of the nineteenth and twentieth century. In
+western Europe, excoriating the immiseration of the work-
+ing class or the alienation of labor has long since ceased to
+hold the central place in the critique of capitalism it once
+occupied. But this interpretation is conditioned by the
+fragmentation along national or regional lines of the men-
+tal maps that continue to dominate our minds. If it were
+possible to make a truly global perspective the basis for
+our moral conscience, sense of social commitment, and
+political demands (something that would contravene not
+only ingrained habits but also weighty interests in the
+global North), the “labor question” would now suddenly
+reappear as the “labor question of the global South”: mor-
+ally challenging, an urgent problem of social justice, hard
+to change, but not hopeless. From a historical perspective,
+three questions obtrude:
+1. The categorization of this labor as “informal” or
+“nonstandard” depends on contrasting such labor
+with a model of constant, regulated, codified work
+that is assumed to be “formal” or “standard.” Yet
+not only does this supposed “standard” represent
+just a small minority phenomenon in most socie-
+ties of the global South, usually in state-related em-
+ployment; in any historical long-term perspective
+that includes the global North it is also the excep-
+tion, and even in the twentieth century it was not
+“normal” in many places, but at best what used to
+be (and frequently still is) the norm. If one takes
+this seriously, one can hardly avoid questioning
+the very categories “nonstandard” and “informal.”
+Yet they are hard to replace.
+2. The situation in the global South undoubtedly
+poses burdensome problems that were absent
+from the phase of industrial capitalism’s rise in
+Europe and North America. One problem in par-
+ticular is the oppressive dependence of a large
+part of the work performed on site upon multina-
+tional chains and corporations, a dependence as-
+sociated with postcolonial inequality between
+producers in the South and consumers (including
+processing and downstream manufacturers) in
+the North. Nevertheless, wage labor of the “infor-
+mal,” poorly paid, unprotected, precarious kind
+has always existed in Europe, too. It was a mass
+phenomenon in eighteenth- and nineteenth-
+century Europe, but it persisted as a phenomenon
+on the margins of European society in the second
+half of the twentieth and the beginning of the
+twenty-first century. Yet it was pushed back by
+regulated forms of wage labor and, above all, sig-
+nificantly defused. For this to happen, economic
+growth was an irreplaceable precondition. An-
+other contributing factor was the institutionaliza-
+tion of wage labor inside enterprises as something
+internal to capitalism. Pressure that emanated
+from labor movements also carried weight. But,
+above all, laws, ordinances, and governmental
+controls played a decisive role.
+3. If this ocean of informal labor is viewed globally
+together with the aforementioned tendencies to-
+ward “informalization” that have also been gain-
+ing ground in the economically most developed
+societies, then one can understand how—parallel
+to the financialization of capitalism since the
+1970s, and closely associated with this trend—
+the “informality” or “informalization” of wage
+labor represents a global challenge not likely to
+fade away anytime soon. Ultimately, this trend,
+like financialization, results from the increasingly
+pervasive application of the increasingly
+dominant principles of the market to ever more
+areas of economy and society under conditions
+of digitalized worldwide communication. Allevi-
+ating the major social problems that result from
+this trend will not succeed without forceful inter-
+vention from strong states and their cooperation.
+Market and state
+In the controversies that have surrounded capitalism, state
+and market are usually regarded as antipodes, and for
+good reason. Market action and governmental-political ac-
+tion are indeed beholden to different logics, especially in
+the democratic era. Each one has a different foundation on
+which its legitimacy rests: unequally distributed ownership
+rights on one side, equal citizenship rights on the other.
+They follow different procedures: there one of exchange,
+here a process of debate with the aim of building consensus
+and deciding by majority. There money is the most impor-
+tant medium; here, by contrast, it is power. The pursuit of
+particular advantages is the clear goal of market action,
+even if it can be claimed, along with Adam Smith, that this
+indirectly serves general utility. Attainment of the general
+welfare, by contrast, is the aim of politics, even if it is clear
+that the content of this public good only emerges out of the
+political process, and even if it is conceded that it is legiti-
+mate to pursue particular interests within the framework of
+the democratic decision-making process. Since the eigh-
+teenth century, liberal constitutional orders have justified
+restricting the autonomy of both spheres. They have tied
+the exercise of political power first to constitutional and
+then to democratic foundations, and deliberately not to
+economic resources. At the same time, however, they have
+secured the right to own property, and everything that en-
+sues from ownership, as a basic right, and have therefore
+removed it from the grasp of political and state power, no
+matter how large the constitutional leeway remains for ar-
+ranging the relationship of market to state in different
+ways. In constitutional states, political power and the eco-
+nomic resources that ensue from property rights limit each
+other reciprocally: this is a very fundamental aspect of the
+separation of powers that contributes to the guarantee of
+liberty.
+Over and over again, there have been political configu-
+rations in which the opposition between (more) state and
+(more) market represented the main controversy. This is
+how the issue was posed in the epochal conflict between
+the state-run, centrally administered economy and the
+capitalist market economy during the Cold War. It has
+been a similar divide at issue in the debates about “neolib-
+eralism,” deregulation, and privatization since the 1980s.
+Nonetheless, it would be wrong to conceive of market
+and state exclusively as antipodes. Although, as the fore-
+going account has tried to show, a certain institutional
+differentiation between market and state, between econ-
+omy and government policy, is among the preconditions
+for any form of capitalism, a close tie between market and
+state, between economy and state policy, has historically
+been the rule in one form or another: the variations on
+this tie have ranged from the practically symbiotic rela-
+tionship between high finance and power during the Mid-
+dle Ages, through the close interlinking of state formation
+with market formation in early modern Europe, and sub-
+sequent government intervention aimed at the social reg-
+ulation of wage labor in the nineteenth and twentieth
+centuries, to the increased demand for state intervention
+as a result of capitalism’s recent financialization. This se-
+ries of examples could be extended to include the im-
+portant role of government policy in implementing and
+expanding capitalism in the East Asian “tiger states” start-
+ing in the 1950s and 1960s and to the more or less dictato-
+rial or authoritarian state institutions in China and Russia
+over the last several decades.
+We may, especially with a view to the West, distinguish
+among three unequally long phases for the nineteenth
+and twentieth centuries,33 and it looks as if a fourth one
+has just begun. In response to the tight fusion of market
+and state in the early modern era, which Adam Smith
+was up in arms against, the at-core liberal revolutions and
+reforms of the Atlantic world in the late eighteenth and
+early nineteenth centuries ushered in a phase of rela-
+tive separation between market and state. States held back
+from taking an interventionist stance on economic and so-
+cial welfare policy until the 1870s and 1880s. They pro-
+moted the self-propelling dynamism of market economies
+at the same time that they left these market economies to
+their own devices. Talk of weak “night-watchman states”
+is, to be sure, completely misleading. In fact, it was during
+those decades that nation-states, which were to some ex-
+tent just emerging and to some extent developing into
+powerful entities, first really gained domestic and foreign
+agenda-setting powers. The contributions made by states
+to economic and social development were considerable;
+one need only think of the expansion in infrastructure
+and education, neither one of which most governments
+simply abandoned to the free play of market forces. Yet a
+policy of economic liberalism and deregulation under the
+banner of free trade was the appropriate fit for the kind of
+competition between mostly small businesses that was
+barely controlled and for a workforce that was still hardly
+organized. Although some protective regulation arrived
+with the “Factory Acts” and similar regulations (1833 in
+England, later in other countries), state support for welfare
+remained minimal, and the liberal belief in the freedom
+of the individual as something useful for all remained strong.
+The 1870s and 1880s brought about a change of trend.
+The change was, on the one hand, a reaction to the serious
+international crisis of capitalism in the 1870s. On the other
+hand, it was also a response to growing social tensions
+and especially to the rise of the organized labor movement.
+The shift also fit in with the trend toward concentration,
+mergers, and comprehensive organization typical of the
+managerial capitalism that was emerging in the last quar-
+ter of the nineteenth century and increasingly augmenting
+the older kind of ownership capitalism. As was demon-
+strated by a renewal of interventionism in economic policy
+(e.g., nationalized industries), by growing public spending,
+but also by initiatives in foreign economic policy that ac-
+companied the implementation of imperialism ( protec-
+tionist tariffs, subsidies, zones of influence, and colonies
+established also for economic purposes), and especially by
+the rise of the welfare state starting in the 1880s, state
+authorities were now intervening with greater intensity in
+economy and society, just as, conversely, economic and
+social interests that had become increasingly organized
+were now exercising influence on politics and public pol-
+icy through their lobbies and interest groups. In place
+of the relative distance between market and state culti-
+vated by economic liberalism during the preceding phase
+of capitalism, the decades prior to the First World War now
+witnessed an increasingly tight interdependence between
+market and state under the banner of the “organization”
+principle. There was talk of “organized” and also of “co-
+ordinated” or “controlled capitalism,” whose foundations
+had already been laid in the decades prior to 1914.34
+Political and economic forces driving expansion were
+tightly linked in the epochal phenomenon of imperial-
+ism, whose tension-filled rise since the 1880s contributed
+mightily to the outbreak of the First and Second World
+Wars. The First World War promoted a comprehensive non-
+market organization of capitalism in every one of the bel-
+ligerent states, even if this was only partial and transitory.
+The protectionism of the interwar period widened once
+again the distance separating the twentieth century from
+the era of classical liberal free trade. The world economic
+crisis of the 1930s strengthened anew the inclination of
+states to intervene in economic and social processes. This
+renewed interventionism assumed a severely undemocra-
+tic guise in the dictatorships of Europe and Japan, but it
+took on a democratic form in the American New Deal,
+which in the 1930s laid the groundwork for a welfare state
+even in the United States. After the Second World War, to
+be sure, the war economy’s compulsory measures were
+abolished and its protectionist encrustations dismantled
+step by step. But in other respects—the expansion of the
+welfare state and labor legislation, cooperation between or-
+ganized interests and state agencies, economic policy in-
+creasingly tailored to Keynesian standards, a stronger role
+for nationalized sectors and government planning overall,
+rudiments of intergovernmental coordination at the global
+level—the third quarter of the twentieth century was the
+high point of organized capitalism. This thorough entangle-
+ment of market and state prompted talk about a “mixed
+economy”—a term that drew a dual line of demarca-
+tion, distinguishing this order both from the laissez-faire
+capitalism of yore and from the centrally administered
+economic system under Soviet hegemony. During the third
+quarter of the twentieth century, there were many in the
+West as well who believed they were on the way into a
+postcapitalist phase. Yet realism was on the side of those
+observers who diagnosed a new stage of capitalist develop-
+ment and talked about “organized capitalism,” “coordi-
+nated capitalism,” or even “welfare capitalism.” The Cold
+War gave this debate additional momentum. For the Com-
+munist challenge repeatedly stimulated an interest in capi-
+talism’s capacity for reform.35
+In the late 1970s there began a phase of “revived market
+capitalism” (Charles Maier). “Neoliberal” theories prizing
+the self-regulating forces of the market gained force, a de-
+liberate thrust toward deregulation and privatization took
+place along with a certain retrenchment in social welfare
+services to reverse the major trend line of the previous de-
+cades. At the same time, the revival ushered in a shift in
+emphasis from organized labor to the side of capital. One
+of the causes of this change in direction was undoubtedly
+the economic crisis of the 1970s, which forcefully demon-
+strated the limits of the system of organized capitalism
+that had been dominant up to then by presenting policy
+makers with the double problem of mass unemployment
+and monetary erosion (“stagflation”). Among the funda-
+mental causes deserving special mention is the rapid
+growth of global competition, which placed the old indus-
+trial countries with their high wage and labor costs under
+considerable pressure. It also happened that the function-
+ing of organized capitalism in the antecedent decades pre-
+supposed a degree of social consensus that was increasing
+eroding in some countries, notably England. Since the
+end of the 1970s, the United Kingdom, soon joined by the
+United States, became the country pioneering this change
+of course. But the zeitgeist had also changed, away from
+organization and solidarity as leading values, and toward
+individualization and appreciating diversity and spon-
+taneity. The rapid rise of consumer capitalism fit in with
+this trend. The collapse of the Eastern bloc was interpreted
+as proof that market forces were superior to planning.
+That collapse, moreover, removed the great challenge of a
+noncapitalist alternative. During the Cold War, the pres-
+ence of such an alternative had increased the willingness
+of some representatives of capital and many political ac-
+tors to be more responsive toward workers’ demands and
+to back a more welfare-conscious social market economy
+as a way of forestalling more radical changes.
+
+But it did not come to a real rollback of the state; quite
+the contrary. On the European continent, and all the more
+so in East Asia, the Anglo-American neoliberal model was
+followed only reluctantly or not at all. The dismantling of
+social services in Germany, for example, was kept within
+very narrow limits even in the last decade of the twentieth
+and first decade of the twenty-first century; the frequently
+invoked Wende (“turning point”) in German economic
+and social policy never took place. There as elsewhere, re-
+sistance to the neoliberalization of capitalism remained
+unbroken, public spending high. Yet deregulation gained
+ground internationally, especially in the field of finance
+and as part of the more general financialization of the econ-
+omy that set in.36
+Whether the international financial crisis since 2008 has
+ended the phase of “revived market capitalism” and started
+a fourth phase of modern capitalism’s history remains to be
+seen. The crisis has profoundly shaken the foundations of
+neoliberalism’s legitimation, both political and intellectual.
+For, without a doubt, deregulation of the financial sector
+was an important cause of the financial economy’s collapse
+in 2008, which started in the leading countries embrac-
+ing radical market finance capitalism, the United States
+and England. And the core convictions of neoliberalism—
+autonomy and the self-regulating capacity of markets—
+were disclaimed and discredited by the key actors of finance
+capitalism themselves in the crisis of 2008 as these capital-
+ists practically pleaded with national governments to stave
+off their final collapse, which governments—using the ar-
+gument “too big to fail”—then did. As a consequence, pub-
+lic debt grew by leaps and bounds. The financial market
+crisis of capitalism was transformed into a public debt cri-
+sis, with damaging consequences whose end is not yet in
+sight, especially in Europe. The self-disenchantment of the
+neoliberal myth about the market’s self-healing powers
+could not have been more thoroughgoing.
+Yet the consequences are by no means clear. Certain
+tendencies to reregulation of the financial sector have been
+introduced, in individual countries as well as interna-
+tionally. Yet the influence of the interested parties affected
+thereby is great, and that influence is impeding many
+a conceivable solution. The subject matter is complicated.
+Above all, the power to make and implement political de-
+cisions are not nearly strong enough at the supranational
+level, although this would be necessary in order to tame a
+finance capitalism that has long been globally active.
+Whoever wants to compare different types of contempo-
+rary capitalism will usually select the different relationships
+of market to state as the central criterion distinguishing dif-
+ferent “varieties of capitalism” from each other.37 And in-
+deed, the relationship of market to state varies greatly from
+country to country. Without making any claim to being
+exhaustive, this may be illustrated with a few examples.
+A kind of organized capitalism with strong state inter-
+vention also developed in the United States during the
+twentieth century. But it showed up in America more
+under the guise of regulation to secure competition ( pro-
+hibitions on cartels, antitrust policy), and also in the form
+of a military-industrial complex linking private enterprise
+with the state. While the American version also included
+government-facilitated financing of mass consumption
+through easy credit, it had less to do with the provision of
+welfare services by the state or with government interven-
+tion into the internal affairs of companies. Sweden, by
+contrast, proved that a very competitive capitalism is com-
+patible not only with a functioning democracy, but also
+with state-regulated cooperation between classes, values
+oriented toward collective solidarity, and a high level of
+welfare state services. Even if in Sweden, too, the “neo-
+liberal” about-face starting in the 1980s was tantamount
+to a certain streamlining of the welfare state, there was
+not nearly such a far-reaching cutback of social services
+there as there was in England at the same time. In Ger-
+many, which may be regarded as the motherland of orga-
+nized capitalism in the late nineteenth and twentieth cen-
+turies, a variety of “Rhenish capitalism” started to develop
+in the 1950s that also included a great deal of state-
+supported coordination and a pronounced welfare state
+orientation (the “social market economy”). Yet postwar
+German economic policy had many fewer instances of di-
+rect interventionism than did Sweden or France at the
+same time, and there was much greater respect for the self-
+regulating capacity of civil society than, for example, in
+Japan. There industrialization only started in the late nine-
+teenth century, under very strong state guidance from the
+outset, although the state’s planning and management
+authorities cooperated closely with the country’s gigantic
+private enterprises, the zaibatsu, and gave a powerful push
+to the development of technology, industry, and exports.
+At the same time, authorities in this country of weak trade
+unions and enterprises that took care of everything largely
+dispensed with the development of a comprehensive wel-
+fare state.
+Through resolute policies promoting exports, critical
+investments in training, and high macroeconomic savings
+rates, Hong Kong and Taiwan started to industrialize in
+the 1950s, Singapore and South Korea in the 1960s. They
+clearly embarked on a course of capitalism and the market
+economy, but without exception involving intensive sup-
+port and guidance by the state. Singapore’s authoritarian
+governmental structure, like that of South Korea’s at the
+outset, was much more conducive than cumbersome to
+industrialization. China’s modernization in the post-
+Maoist era rested, on the one hand, on the market-oriented
+energies of broad sections of the population no longer
+subjected to constrictions. On the other hand, something
+like a “revolution from above” also occurred. The capital-
+ist dynamism that quickly gathered pace was initiated
+and guided by party cadres and state functionaries, but
+they were aiming at a limited release of entrepreneurial
+activity and, to this extent, at a certain self-restriction by
+the state. The items on the Chinese modernization agenda
+included privatizing some state enterprises, melting away
+the Maoist welfare state and the security it guaranteed,
+and unleashing a massive rural-to-urban migration that
+produced exploitation and privation on a scale recall-
+ing Europe’s early industrialization. Workers protested
+against social decline, exploitation, and insecurity by hold-
+ing up pictures of Mao in admonition, while their Com-
+munist government was taking advice from the upper
+echelons of North American finance capitalism and enlist-
+ing the resources, networks, and patriotism of Chinese
+living abroad. China has developed a state-monitored in-
+dustrial capitalism resting on low wages, hard exploita-
+tion of workers, and mass exports that quickly led to great
+economic success, immense riches in the hands of a few,
+and also to a great deal of protest. The influence of the
+state on this kind of industrialization remained strong, al-
+though it is abating a little. Most banks, energy and com-
+munication enterprises as well as firms in other strategic
+branches remain state-owned or at least state-controlled,
+there is no free market for real estate, and government in-
+terventions permeate both the economy and civil society.
+Wages are low by international standards, yet since 2005
+they have also been growing in relative terms. On the
+whole, most Chinese are doing better today than thirty
+years ago. The repressiveness of the political system is pro-
+nounced, but it is exercised selectively and guardedly with
+regard to the actors involved in economic growth. Over-
+all, this is an experiment demonstrating once again the
+variety of political conditions under which capitalism—at
+least for a time—can flourish. But only time will tell how
+compatible market and state are under authoritarian-
+dictatorial conditions in the long run. In Russia, the tran-
+sition to capitalism in the 1990s led to the state partially
+withdrawing itself from the economy, but also to eco-
+nomic retrogression, unprecedented inequality, and major
+social damage until around 2003, when a strong trend to-
+ward reinvigorating the influence of the state became evi-
+dent. By way of comparison, India has on the whole been
+following a rather liberal course economically for a good
+two decades.
+State interventions have been indispensable for the
+emergence, expansion, and survival of capitalism, as this
+historical overview shows. Government interventions into
+capitalist market economies are likely to become even more
+important over the coming years and decades. There are
+three systemic reasons why the need for state intervention
+has always been strong and will probably continue to grow.
+1. Markets, which make capitalistic conduct possi-
+ble in the first place, presuppose framework con-
+ditions that can only be established by political
+means. Markets cannot do the job of removing
+barriers to commerce (e.g., feudal obstacles such
+as guild regulations, trade monopolies and privi-
+leges, fines and tolls on travel) that fragment and
+constrain, of guaranteeing a minimum of peace-
+ful order, and of providing rules to conclude and
+implement contracts or contract-like agreements.
+Without the use of political power, capitalism
+would never have taken off, nor can it take off in
+the future. Often the preconditions for the exis-
+tence of supraregional markets resulted from the
+use of force—in war, for example, or in the
+course of colonization.
+A growing instability of capitalist processes can
+be discerned, to the extent that these processes
+have become detached over the last several de-
+cades from the restrictive but also stabilizing
+grounds in which they were once embedded and
+have, moreover, become internally differentiated.
+This was illustrated above in the case of two dif-
+ferent transitions, first from ownership to man-
+agerial capitalism, and then with the shift to
+capitalism’s current phase of financialization. In
+the second transition, the investment function
+has been so powerfully detached from its ties to
+other functions (such as management of the en-
+terprise or personnel policy) that it has become
+an independent force, carried away to the point
+of self-destruction unless the investment func-
+tion can be recaptured and reembedded. In the
+search for new ways of embedding finance, state
+guidelines and controls need not play the only
+role. Civil society-based arrangements become
+increasingly relevant, but strong and effective
+government intervention remains indispensable.
+( The problem is posed in a somewhat different
+way, however, outside the North Atlantic area,
+where widespread clientelism, patronage, and
+corruption—in other words, special ways of “em-
+bedding” economic institutions in community,
+society, and politics—lead to features of the sys-
+tem that have been characterized and criticized
+with such catchwords as “patrimonial capital-
+ism” and “crony capitalism.”)39
+Capitalism, even in its advanced stages, develops
+in a way that has disruptive and destructive ef-
+fects on its social, cultural, and political envi-
+ronment and can call into question its social
+acceptance. Here one need only recall the
+profound crises, repeated with a certain inevita-
+bility, that have a habit of starting out as finan-
+cial crises, as in 1873, 1929–1930 und 2007–2008,
+yet leave in their wake serious repercussions for
+the “real economy,” impair the welfare of broad
+sectors of the population, and possibly lead to so-
+cial and political disruptions. In equal measure,
+though, attention must be drawn to the long-
+term polarizing effects of capitalism when it has
+been successful. By this I do not mean only the
+well-known connection between industrializa-
+tion, wage labor, and worker protest, which leads
+to social polarization when not counteracted by
+welfare state measures. Rather, it is also impor-
+tant to mention what is demonstrated by certain
+findings from the early modern Netherlands,
+from the process of industrialization in the nine-
+teenth century, and from experiences over the
+last several decades. These different findings all
+show that capitalist growth, if not counteracted
+with compensatory measures, does not necessar-
+ily lead to massive impoverishment—quite the
+contrary!—but does go hand in hand with in-
+creasing income and wealth inequality. Exorbi-
+tantly high managerial earnings, whose lead over
+average incomes in the last several decades has
+reached dizzying heights, are just a tiny, though
+quite visible and especially irritating, aspect of an
+increase in inequality that is quite complex. Es-
+pecially in democratic political cultures, this
+surge in inequality is perceived as unjust, and
+over the long run it can call into question the le-
+gitimacy of the system.40
+Historical experiences show that the destabilizing social
+consequences of capitalism can at least be alleviated by
+governmental measures if a body politic is strong enough
+and capable of mobilizing such measures, even in the face
+of resistance, and implementing them with a sense of pro-
+portion. In this regard, there is a growing need over the
+long run for compensatory and preventive intervention
+by the state, especially since the politically active public in
+many countries has become more sensitive, more articu-
+late, and with a higher level of aspirations, and this criti-
+cal public is likely to express its concerns even more in the
+future. Political systems, however, often have only a lim-
+ited capacity for producing the services that are actually
+necessary. It is obvious that such factors as the existence
+or lack of a protest culture, the political public’s level of
+development, and the peculiarities of each political sys-
+tem are very decisive in determining whether economic
+and social grievances lead to social movements and gov-
+ernment interventions that, should they prove successful,
+enhance capitalism’s social acceptability and hence also
+its capacity for survival. The rise of the welfare state since
+the late nineteenth century is the best example of how
+this works. Today an analogous process for civilizing capi-
+talism is impeded by the lack of a match between an in-
+creasingly global capitalism operating across borders and
+the organization of political power still largely structured
+around national states. We are a long way from any kind
+of transnational global sovereignty that could really check
+capitalism’s persistently vigorous dynamism with coun-
+tervailing force: this mismatch continues to pose an un-
+solved problem.

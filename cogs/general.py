@@ -1,9 +1,5 @@
 """"
-Copyright © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja)
-Description:
-🐍 A simple template to start to code your own and personalized discord bot in Python programming language.
-
-Version: 6.1.0
+Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
 """
 
 import platform
@@ -13,86 +9,108 @@ import re
 import aiohttp
 import discord
 from discord import app_commands
+from discord.app_commands import TransformerError
 from discord.ext import commands
 from discord.ext.commands import Context
 
 from utils.definitions import Customs
+from utils.botlogger import Dev as BOTLOGGER
 
 
 class General(commands.Cog, name="general"):
     def __init__(self, bot) -> None:
         self.bot = bot
-        self.context_menu_user = app_commands.ContextMenu(
-            name="Grab ID", callback=self.grab_id
-        )
-        self.bot.tree.add_command(self.context_menu_user)
-        self.context_menu_message = app_commands.ContextMenu(
-            name="Remove spoilers", callback=self.remove_spoilers
-        )
-        self.bot.tree.add_command(self.context_menu_message)
+        # self.context_menu_user = app_commands.ContextMenu(
+        #     name="User ID", callback=self.grab_id
+        # )
+        # self.bot.tree.add_command(self.context_menu_user)
+        # self.context_menu_message = app_commands.ContextMenu(
+        #     name="Remove spoilers", callback=self.remove_spoilers
+        # )
+        # self.bot.tree.add_command(self.context_menu_message)
 
-    # ---------------
-    # EVENT LISTENERS
-    # ---------------
+    # ███████╗██╗   ██╗███████╗███╗   ██╗████████╗███████╗
+    # ██╔════╝██║   ██║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+    # █████╗  ██║   ██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+    # ██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+    # ███████╗ ╚████╔╝ ███████╗██║ ╚████║   ██║   ███████║
+    # ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
 
     @commands.Cog.listener(name="on_message")
     async def on_message(self, message) -> None:
         """
-        This event is triggered when a message is sent.
+        Universal general message triggers. Stuff that doesn't have any particular category, or is bundled with QoL
+        stuff, will appear here.
 
-        :param message: The message that was sent.
+        :param message: Message object.
         """
+        ctx = await self.bot.get_context(message)
         if message.author.bot or message.content.startswith(self.bot.config["prefix"]):
             return
-        is_twitter, twitter_username, twitter_status_id = Customs.has_twitter_link(message.content)
+        is_twitter, twitter_username, twitter_status_id = Customs.has_twitter_link(message.content)  # !!
         if is_twitter:
-            await message.channel.send(f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}")
-        if message.guild.id == 737710058431053836:
-            if message.channel.id == 737713464755224586:
-                if re.search(r"discord.gg", message.content):
-                    await message.delete()
-                    await message.channel.send(f"{message.author.mention}, you are not allowed to send invites in "
-                                               f"this channel.")
+            build = f"https://fxtwitter.com/{twitter_username}/status/{twitter_status_id}"
+            await message.channel.send(build)
+            command_or_action = f"Twitter Embed\n**Contents:** {build}"
+            await BOTLOGGER.log_debug(self.bot, ctx, command_or_action, True)
 
-    # Message context menu command
-    async def remove_spoilers(
-        self, interaction: discord.Interaction, message: discord.Message
-    ) -> None:
-        """
-        Removes the spoilers from the message. This command requires the MESSAGE_CONTENT intent to work properly.
+        # TODO: implement this better!! add custom options for each guild. good foundation =)
+        # if message.guild.id == 737710058431053836:
+        #     if message.channel.id == 737713464755224586:
+        #         if re.search(r"discord.gg", message.content):
+        #             await message.delete()
+        #             await message.channel.send(f"{message.author.mention}, you are not allowed to send invites in "
+        #                                        f"this channel.")
 
-        :param interaction: The application command interaction.
-        :param message: The message that is being interacted with.
+    @commands.hybrid_command(
+        name="pinit",
+        description="Pin the last message in the current channel or the last message from a specified user.",
+        aliases=["pin", "p"],
+    )
+    @commands.guild_only()
+    @commands.bot_has_guild_permissions(manage_messages=True)
+    @commands.has_guild_permissions(manage_messages=True)
+    async def pinit(self, context: Context, user: discord.User = None) -> None:
         """
-        spoiler_attachment = None
-        for attachment in message.attachments:
-            if attachment.is_spoiler():
-                spoiler_attachment = attachment
-                break
-        embed = discord.Embed(
-            title="Message without spoilers",
-            description=message.content.replace("||", ""),
-            color=0xBEBEFE,
-        )
-        if spoiler_attachment is not None:
-            embed.set_image(url=attachment.url)
-        await interaction.response.send_message(embed=embed, ephemeral=True)
+        Pin the last message in the current channel or the last message from a specified user.
+        https://discordpy.readthedocs.io/en/stable/api.html?highlight=history#discord.TextChannel.history
 
-    # User context menu command
-    async def grab_id(
-        self, interaction: discord.Interaction, user: discord.User
-    ) -> None:
+        :param context: The command context.
+        :param user: Optional argument, a user mention or ID.
         """
-        Grabs the ID of the user.
+        if user is None:
+            try:
+                last_message = [message async for message in context.channel.history(limit=2)]
+            except discord.Forbidden:
+                embed = discord.Embed(description="I don't have permission to do that.",
+                                      colour=discord.Colour.brand_red())
+                await context.send(embed=embed)
+                return
+            except discord.HTTPException as _:
+                embed = discord.Embed(description=f"An error occurred while fetching the message.\n{_}",
+                                      colour=discord.Colour.brand_red())
+                await context.send(embed=embed)
+                return
+        else:
+            try:
+                last_message = [message async for message in context.channel.history(limit=2) if message.author == user]
+            except discord.Forbidden:
+                embed = discord.Embed(description="I don't have permission to do that.",
+                                      colour=discord.Colour.brand_red())
+                await context.send(embed=embed)
+                return
+            except discord.HTTPException as _:
+                embed = discord.Embed(description=f"An error occurred while fetching the message.\n{_}",
+                                      colour=discord.Colour.brand_red())
+                await context.send(embed=embed)
+                return
 
-        :param interaction: The application command interaction.
-        :param user: The user that is being interacted with.
-        """
-        embed = discord.Embed(
-            description=f"The ID of {user.mention} is `{user.id}`.",
-            color=0xBEBEFE,
-        )
-        await interaction.response.send_message(embed=embed, ephemeral=True)
+        if last_message[0]:
+            await last_message[0].pin()
+            embed = discord.Embed(description=f"Successfully pinned the last message by "
+                                              f"{last_message[0].author.mention}.",
+                                  colour=discord.Colour.dark_blue())
+            await context.send(embed=embed)
 
     @commands.hybrid_command(
         name="help", description="List all commands the bot has loaded."
@@ -100,7 +118,7 @@ class General(commands.Cog, name="general"):
     async def help(self, context: Context) -> None:
         prefix = self.bot.config["prefix"]
         embed = discord.Embed(
-            title="Help", description="List of available commands:", color=0xBEBEFE
+            description="List of available commands:", color=0xBEBEFE
         )
         for i in self.bot.cogs:
             if i == "owner" and not (await self.bot.is_owner(context.author)):
@@ -119,7 +137,7 @@ class General(commands.Cog, name="general"):
 
     @commands.hybrid_command(
         name="botinfo",
-        description="Get some useful (or not) information about the bot.",
+        description="Descriptive system information about the bot.",
     )
     async def botinfo(self, context: Context) -> None:
         """
@@ -128,20 +146,20 @@ class General(commands.Cog, name="general"):
         :param context: The hybrid command context.
         """
         embed = discord.Embed(
-            description="Used [Krypton's](https://krypton.ninja) template",
-            color=0xBEBEFE,
+            description="Otto is a multifunctional bot designed to be helpful in a range of situations. "
+                        "He has no sense of humour..",
+            color=discord.Colour.og_blurple(),
         )
         embed.set_author(name="Bot Information")
-        embed.add_field(name="Owner:", value="Krypton#7331", inline=True)
-        embed.add_field(
-            name="Python Version:", value=f"{platform.python_version()}", inline=True
-        )
+        embed.add_field(name="Owner:", value="hi_skittles", inline=True)
+        embed.add_field(name="Python Version:", value=f"{platform.python_version()}", inline=True)
         embed.add_field(
             name="Prefix:",
-            value=f"/ (Slash Commands) or {self.bot.config['prefix']} for normal commands",
+            value=f"I support slash commands or the legacy prefix, `{self.bot.config['prefix']}`",
             inline=False,
         )
-        embed.set_footer(text=f"Requested by {context.author}")
+        embed.set_footer(text="Part of this bot uses code from Krypton's (https://krypton.ninja) template.",
+                         icon_url="https://krypton.ninja/_next/image?url=%2Fstatic%2FKrypton-Avatar.png&w=96&q=75")
         await context.send(embed=embed)
 
     @commands.hybrid_command(
@@ -157,7 +175,7 @@ class General(commands.Cog, name="general"):
         roles = [role.name for role in context.guild.roles]
         if len(roles) > 50:
             roles = roles[:50]
-            roles.append(f">>>> Displayin [50/{len(roles)}] Roles")
+            roles.append(f">>>> Displaying [50/{len(roles)}] Roles")
         roles = ", ".join(roles)
 
         embed = discord.Embed(
@@ -176,7 +194,7 @@ class General(commands.Cog, name="general"):
 
     @commands.hybrid_command(
         name="ping",
-        description="Check if the bot is alive.",
+        description="Gives self.bot.latency.",
     )
     async def ping(self, context: Context) -> None:
         """
@@ -185,72 +203,9 @@ class General(commands.Cog, name="general"):
         :param context: The hybrid command context.
         """
         embed = discord.Embed(
-            title="🏓 Pong!",
-            description=f"The bot latency is {round(self.bot.latency * 1000)}ms.",
+            description=f"Hello. Latency is, **{round(self.bot.latency * 1000)}**ms.",
             color=0xBEBEFE,
         )
-        await context.send(embed=embed)
-
-    @commands.hybrid_command(
-        name="invite",
-        description="Get the invite link of the bot to be able to invite it.",
-    )
-    async def invite(self, context: Context) -> None:
-        """
-        Get the invite link of the bot to be able to invite it.
-
-        :param context: The hybrid command context.
-        """
-        embed = discord.Embed(
-            description=f"Invite me by clicking [here]({self.bot.config['invite_link']}).",
-            color=0xD75BF4,
-        )
-        try:
-            await context.author.send(embed=embed)
-            await context.send("I sent you a private message!")
-        except discord.Forbidden:
-            await context.send(embed=embed)
-
-    @commands.hybrid_command(
-        name="8ball",
-        description="Ask any question to the bot.",
-    )
-    @app_commands.describe(question="The question you want to ask.")
-    async def eight_ball(self, context: Context, *, question: str) -> None:
-        """
-        Ask any question to the bot.
-
-        :param context: The hybrid command context.
-        :param question: The question that should be asked by the user.
-        """
-        answers = [
-            "It is certain.",
-            "It is decidedly so.",
-            "You may rely on it.",
-            "Without a doubt.",
-            "Yes - definitely.",
-            "As I see, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes.",
-            "Signs point to yes.",
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again later.",
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful.",
-        ]
-        embed = discord.Embed(
-            title="**My Answer:**",
-            description=f"{random.choice(answers)}",
-            color=0xBEBEFE,
-        )
-        embed.set_footer(text=f"The question was: {question}")
         await context.send(embed=embed)
 
     @commands.hybrid_command(
@@ -285,7 +240,7 @@ class General(commands.Cog, name="general"):
             context: Context,
             title: str,
             description: str,
-            color: discord.Color = None,
+            color: str = None,
             footer: str = None,
     ) -> None:
         """
@@ -297,13 +252,23 @@ class General(commands.Cog, name="general"):
         :param color: The color of the embed.
         :param footer: The footer of the embed.
         """
-        if color is None or footer is None:
+        try:
             if color is None:
                 color = discord.Color.random()
-            if footer is None:
-                footer = f"Requested by {context.author}"
+            else:
+                color = getattr(discord.Color, color)()
+        except AttributeError:
+            embed = discord.Embed(description=f"Seems like you provided an invalid colour..",
+                                  color=discord.Color.dark_red())
+            await context.send(embed=embed)
+            return
+
+        if footer is None:
+            footer = f"Requested by {context.author}"
+
         embed = discord.Embed(title=title, description=description, color=color)
         embed.set_footer(text=footer)
+
         await context.send(embed=embed)
 
 

@@ -1,9 +1,5 @@
-"""
-Copyright © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja)
-Description:
-🐍 A simple template to start to code your own and personalized discord bot in Python programming language.
-
-Version: 6.1.0
+""""
+Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
 """
 
 import json
@@ -19,10 +15,12 @@ from discord.ext import commands, tasks
 from discord.ext.commands import Context
 from dotenv import load_dotenv
 
-from database import DatabaseManager
+from database import DatabaseManager, InternalBotSettingsDbManager
+
+from utils.botlogger import Dev as BOTLOGGER
 
 if not os.path.isfile(f"{os.path.realpath(os.path.dirname(__file__))}/config.json"):
-    sys.exit("'config.json' not found! Please add it and try again.")
+    sys.exit("Help! I couldn't find the 'config.json' file! Please make sure it is in the same directory as bot.py.")
 else:
     with open(f"{os.path.realpath(os.path.dirname(__file__))}/config.json") as file:
         config = json.load(file)
@@ -168,12 +166,12 @@ class DiscordBot(commands.Bot):
                         f"Failed to load extension {extension}\n{exception}"
                     )
 
-    @tasks.loop(minutes=1.0)
+    @tasks.loop(minutes=15.0)
     async def status_task(self) -> None:
         """
         Set up the game status task of the bot.
         """
-        statuses = ["with Maximus", "with your feelings", "with your heart"]
+        statuses = ["with Maximus", "with your feelings", "with your heart", "pycharm", "not with java", "LWJGL", "Minecraft!", "90% bug free", "Euclidian", "OpenGL 1.2", "not Spock", "sqrt(-1)", "[] == []", "20 GOTO 10", "[[]] lines of code!", "OICU812", "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch", "Llanfairpwllgwyngyll", "Jason!", "idspispopd", "Stop This Flame (MK edit)"]
         await self.change_presence(activity=discord.Game(random.choice(statuses)))
 
     @status_task.before_loop
@@ -197,7 +195,7 @@ class DiscordBot(commands.Bot):
         await self.init_db()
         await self.load_cogs()
         self.status_task.start()
-        self.internal_bot_settings = DatabaseManager(
+        self.internal_bot_settings = InternalBotSettingsDbManager(
             connection=await aiosqlite.connect(
                 f"{os.path.realpath(os.path.dirname(__file__))}/database/internal_bot_settings.db"
             )
@@ -214,7 +212,8 @@ class DiscordBot(commands.Bot):
 
         :param message: The message that was sent.
         """
-        if message.author == self.user or message.author.bot:
+        if (await bot.internal_bot_settings.is_blacklisted(message.author.id)
+                or message.author == self.user or message.author.bot):
             return
         await self.process_commands(message)
 
@@ -229,12 +228,13 @@ class DiscordBot(commands.Bot):
         executed_command = str(split[0])
         if context.guild is not None:
             self.logger.info(
-                f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by {context.author} (ID: {context.author.id})"
+                f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by "
+                f"{context.author} (ID: {context.author.id})"
             )
+            await BOTLOGGER.log_debug(self, context, split, False)
         else:
-            self.logger.info(
-                f"Executed {executed_command} command by {context.author} (ID: {context.author.id}) in DMs"
-            )
+            self.logger.info(f"Executed {executed_command} command by {context.author} "
+                             f"(ID: {context.author.id}) in DMs")
 
     async def on_command_error(self, context: Context, error) -> None:
         """
@@ -248,29 +248,34 @@ class DiscordBot(commands.Bot):
             hours, minutes = divmod(minutes, 60)
             hours = hours % 24
             embed = discord.Embed(
-                description=f"**Please slow down** - You can use this command again in {f'{round(hours)} hours' if round(hours) > 0 else ''} {f'{round(minutes)} minutes' if round(minutes) > 0 else ''} {f'{round(seconds)} seconds' if round(seconds) > 0 else ''}.",
-                color=0xE02B2B,
+                description=f"**Please slow down** - You can use this command again in "
+                            f"{f'{round(hours)} hours' if round(hours) > 0 else ''} "
+                            f"{f'{round(minutes)} minutes' if round(minutes) > 0 else ''} "
+                            f"{f'{round(seconds)} seconds' if round(seconds) > 0 else ''}.",
+                color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.NotOwner):
             embed = discord.Embed(
-                description="You are not the owner of the bot!", color=0xE02B2B
+                description="You are not the owner of the bot!", color=discord.Color.dark_red()
             )
             await context.send(embed=embed)
             if context.guild:
                 self.logger.warning(
-                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the guild {context.guild.name} (ID: {context.guild.id}), but the user is not an owner of the bot."
+                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the guild "
+                    f"{context.guild.name} (ID: {context.guild.id}), but the user is not an owner of the bot."
                 )
             else:
                 self.logger.warning(
-                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the bot's DMs, but the user is not an owner of the bot."
+                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the "
+                    f"bot's DMs, but the user is not an owner of the bot."
                 )
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
                 description="You are missing the permission(s) `"
                 + ", ".join(error.missing_permissions)
                 + "` to execute this command!",
-                color=0xE02B2B,
+                color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
@@ -278,7 +283,7 @@ class DiscordBot(commands.Bot):
                 description="I am missing the permission(s) `"
                 + ", ".join(error.missing_permissions)
                 + "` to fully perform this command!",
-                color=0xE02B2B,
+                color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):

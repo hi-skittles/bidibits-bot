@@ -162,7 +162,7 @@ Here is the list of all the updates that I made on this template.
 ### Version 2.4
 
 - Added some fun commands
-- Colors are saved in the [config file](config.json) for easier usage
+- Colors are saved in the [config file](../config.json) for easier usage
 - Cogs are now being loaded automatically
 - Fixed some typos
 
@@ -186,7 +186,7 @@ Here is the list of all the updates that I made on this template.
 
 - Added cogs
 - Added f-strings and removed `.format()`
-- Created [config file](config.json) for easier setup
+- Created [config file](../config.json) for easier setup
 
 ### Version 1.2
 

@@ -6,7 +6,7 @@ class Customs:
     @staticmethod
     def has_twitter_link(url: str) -> tuple[bool, str | Any, str | Any] | bool:
         """
-        Checks if the given URL is a Twitter link.
+        Checks if the given URL or string is/contains a Twitter link.
 
         :param url: The URL to check.
         :return: True if the URL is a Twitter link, False otherwise.

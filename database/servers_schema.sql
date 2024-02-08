@@ -8,3 +8,4 @@
 -- 	"joined_at_date"	INTEGER NOT NULL,
 -- 	PRIMARY KEY("server_id")
 -- );
+

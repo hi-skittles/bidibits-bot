@@ -10,6 +10,7 @@ import sqlite3
 import aiosqlite
 
 
+# TODO: unsafe to use same class for any DB connection
 class DatabaseManager:
     def __init__(self, *, connection: aiosqlite.Connection) -> None:
         self.connection = connection
@@ -74,10 +75,72 @@ class DatabaseManager:
             result = await cursor.fetchone()
             return result[0] if result is not None else 0
 
+    # TODO: rename this function
+    async def create_server_table(self, server_id: int, server_name: str) -> bool:
+        """
+        This method will create a new table for each server the bot joins.
+
+        :param server_id: The ID of the server.
+        :param server_name: The name of the server.
+        """
+        await self.connection.execute(
+            f"""CREATE TABLE IF NOT EXISTS "{server_id}" ("server_name" TEXT NOT NULL, "server_id" INTEGER NOT NULL,
+            "custom_joins_channel" INTEGER, PRIMARY KEY("server_id"))"""
+        )
+
+        await self.connection.execute(
+            f"INSERT INTO '{server_id}' VALUES (?, ?, ?)",
+            (server_id, server_name, None)
+        )
+
+        try:
+            await self.connection.commit()
+            return True
+        except sqlite3.Error as e:
+            print(f"Error while creating server table.\n{e}")
+            return False
+
+    async def get_server_data(self, server_id: int) -> list:
+        """
+        This method will fetch the server data from the database.
+
+        :param server_id: The ID of the server.
+        :return: A tuple containing the server data.
+        """
+        rows = await self.connection.execute(
+            f"SELECT * FROM '{server_id}'"
+        )
+        async with rows as cursor:
+            result = await cursor.fetchone()
+            return result
+
+    async def update_server_data(self, server_id: int, column: str, value: str) -> None:
+        """
+        Update server data. This method is usually called
+
+        :param server_id: The ID of the server.
+        :param column: The column to update.
+        :param value: The value to update.
+        """
+        await self.connection.execute(
+            f"UPDATE '{server_id}' SET {column}=?",
+            (value,)
+        )
+
+        await self.connection.commit()
+
+
+class InternalBotSettingsDbManager:
+    def __init__(self, *, connection: aiosqlite.Connection) -> None:
+        self.connection = connection
+
     async def get_blacklisted_users(self, count: bool) -> list or int:
         """
-        This function will get all the blacklisted users.
+        Retrieve all blacklisted users.
+        Blacklisted users can access no functionality of the bot, but are not ignored from its monitoring or events.
+        Blacklisted users will be visibly flagged when a command is ran on them, or an action involving them is made.
 
+        :param count: A boolean indicating if the count of blacklisted users should be returned instead.
         :return: A list of all the blacklisted users.
         """
         if count:
@@ -99,7 +162,9 @@ class DatabaseManager:
 
     async def is_blacklisted(self, user_id: int) -> bool:
         """
-        This function will check if a user is blacklisted.
+        Check if a user is blacklisted.
+        Blacklisted users can access no functionality of the bot, but are not ignored from its monitoring or events.
+        Blacklisted users will be visibly flagged when a command is ran on them, or an action involving them is made.
 
         :param user_id: The ID of the user to check.
         :return: A boolean indicating if the user is blacklisted or not.
@@ -113,7 +178,7 @@ class DatabaseManager:
 
     async def add_user_to_blacklist(self, user_id: int, user_name: str, t: int, reason: None = None) -> int:
         """
-        This function will add a user to the blacklist.
+        Add a user to blacklist.
 
         :param user_id: The ID of the user to add to the blacklist.
         :param user_name: The name of the user to add to the blacklist.
@@ -130,7 +195,7 @@ class DatabaseManager:
 
     async def remove_user_from_blacklist(self, user_id: int) -> int:
         """
-        This function will remove a user from the blacklist.
+        Remove a user from blacklist.
 
         :param user_id: The ID of the user to remove from the blacklist.
         """
@@ -140,51 +205,3 @@ class DatabaseManager:
         await self.connection.commit()
         total = await self.get_blacklisted_users(True)
         return total
-
-    async def create_server_table(self, server_id: int, server_name: str) -> None:
-        """
-        This method will create a new table for each server the bot joins.
-
-        :param server_id: The ID of the server.
-        :param server_name: The name of the server.
-        """
-        await self.connection.execute(
-            f"""CREATE TABLE IF NOT EXISTS "{server_id}" ("server_name" TEXT NOT NULL, "server_id" INTEGER NOT NULL,
-            "custom_joins_channel" INTEGER, PRIMARY KEY("server_id"))"""
-        )
-
-        await self.connection.execute(
-            f"INSERT INTO '{server_id}' VALUES (?, ?, ?)",
-            (server_id, server_name, None)
-        )
-
-        await self.connection.commit()
-
-    async def get_server_data(self, server_id: int) -> list:
-        """
-        This method will fetch the server data from the database.
-
-        :param server_id: The ID of the server.
-        :return: A tuple containing the server data.
-        """
-        rows = await self.connection.execute(
-            f"SELECT * FROM '{server_id}'"
-        )
-        async with rows as cursor:
-            result = await cursor.fetchone()
-            return result
-
-    async def update_server_data(self, server_id: int, column: str, value: str) -> None:
-        """
-        This method will update the server data in the database.
-
-        :param server_id: The ID of the server.
-        :param column: The column to update.
-        :param value: The value to update.
-        """
-        await self.connection.execute(
-            f"UPDATE '{server_id}' SET {column}=?",
-            (value,)
-        )
-
-        await self.connection.commit()

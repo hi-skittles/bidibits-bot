@@ -1,9 +1,5 @@
 """"
-Copyright © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja)
-Description:
-🐍 A simple template to start to code your own and personalized discord bot in Python programming language.
-
-Version: 6.1.0
+Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
 """
 
 import random
@@ -14,84 +10,8 @@ from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
-
-class Choice(discord.ui.View):
-    def __init__(self) -> None:
-        super().__init__()
-        self.value = None
-
-    @discord.ui.button(label="Heads", style=discord.ButtonStyle.blurple)
-    async def confirm(
-            self, button: discord.ui.Button, interaction: discord.Interaction
-    ) -> None:
-        self.value = "heads"
-        self.stop()
-
-    @discord.ui.button(label="Tails", style=discord.ButtonStyle.blurple)
-    async def cancel(
-            self, button: discord.ui.Button, interaction: discord.Interaction
-    ) -> None:
-        self.value = "tails"
-        self.stop()
-
-
-class RockPaperScissors(discord.ui.Select):
-    def __init__(self) -> None:
-        options = [
-            discord.SelectOption(
-                label="Scissors", description="You choose scissors.", emoji="✂"
-            ),
-            discord.SelectOption(
-                label="Rock", description="You choose rock.", emoji="🪨"
-            ),
-            discord.SelectOption(
-                label="Paper", description="You choose paper.", emoji="🧻"
-            ),
-        ]
-        super().__init__(
-            placeholder="Choose...",
-            min_values=1,
-            max_values=1,
-            options=options,
-        )
-
-    async def callback(self, interaction: discord.Interaction) -> None:
-        choices = {
-            "rock": 0,
-            "paper": 1,
-            "scissors": 2,
-        }
-        user_choice = self.values[0].lower()
-        user_choice_index = choices[user_choice]
-
-        bot_choice = random.choice(list(choices.keys()))
-        bot_choice_index = choices[bot_choice]
-
-        result_embed = discord.Embed(color=0xBEBEFE)
-        result_embed.set_author(
-            name=interaction.user.name, icon_url=interaction.user.display_avatar.url
-        )
-
-        winner = (3 + user_choice_index - bot_choice_index) % 3
-        if winner == 0:
-            result_embed.description = f"**That's a draw!**\nYou've chosen {user_choice} and I've chosen {bot_choice}."
-            result_embed.colour = 0xF59E42
-        elif winner == 1:
-            result_embed.description = f"**You won!**\nYou've chosen {user_choice} and I've chosen {bot_choice}."
-            result_embed.colour = 0x57F287
-        else:
-            result_embed.description = f"**You lost!**\nYou've chosen {user_choice} and I've chosen {bot_choice}."
-            result_embed.colour = 0xE02B2B
-
-        await interaction.response.edit_message(
-            embed=result_embed, content=None, view=None
-        )
-
-
-class RockPaperScissorsView(discord.ui.View):
-    def __init__(self) -> None:
-        super().__init__()
-        self.add_item(RockPaperScissors())
+from utils.wordle import Wordle
+from utils.botlogger import Dev as BotLogger
 
 
 class Fun(commands.Cog, name="fun"):
@@ -105,7 +25,8 @@ class Fun(commands.Cog, name="fun"):
 
         :param context: The hybrid command context.
         """
-        # This will prevent your bot from stopping everything when doing a web request - see: https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
+        # This will prevent your bot from stopping everything when doing a web request - see:
+        # https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
         async with aiohttp.ClientSession() as session:
             async with session.get(
                     "https://uselessfacts.jsph.pl/random.json?language=en"
@@ -121,55 +42,81 @@ class Fun(commands.Cog, name="fun"):
                     )
                 await context.send(embed=embed)
 
+    # TODO: somehow fix the duplicate yellow entries. no idea how..
     @commands.hybrid_command(
-        name="coinflip", description="Make a coin flip, but give your bet before."
+        name="wordle",
+        description="Play a little wordle game.",
+        aliases=["wl"],
     )
-    async def coinflip(self, context: Context) -> None:
+    @commands.guild_only()
+    async def wordle(self, context: Context) -> None:
         """
-        Make a coin flip, but give your bet before.
-
-        :param context: The hybrid command context.
+        This command will start a wordle game.
+        :param context: The command context.
         """
-        buttons = Choice()
-        embed = discord.Embed(description="What is your bet?", color=0xBEBEFE)
-        message = await context.send(embed=embed, view=buttons)
-        await buttons.wait()  # We wait for the user to click a button.
-        result = random.choice(["heads", "tails"])
-        if buttons.value == result:
-            embed = discord.Embed(
-                description=f"Correct! You guessed `{buttons.value}` and I flipped the coin to `{result}`.",
-                color=0xBEBEFE,
-            )
+        try:
+            game = Wordle("./utils/words.csv", 0, 5)
+        except FileNotFoundError:
+            await BotLogger.log_primary(self.bot, context, "wordle", True, "The file words.csv was not found.",
+                                        discord.Colour.dark_red())
+            embed = discord.Embed(description="I've encountered an error. Please check <#1200487447017046156> "
+                                              "for more information.", colour=discord.Colour.dark_red())
+            await context.send(embed=embed)
+            return
+        word_answer = game.retrieve_word
+        await BotLogger.log_primary(self.bot, context, "wordle", False, f"{context.author.mention} "
+                                                                        f"started a wordle game. Their answer is "
+                                                                        f"**{word_answer}**.")
+        game_embed = discord.Embed(description=f"Welcome to Wordle! You have {game.max_tries} tries to guess the word. "
+                                               "The word is 5 letters long.", colour=discord.Colour.orange())
+        bot_message = await context.send(embed=game_embed)
+        feedback = ""
+        while game.tries < game.max_tries:
+            game.tries += 1
+            guess = await self.bot.wait_for("message", check=lambda message: message.author == context.author)
+            guess = guess.content.lower()
+            if len(guess) != 5:
+                game.tries -= 1
+                await context.send(content="The word is 5 letters long.")
+                continue
+            else:
+                if game.tries > 1:
+                    feedback = "\n".join(feedback.splitlines()[:-1])
+                feedback += "\n"
+                for entry, word in zip(guess, word_answer):
+                    if entry in word_answer and entry == word:
+                        feedback += f"🟩"  # 🟩
+                    elif entry in word_answer and entry != word:
+                        # print(f"word: {word}, guess: {guess}, entry: {entry}")
+                        feedback += f"🟨"  # 🟨
+                    else:
+                        feedback += f"⬛"  # ⬛
+                feedback += "\n"
+                for entry in guess:
+                    feedback += f":regional_indicator_{entry}:"
+                edited_embed = discord.Embed(description=f"\n{feedback}\n", colour=discord.Colour.orange())
+                await bot_message.edit(embed=edited_embed)
+            if guess == word_answer:
+                embed = discord.Embed(description=f"You win! The answer was **{word_answer}**",
+                                      colour=discord.Colour.brand_green())
+                await context.send(embed=embed)
+                # await bot_message.delete(delay=5)
+                break
         else:
-            embed = discord.Embed(
-                description=f"Woops! You guessed `{buttons.value}` and I flipped the coin to `{result}`, better luck next time!",
-                color=0xE02B2B,
-            )
-        await message.edit(embed=embed, view=None, content=None)
-
-    @commands.hybrid_command(
-        name="rps", description="Play the rock paper scissors game against the bot."
-    )
-    async def rock_paper_scissors(self, context: Context) -> None:
-        """
-        Play the rock paper scissors game against the bot.
-
-        :param context: The hybrid command context.
-        """
-        view = RockPaperScissorsView()
-        await context.send("Please make your choice", view=view)
+            await context.send(f"You lose! The word was {word_answer}.")
+            # await bot_message.delete(delay=5)
 
     @commands.hybrid_command(
         name="meow",
         description="nothing :3",
     )
+    @commands.cooldown(1, 5, commands.BucketType.channel)
     async def meow(self, context: Context) -> None:
         """
-        This is a testing command that does nothing.
+        Meow :3c
 
-        :param context: The application command context.
+        :param context: Command context.
         """
-        await context.send(f"Hello {context.author.mention}! :3")  # <a:hyper:754213547000725504>
         meow_face = """
         ⣤⣤⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⡿⠈⠈⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -195,7 +142,8 @@ class Fun(commands.Cog, name="fun"):
 ⠀⠀⠀⢰⡟⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠶⠶⠶⠟⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠆⠀⠈⠙⠳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 """
-        await context.send(meow_face)
+        await context.send(f"Hello {context.author.mention}! :3\n"
+                           f"{meow_face}")  # <a:hyper:754213547000725504>
 
 
 async def setup(bot) -> None:
