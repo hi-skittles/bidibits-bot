@@ -326,12 +326,12 @@ class Owner(commands.Cog, name="developer"):
 
     @commands.hybrid_command(
         name="version",
-        description="Lists the version of the bot *not* according to git.",
+        description="Lists the version of the bot according to local.",
     )
     @commands.cooldown(1, 5, commands.BucketType.channel)
     def version(self, context: Context) -> None:
         """
-        Lists the version of the bot *not* according to git.
+        Lists the version of the bot according to local.
 
         :param context: Command context.
         """
