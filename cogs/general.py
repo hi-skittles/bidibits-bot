@@ -12,6 +12,9 @@ from discord.ext.commands import Context
 from utils.botlogger import Dev as BOTLOGGER
 from utils.definitions import Customs
 
+from utils.definitions import Statics as definitions
+
+
 class General(commands.Cog, name="general"):
     def __init__(self, bot) -> None:
         self.bot = bot
@@ -148,7 +151,7 @@ class General(commands.Cog, name="general"):
         embed.set_author(name="Bot Information")
         embed.add_field(name="Owner:", value="hi_skittles", inline=True)
         embed.add_field(name="Python Version:", value=f"{platform.python_version()}", inline=True)
-        embed.add_field(name="Version:", value=None, inline=True)
+        embed.add_field(name="Version:", value=definitions.get_version_from_file(), inline=True)
         embed.add_field(
             name="Prefix:",
             value=f"I support slash commands or the legacy prefix, `{self.bot.config['prefix']}`",
