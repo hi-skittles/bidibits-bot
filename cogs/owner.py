@@ -340,7 +340,7 @@ class Owner(commands.Cog, name="developer"):
             description=definitions.get_version_from_file(),
             color=discord.Colour.og_blurple(),
         )
-        context.send(embed=embed)
+        await context.send(embed=embed)
 
 
 async def setup(bot) -> None:
