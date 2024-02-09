@@ -20,3 +20,15 @@ class Customs:
             return True, match.group(1), match.group(2)
         else:
             return False, None, None
+
+
+class Statics:
+    @staticmethod
+    def get_version_from_file(version_file: str = "./version") -> str:
+        """
+        Retrieves the version from the version file.
+
+        :return: The version.
+        """
+        with open(version_file, "r") as file:
+            return file.read().strip()

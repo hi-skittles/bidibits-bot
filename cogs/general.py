@@ -3,19 +3,14 @@ Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://
 """
 
 import platform
-import random
-import re
 
-import aiohttp
 import discord
 from discord import app_commands
-from discord.app_commands import TransformerError
 from discord.ext import commands
 from discord.ext.commands import Context
 
-from utils.definitions import Customs
 from utils.botlogger import Dev as BOTLOGGER
-
+from utils.definitions import Customs
 
 class General(commands.Cog, name="general"):
     def __init__(self, bot) -> None:
@@ -141,7 +136,7 @@ class General(commands.Cog, name="general"):
     )
     async def botinfo(self, context: Context) -> None:
         """
-        Get some useful (or not) information about the bot.
+        Bot information.
 
         :param context: The hybrid command context.
         """
@@ -153,6 +148,7 @@ class General(commands.Cog, name="general"):
         embed.set_author(name="Bot Information")
         embed.add_field(name="Owner:", value="hi_skittles", inline=True)
         embed.add_field(name="Python Version:", value=f"{platform.python_version()}", inline=True)
+        embed.add_field(name="Version:", value=None, inline=True)
         embed.add_field(
             name="Prefix:",
             value=f"I support slash commands or the legacy prefix, `{self.bot.config['prefix']}`",

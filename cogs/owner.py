@@ -1,9 +1,5 @@
 """"
-Copyright © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja)
-Description:
-🐍 A simple template to start to code your own and personalized discord bot in Python programming language.
-
-Version: 6.1.0
+Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
 """
 import time
 
@@ -11,6 +7,8 @@ import discord
 from discord import app_commands, Message
 from discord.ext import commands
 from discord.ext.commands import Context
+
+from utils.definitions import Statics as definitions
 
 
 # TODO: log and owner 'stuffs' in primary channel please
@@ -325,6 +323,24 @@ class Owner(commands.Cog, name="developer"):
                  f"in the blacklist"
         )
         await context.send(embed=embed)
+
+    @commands.hybrid_command(
+        name="version",
+        description="Lists the version of the bot *not* according to git.",
+    )
+    @commands.cooldown(1, 5, commands.BucketType.channel)
+    def version(self, context: Context) -> None:
+        """
+        Lists the version of the bot *not* according to git.
+
+        :param context: Command context.
+        """
+        embed = discord.Embed(
+            title="Version",
+            description=definitions.get_version_from_file(),
+            color=discord.Colour.og_blurple(),
+        )
+        context.send(embed=embed)
 
 
 async def setup(bot) -> None:
