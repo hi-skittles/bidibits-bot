@@ -329,7 +329,7 @@ class Owner(commands.Cog, name="developer"):
         description="Lists the version of the bot according to local.",
     )
     @commands.cooldown(1, 5, commands.BucketType.channel)
-    def version(self, context: Context) -> None:
+    async def version(self, context: Context) -> None:
         """
         Lists the version of the bot according to local.
 
