@@ -1,46 +1,21 @@
 """"
+otto bot
+Copyright © hi_skittles 2024
 Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
 """
 
-import random
-
 import aiohttp
 import discord
-from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
 from utils.wordle import Wordle
-from utils.botlogger import Dev as BotLogger
+from utils.botlogger import Logs as BotLogger
 
 
 class Fun(commands.Cog, name="fun"):
     def __init__(self, bot) -> None:
         self.bot = bot
-
-    @commands.hybrid_command(name="randomfact", description="Get a random fact.")
-    async def randomfact(self, context: Context) -> None:
-        """
-        Get a random fact.
-
-        :param context: The hybrid command context.
-        """
-        # This will prevent your bot from stopping everything when doing a web request - see:
-        # https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
-        async with aiohttp.ClientSession() as session:
-            async with session.get(
-                    "https://uselessfacts.jsph.pl/random.json?language=en"
-            ) as request:
-                if request.status == 200:
-                    data = await request.json()
-                    embed = discord.Embed(description=data["text"], color=0xD75BF4)
-                else:
-                    embed = discord.Embed(
-                        title="Error!",
-                        description="There is something wrong with the API, please try again later",
-                        color=0xE02B2B,
-                    )
-                await context.send(embed=embed)
 
     # TODO: somehow fix the duplicate yellow entries. no idea how..
     @commands.hybrid_command(
@@ -48,12 +23,8 @@ class Fun(commands.Cog, name="fun"):
         description="Play a little wordle game.",
         aliases=["wl"],
     )
-    @commands.guild_only()
+    @commands.cooldown(1, 60, commands.BucketType.user)
     async def wordle(self, context: Context) -> None:
-        """
-        This command will start a wordle game.
-        :param context: The command context.
-        """
         try:
             game = Wordle("./utils/words.csv", 0, 5)
         except FileNotFoundError:
@@ -73,7 +44,8 @@ class Fun(commands.Cog, name="fun"):
         feedback = ""
         while game.tries < game.max_tries:
             game.tries += 1
-            guess = await self.bot.wait_for("message", check=lambda message: message.author == context.author)
+            guess = await self.bot.wait_for("message", check=lambda message: message.author == context.author,
+                                            timeout=180)
             guess = guess.content.lower()
             if len(guess) != 5:
                 game.tries -= 1
@@ -112,11 +84,6 @@ class Fun(commands.Cog, name="fun"):
     )
     @commands.cooldown(1, 5, commands.BucketType.channel)
     async def meow(self, context: Context) -> None:
-        """
-        Meow :3c
-
-        :param context: Command context.
-        """
         meow_face = """
         ⣤⣤⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⡿⠈⠈⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

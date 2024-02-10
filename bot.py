@@ -1,5 +1,11 @@
 """"
+otto bot
+Copyright © hi_skittles 2024
 Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
+
+Notes:
+    https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
+    self.bot.http.ban()
 """
 
 import json
@@ -17,7 +23,7 @@ from dotenv import load_dotenv
 
 from database import DatabaseManager, InternalBotSettingsDbManager
 
-from utils.botlogger import Dev as BOTLOGGER
+from utils.botlogger import Logs as BOTLOGGER
 
 if not os.path.isfile(f"{os.path.realpath(os.path.dirname(__file__))}/config.json"):
     sys.exit("Help! I couldn't find the 'config.json' file! Please make sure it is in the same directory as bot.py.")

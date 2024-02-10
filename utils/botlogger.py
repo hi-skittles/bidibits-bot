@@ -44,6 +44,34 @@ class Channels:
         return channel.send(embed=embed)
 
     @staticmethod
+    def primary_channel_simple(bot: commands.Bot, title: str, description: str,
+                               colour_override: discord.Color = None):
+        channel_id = 1200487447017046156
+
+        try:
+            guild = bot.get_guild(guild_id)
+        except Exception:
+            return print(f"CRITICAL: Failed to get guild with ID {guild_id}. Could not send log message. Stopping.")
+        try:
+            channel = guild.get_channel(channel_id)
+        except Exception:
+            return print(f"CRITICAL: Failed to get channel with ID {channel_id}. Could not send log message. Stopping.")
+
+        if title is not None:
+            embed = discord.Embed(
+                title=title,
+                description=description,
+                color=discord.Color.dark_blue() if colour_override is None else colour_override,
+            )
+        else:
+            embed = discord.Embed(
+                description=description,
+                color=discord.Color.dark_blue() if colour_override is None else colour_override,
+            )
+
+        return channel.send(embed=embed)
+
+    @staticmethod
     def debug_channel(bot: commands.Bot, ctx: Context, command_or_action: list[str] or str, is_action: bool):
         channel_id = 1200487702240440391
 
@@ -78,14 +106,20 @@ class Channels:
         pass
 
 
-class Dev:
+class Logs:
     # TODO
     @staticmethod
-    def log_primary(bot: commands.Bot, ctx: Context, command_or_action: list[str] or str, is_action: bool, log_content: str,
-                    colour_override: discord.Color = None):
+    def log_primary(bot: commands.Bot, ctx: Context, command_or_action: list[str] or str, is_action: bool,
+                    log_content: str, colour_override: discord.Color = None):
         if log_content is None:
             log_content = "*👀 No info was entered for this log...*"
         log = Channels.primary_channel(bot, ctx, command_or_action, is_action, log_content, colour_override)
+        return log
+
+    @staticmethod
+    def log_primary_simple(bot: commands.Bot, title: str or None, description: str,
+                           colour_override: discord.Color = None):
+        log = Channels.primary_channel_simple(bot, title, description, colour_override)
         return log
 
     @staticmethod
