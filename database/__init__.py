@@ -11,7 +11,7 @@ import aiosqlite
 
 
 # TODO: unsafe to use same class for any DB connection
-class DatabaseManager:
+class GeneralDbManager:
     def __init__(self, *, connection: aiosqlite.Connection) -> None:
         self.connection = connection
 
@@ -205,3 +205,10 @@ class InternalBotSettingsDbManager:
         await self.connection.commit()
         total = await self.get_blacklisted_users(True)
         return total
+
+
+class ProfilesManagement:
+    def __init__(self, *, connection: aiosqlite.Connection) -> None:
+        self.connection = connection
+
+

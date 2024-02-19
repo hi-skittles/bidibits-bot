@@ -127,7 +127,7 @@ class Owner(commands.Cog, name="developer"):
                 color=discord.Color.dark_blue(),
             )
             await context.send(embed=embed)
-            await BotLogger.log_primary_simple(bot=self.bot, title="Global Desync",
+            await BotLogger.log_primary_simple(bot=self.bot, title="Local Desync",
                                                description="Slash commands have been locally desynchronized in "
                                                            f"{context.guild.name}.")
             return

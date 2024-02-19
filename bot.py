@@ -21,7 +21,7 @@ from discord.ext import commands, tasks
 from discord.ext.commands import Context
 from dotenv import load_dotenv
 
-from database import DatabaseManager, InternalBotSettingsDbManager
+from database import GeneralDbManager, InternalBotSettingsDbManager, ProfilesManagement
 
 from utils.botlogger import Logs as BOTLOGGER
 
@@ -145,7 +145,9 @@ class DiscordBot(commands.Bot):
         self.config = config
         self.internal_bot_settings = None
         self.servers_database = None
+        self.profiles_database = None
 
+    # TODO profile schema
     async def init_db(self) -> None:
         async with aiosqlite.connect(
             f"{os.path.realpath(os.path.dirname(__file__))}/database/internal_bot_settings.db"
@@ -206,9 +208,14 @@ class DiscordBot(commands.Bot):
                 f"{os.path.realpath(os.path.dirname(__file__))}/database/internal_bot_settings.db"
             )
         )
-        self.servers_database = DatabaseManager(
+        self.servers_database = GeneralDbManager(
             connection=await aiosqlite.connect(
                 f"{os.path.realpath(os.path.dirname(__file__))}/database/servers.db"
+            )
+        )
+        self.profiles_database = ProfilesManagement(
+            connection=await aiosqlite.connect(
+                f"{os.path.realpath(os.path.dirname(__file__))}/database/profiles.db"
             )
         )
 
@@ -263,7 +270,7 @@ class DiscordBot(commands.Bot):
             await context.send(embed=embed)
         elif isinstance(error, commands.NotOwner):
             embed = discord.Embed(
-                description="You are not the owner of the bot!", color=discord.Color.dark_red()
+                description="huh", color=discord.Color.dark_red()
             )
             await context.send(embed=embed)
             if context.guild:
@@ -278,25 +285,30 @@ class DiscordBot(commands.Bot):
                 )
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
-                description="You are missing the permission(s) `"
+                description="Looks like *you* aren't setup to perform that command. You are missing the permission(s) `"
                 + ", ".join(error.missing_permissions)
-                + "` to execute this command!",
+                + "` to execute this command",
                 color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
             embed = discord.Embed(
-                description="I am missing the permission(s) `"
+                description="Looks like I'm not setup to perform that task. I am missing the permission(s) `"
                 + ", ".join(error.missing_permissions)
-                + "` to fully perform this command!",
+                + "` to fully perform this command.",
                 color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                title="Error!",
+                title="MissingRequiredArgument",
                 description=str(error),  # .capitalize(),
                 color=discord.Color.brand_red(),
+            )
+            await context.send(embed=embed)
+        elif isinstance(error, commands.CommandNotFound):
+            embed = discord.Embed(
+                description="Not sure about that one. Try /help.", color=discord.Color.dark_red()
             )
             await context.send(embed=embed)
         else:
