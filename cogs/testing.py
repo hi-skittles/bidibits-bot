@@ -64,6 +64,14 @@ class Testing(commands.Cog, name="testing"):
         else:
             print(f"Created table for {guild.name} successfully.")
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        for guild in self.bot.guilds:
+            data = await self.bot.servers_database.get_server_data(guild.id)
+            if data[0] == "error":
+                await self.bot.servers_database.create_server_table(guild.id, guild.name)
+                self.bot.logger.info(f"Created table for {guild.name} (ID: {guild.id})")
+
     #  ██████╗ ██████╗ ███╗   ███╗███╗   ███╗ █████╗ ███╗   ██╗██████╗ ███████╗
     # ██╔════╝██╔═══██╗████╗ ████║████╗ ████║██╔══██╗████╗  ██║██╔══██╗██╔════╝
     # ██║     ██║   ██║██╔████╔██║██╔████╔██║███████║██╔██╗ ██║██║  ██║███████╗

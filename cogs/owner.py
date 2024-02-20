@@ -51,12 +51,9 @@ class Owner(commands.Cog, name="developer"):
         )
         await context.send(embed=embed)
 
-    @commands.command(
-        name="sync",
-        description="Synchronizes the slash commands.",
-    )
-    @app_commands.describe(scope="The scope of the sync. Can be `global` or `guild`")
+    @commands.command(name="sync")
     @commands.is_owner()
+    @commands.guild_only()
     async def sync(self, context: Context, scope: str) -> None:
         """
         Synchronizes  slash commands.
@@ -66,9 +63,9 @@ class Owner(commands.Cog, name="developer"):
         """
 
         if scope == "global":
-            await context.bot.tree.sync()
+            synced = await context.bot.tree.sync()
             embed = discord.Embed(
-                description="Slash commands have been globally synchronized.",
+                description=f"{len(synced)} slash commands have been globally synchronized.",
                 color=discord.Color.dark_blue(),
             )
             await context.send(embed=embed)
@@ -77,9 +74,9 @@ class Owner(commands.Cog, name="developer"):
             return
         elif scope == "guild":
             context.bot.tree.copy_global_to(guild=context.guild)
-            await context.bot.tree.sync(guild=context.guild)
+            synced = await context.bot.tree.sync(guild=context.guild)
             embed = discord.Embed(
-                description="Slash commands have been synchronized in this guild.",
+                description=f"{len(synced)} slash commands have been synchronized in this guild.",
                 color=discord.Color.dark_blue(),
             )
             await context.send(embed=embed)
@@ -87,19 +84,12 @@ class Owner(commands.Cog, name="developer"):
                                                description="Slash commands have been locally synchronized in "
                                                            f"{context.guild.name}.")
             return
-        embed = discord.Embed(
-            description="The scope must be `global` or `guild`.", color=discord.Color.dark_red()
-        )
+        embed = discord.Embed(description="The scope must be `global` or `guild`.", color=discord.Color.dark_red())
         await context.send(embed=embed)
 
-    @commands.command(
-        name="unsync",
-        description="Desynchronizes the slash commands.",
-    )
-    @app_commands.describe(
-        scope="The scope of the sync. Can be `global`, `current_guild` or `guild`"
-    )
+    @commands.command(name="unsync")
     @commands.is_owner()
+    @commands.guild_only()
     async def unsync(self, context: Context, scope: str) -> None:
         """
         Desynchonizes slash commands.
@@ -155,14 +145,14 @@ class Owner(commands.Cog, name="developer"):
             embed = discord.Embed(
                 description=f"{cog}: {e}", color=discord.Color.dark_red()
             )
-            await context.send(embed=embed)
+            await context.send(embed=embed, ephemeral=True)
             return
         embed = discord.Embed(
             description=f"Successfully loaded the `{cog}` cog.", color=discord.Color.dark_blue()
         )
         await BotLogger.log_primary_simple(bot=self.bot, title="Cog",
                                            description=f"Loaded the `{cog}` cog.")
-        await context.send(embed=embed)
+        await context.send(embed=embed, ephemeral=True)
 
     @commands.hybrid_command(
         name="unload",
@@ -183,14 +173,14 @@ class Owner(commands.Cog, name="developer"):
             embed = discord.Embed(
                 description=f"Could not unload the `{cog}` cog.", color=discord.Color.dark_red()
             )
-            await context.send(embed=embed)
+            await context.send(embed=embed, ephemeral=True)
             return
         embed = discord.Embed(
             description=f"Successfully unloaded the `{cog}` cog.", color=discord.Color.dark_blue()
         )
         await BotLogger.log_primary_simple(bot=self.bot, title="Cog",
                                            description=f"Unloaded the `{cog}` cog.")
-        await context.send(embed=embed)
+        await context.send(embed=embed, ephemeral=True)
 
     # TODO: log any reloading in primary channel
     @commands.hybrid_command(
@@ -210,26 +200,36 @@ class Owner(commands.Cog, name="developer"):
             await self.bot.reload_extension(f"cogs.{cog}")
         except commands.ExtensionNotFound:
             embed = discord.Embed(description=f"Could not find the `{cog}` cog.", color=discord.Colour.dark_red())
-            await context.send(embed=embed)
+            await context.send(embed=embed, ephemeral=True)
             return
         except commands.ExtensionNotLoaded:
             embed = discord.Embed(description=f"Could not load the `{cog}` cog. It may not exist.",
                                   color=discord.Colour.dark_red())
-            await context.send(embed=embed)
+            await context.send(embed=embed, ephemeral=True)
             return
         except Exception as e:
             embed = discord.Embed(
                 description=f"Could not reload the `{cog}` cog.\nSee exception: {e}",
                 color=discord.Color.dark_red(),
             )
-            await context.send(embed=embed)
+            await context.send(embed=embed, ephemeral=True)
             return
         embed = discord.Embed(
             description=f"Successfully reloaded the `{cog}` cog.", color=discord.Color.teal()
         )
         await BotLogger.log_primary_simple(bot=self.bot, title="Cog",
                                            description=f"Reloaded the `{cog}` cog.")
-        await context.send(embed=embed)
+        await context.send(embed=embed, ephemeral=True)
+
+    @reload.error
+    async def reload_error(self, context: Context, error: commands.CommandError) -> None:
+        # if isinstance(error, commands.ExtensionFailed):
+        embed = discord.Embed(
+            description=f"Could not reload the `{context.cog}` cog.\nSee exception: {error}",
+            color=discord.Color.dark_red(),
+        )
+        await context.send(embed=embed, ephemeral=True)
+        return
 
     @commands.hybrid_command(
         name="say",

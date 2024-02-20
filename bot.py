@@ -291,6 +291,8 @@ class DiscordBot(commands.Bot):
                 color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
+        elif isinstance(error, commands.MissingRole):
+            pass
         elif isinstance(error, commands.BotMissingPermissions):
             embed = discord.Embed(
                 description="Looks like I'm not setup to perform that task. I am missing the permission(s) `"
