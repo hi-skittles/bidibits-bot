@@ -14,6 +14,7 @@ import os
 import platform
 import random
 import sys
+import time
 
 import aiosqlite
 import discord
@@ -23,7 +24,7 @@ from dotenv import load_dotenv
 
 from database import GeneralDbManager, InternalBotSettingsDbManager, ProfilesManagement
 
-from utils.botlogger import Logs as BOTLOGGER
+from utils.botlogger import Logs as BotLogger
 
 if not os.path.isfile(f"{os.path.realpath(os.path.dirname(__file__))}/config.json"):
     sys.exit("Help! I couldn't find the 'config.json' file! Please make sure it is in the same directory as bot.py.")
@@ -244,7 +245,7 @@ class DiscordBot(commands.Bot):
                 f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by "
                 f"{context.author} (ID: {context.author.id})"
             )
-            await BOTLOGGER.log_debug(self, context, split, False)
+            await BotLogger.log_debug(self, context, split, False)
         else:
             self.logger.info(f"Executed {executed_command} command by {context.author} "
                              f"(ID: {context.author.id}) in DMs")
@@ -313,6 +314,15 @@ class DiscordBot(commands.Bot):
                 description="Not sure about that one. Try /help.", color=discord.Color.dark_red()
             )
             await context.send(embed=embed)
+        elif isinstance(error, commands.CommandInvokeError):
+            timestamp = time.time()
+            embed = discord.Embed(
+                description="An internal error occurred while executing the command.\n"
+                            f"Error ID: `{timestamp}`",
+                color=discord.Color.dark_red(),
+            )
+            await context.send(embed=embed, ephemeral=True)
+            await BotLogger.log_critical_simple(self, str(int(timestamp)), f"An error occurred while executing a command: {error}\n", discord.Colour.brand_red())
         else:
             raise error
 
