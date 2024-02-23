@@ -172,9 +172,14 @@ class Profiles(commands.Cog, name="profiles"):
     async def remove_profile(self, ctx: Context, member: discord.Member, reason) -> None:
         pass
 
-    @moderation.command(name="edit", description="Edit a users profile.")
+    @moderation.command(name="edit", description="Moderate a users profile.")
     @commands.has_role("Moderator")
-    async def edit_profile(self, ctx: Context, member: discord.Member, field: str, content_editable: str) -> None:
+    async def moderator_edit_profile(self, ctx: Context, member: discord.Member, field: str, content_editable: str) -> None:
+        pass
+
+    @moderation.command(name="view", description="View flags and reports on a users profile.")
+    @commands.has_role("Moderator")
+    async def moderator_view_profile(self, ctx: Context, member: discord.Member) -> None:
         pass
 
     @remove_profile.error
