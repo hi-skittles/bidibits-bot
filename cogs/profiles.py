@@ -9,6 +9,7 @@ from discord.ext import commands
 import sqlite3
 
 from discord.ext.commands import Context
+from utils.botlogger import Logs
 
 from database import GeneralDbManager
 
@@ -21,6 +22,7 @@ class Profiles(commands.Cog, name="profiles"):
 
     @commands.Cog.listener()
     async def on_ready(self):
+        i = 0
         for guild in self.bot.guilds:
             self.cursor.execute(f"""CREATE TABLE IF NOT EXISTS "{guild.id}" (
                                 user_id INTEGER PRIMARY KEY,
@@ -38,7 +40,9 @@ class Profiles(commands.Cog, name="profiles"):
                                 status INTEGER,
                                 moderator_comment TEXT
                                 )""")
+            i += 1
         self.conn.commit()
+        await Logs.log_primary_simple(self.bot, "Profiles", f"Synced profiles database. ({i})")
 
     @commands.hybrid_group(name="profile", help="Displays a user profile.", invoke_without_command=True)
     async def profile(self, ctx: Context) -> None:
@@ -124,12 +128,10 @@ class Profiles(commands.Cog, name="profiles"):
     @profile.command(name="edit",
                      description="Edit your profile. You can use standard Discord markdown in the field values.")
     async def edit_profile(self, ctx: Context, field: str, new_value: str) -> None:
-        # List of editable fields, adjust based on your actual profile schema
         editable_fields = ["name", "age", "gender", "species", "orientation", "height", "weight", "bio",
                            "custom_image_url", "color"]
         new_status = False
 
-        # Check if the specified field is editable
         if field not in editable_fields:
             await ctx.send(
                 f"This field cannot be edited or does not exist. Fields you can edit:\n{', '.join(editable_fields)}",
@@ -141,7 +143,6 @@ class Profiles(commands.Cog, name="profiles"):
             new_status = True
             status = 1
 
-        # Update the specified field in the database
         try:
             update_query = f"UPDATE '{ctx.guild.id}' SET {field} = ? WHERE user_id = ?"
             self.cursor.execute(update_query, (new_value, ctx.author.id))
@@ -153,7 +154,7 @@ class Profiles(commands.Cog, name="profiles"):
             await ctx.send(f"Your {field} has been updated to: `{new_value}`", ephemeral=True)
         except sqlite3.Error as e:
             await ctx.send("An internal error occurred while updating your profile.", ephemeral=True)
-            print(f"SQLite error: {e}")  # Logging the error to console or consider logging to a file
+            Logs.log_primary_simple(self.bot, f"An error occurred while updating a profile", f"{e}")
 
     @profile.command(name="delete", description="Delete your profile.")
     async def delete_profile(self, ctx: Context) -> None:
