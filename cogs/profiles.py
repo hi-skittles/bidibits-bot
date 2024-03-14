@@ -42,16 +42,16 @@ class Profiles(commands.Cog, name="profiles"):
                                 )""")
             i += 1
         self.conn.commit()
-        await Logs.log_primary_simple(self.bot, "Profiles", f"Synced profiles database. ({i})")
+        await Logs.log_primary_simple(self.bot, "Fursonas", f"Synced sona database. ({i})")
 
-    @commands.hybrid_group(name="profile", help="Displays a user profile.", invoke_without_command=True)
+    @commands.hybrid_group(name="profile", help="Fursona commands.", invoke_without_command=True)
     async def profile(self, ctx: Context) -> None:
         if ctx.invoked_subcommand is None:
             await ctx.send("Run `/profile help` for help", ephemeral=True)  # ephemeral doesn't work here u stinky
 
     @profile.command(name="help", description="Display valid subcommands.")
     async def profile_help(self, ctx: Context) -> None:
-        embed = discord.Embed(title="Profile Commands Help", description="List of available profile commands:",
+        embed = discord.Embed(title="Fursona Commands Help", description="List of available fursona commands:",
                               color=discord.Colour.dark_blue())
 
         profile_group = self.bot.get_command('profile')
@@ -63,7 +63,7 @@ class Profiles(commands.Cog, name="profiles"):
 
         await ctx.send(embed=embed)
 
-    @profile.command(name="view", description="Displays a user profile.", )
+    @profile.command(name="view", description="Displays a user's fursona.", )
     async def view_profile(self, ctx: Context, member: discord.Member) -> None:
         self.cursor.execute(f"SELECT * FROM '{ctx.guild.id}' WHERE user_id = ?", (member.id,))
         profile_data = self.cursor.fetchone()
@@ -72,6 +72,7 @@ class Profiles(commands.Cog, name="profiles"):
             await ctx.send("Profile not found.", ephemeral=True)
             return
 
+        # should i do this somewhere else
         if profile_data[10]:
             color = profile_data[10]
             try:
@@ -87,10 +88,10 @@ class Profiles(commands.Cog, name="profiles"):
                               color=color)
         embed.set_image(url=image_url if profile_data[9] else member.avatar.url)
 
-        # Skipping user_id (index 0) and including up to moderator_comment (index -1), adjust based on your actual data
+        # skipping user_id (index 0) and including up to moderator_comment (index -1)
         fields = ['Age', 'Gender', 'Orientation', 'Species', 'Height', 'Weight', 'Bio']
         for i, field_name in enumerate(fields, start=2):
-            if profile_data[i]:  # If the field is not None or empty
+            if profile_data[i]:  # if the field is not None or empty
                 embed.add_field(name=field_name, value=profile_data[i], inline=True)
 
         await ctx.send(embed=embed)
