@@ -1,4 +1,4 @@
-aiohttp~=3.9.1
+aiohttp~=3.9.4rc0
 aiosqlite~=0.19.0
-discord.py
+discord.py~=2.0.0
 python-dotenv~=1.0.0

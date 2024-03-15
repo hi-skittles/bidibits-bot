@@ -1,10 +1,9 @@
 """"
-Copyright © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja)
-Description:
-🐍 A simple template to start to code your own and personalized discord bot in Python programming language.
-
-Version: 6.1.0
+otto bot
+Copyright © hi_skittles 2024
+Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
 """
+
 import typing
 from sqlite3 import OperationalError
 from typing import Tuple, Any
@@ -12,7 +11,7 @@ from typing import Tuple, Any
 import discord
 from discord.ext import commands
 from discord.ext.commands import Context
-from utils.botlogger import Dev as BotLogger
+from utils.botlogger import Logs as BotLogger
 
 import csv
 from secrets import choice
@@ -65,42 +64,20 @@ class Testing(commands.Cog, name="testing"):
         else:
             print(f"Created table for {guild.name} successfully.")
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        for guild in self.bot.guilds:
+            data = await self.bot.servers_database.get_server_data(guild.id)
+            if data[0] == "error":
+                await self.bot.servers_database.create_server_table(guild.id, guild.name)
+                self.bot.logger.info(f"Created table for {guild.name} (ID: {guild.id})")
+
     #  ██████╗ ██████╗ ███╗   ███╗███╗   ███╗ █████╗ ███╗   ██╗██████╗ ███████╗
     # ██╔════╝██╔═══██╗████╗ ████║████╗ ████║██╔══██╗████╗  ██║██╔══██╗██╔════╝
     # ██║     ██║   ██║██╔████╔██║██╔████╔██║███████║██╔██╗ ██║██║  ██║███████╗
     # ██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║  ██║╚════██║
     # ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║██████╔╝███████║
     #  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
-
-    @commands.command(
-        name="online_members",
-        description="Display the first 20 online members with access to the channel.",
-        aliases=["om"],
-    )
-    async def online_members(self, ctx):
-        """
-        Display the first 20 online members with access to the channel.
-
-        :param ctx: The command context.
-        """
-        # Get the members with access to the channel
-        members_with_access = [member for member in ctx.guild.members if
-                               ctx.channel.permissions_for(member).read_messages]
-
-        # Filter online members
-        online_members = [member for member in members_with_access if member.status == discord.Status.online]
-
-        # Take the first 20 online members
-        online_members = online_members[:20]
-
-        if online_members:
-            # Display the online members
-            online_members_str = "\n".join([member.display_name for member in online_members])
-            embed = discord.Embed(title="Online Members", description=online_members_str,
-                                  colour=discord.Colour.dark_blue())
-            await ctx.send(embed=embed)
-        else:
-            await ctx.send("No online members with access to this channel.")
 
     @commands.command(
         name="trigger_on_member_join",

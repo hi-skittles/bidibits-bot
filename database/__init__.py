@@ -11,7 +11,7 @@ import aiosqlite
 
 
 # TODO: unsafe to use same class for any DB connection
-class DatabaseManager:
+class GeneralDbManager:
     def __init__(self, *, connection: aiosqlite.Connection) -> None:
         self.connection = connection
 
@@ -83,14 +83,14 @@ class DatabaseManager:
         :param server_id: The ID of the server.
         :param server_name: The name of the server.
         """
-        await self.connection.execute(
-            f"""CREATE TABLE IF NOT EXISTS "{server_id}" ("server_name" TEXT NOT NULL, "server_id" INTEGER NOT NULL,
-            "custom_joins_channel" INTEGER, PRIMARY KEY("server_id"))"""
-        )
+        await self.connection.execute(f"""CREATE TABLE IF NOT EXISTS "{server_id}" (
+                                      "server_name" NAME,
+                                      "custom_joins_channel" INTEGER,
+                                      "moderator_role" TEXT)""")
 
         await self.connection.execute(
             f"INSERT INTO '{server_id}' VALUES (?, ?, ?)",
-            (server_id, server_name, None)
+            (server_name, None, None)
         )
 
         try:
@@ -107,12 +107,14 @@ class DatabaseManager:
         :param server_id: The ID of the server.
         :return: A tuple containing the server data.
         """
-        rows = await self.connection.execute(
-            f"SELECT * FROM '{server_id}'"
-        )
-        async with rows as cursor:
-            result = await cursor.fetchone()
-            return result
+        try:
+            rows = await self.connection.execute(f"SELECT 1 FROM '{server_id}'")
+            async with rows as cursor:
+                result = await cursor.fetchone()
+                return result
+        except Exception as e:
+            print(f"Error while getting server data.\n{e}")
+            return ["error", e]
 
     async def update_server_data(self, server_id: int, column: str, value: str) -> None:
         """
@@ -205,3 +207,8 @@ class InternalBotSettingsDbManager:
         await self.connection.commit()
         total = await self.get_blacklisted_users(True)
         return total
+
+
+class ProfilesManagement:
+    def __init__(self, *, connection: aiosqlite.Connection) -> None:
+        self.connection = connection

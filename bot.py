@@ -1,5 +1,11 @@
 """"
+otto bot
+Copyright © hi_skittles 2024
 Contains code from © Krypton 2019-2023 - https://github.com/kkrypt0nn (https://krypton.ninja) Version: 6.1.0
+
+Notes:
+    https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
+    self.bot.http.ban()
 """
 
 import json
@@ -8,6 +14,7 @@ import os
 import platform
 import random
 import sys
+import time
 
 import aiosqlite
 import discord
@@ -15,9 +22,9 @@ from discord.ext import commands, tasks
 from discord.ext.commands import Context
 from dotenv import load_dotenv
 
-from database import DatabaseManager, InternalBotSettingsDbManager
+from database import GeneralDbManager, InternalBotSettingsDbManager, ProfilesManagement
 
-from utils.botlogger import Dev as BOTLOGGER
+from utils.botlogger import Logs as BotLogger
 
 if not os.path.isfile(f"{os.path.realpath(os.path.dirname(__file__))}/config.json"):
     sys.exit("Help! I couldn't find the 'config.json' file! Please make sure it is in the same directory as bot.py.")
@@ -139,7 +146,9 @@ class DiscordBot(commands.Bot):
         self.config = config
         self.internal_bot_settings = None
         self.servers_database = None
+        self.profiles_database = None
 
+    # TODO profile schema
     async def init_db(self) -> None:
         async with aiosqlite.connect(
             f"{os.path.realpath(os.path.dirname(__file__))}/database/internal_bot_settings.db"
@@ -200,9 +209,14 @@ class DiscordBot(commands.Bot):
                 f"{os.path.realpath(os.path.dirname(__file__))}/database/internal_bot_settings.db"
             )
         )
-        self.servers_database = DatabaseManager(
+        self.servers_database = GeneralDbManager(
             connection=await aiosqlite.connect(
                 f"{os.path.realpath(os.path.dirname(__file__))}/database/servers.db"
+            )
+        )
+        self.profiles_database = ProfilesManagement(
+            connection=await aiosqlite.connect(
+                f"{os.path.realpath(os.path.dirname(__file__))}/database/profiles.db"
             )
         )
 
@@ -231,7 +245,7 @@ class DiscordBot(commands.Bot):
                 f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by "
                 f"{context.author} (ID: {context.author.id})"
             )
-            await BOTLOGGER.log_debug(self, context, split, False)
+            await BotLogger.log_debug(self, context, split, False)
         else:
             self.logger.info(f"Executed {executed_command} command by {context.author} "
                              f"(ID: {context.author.id}) in DMs")
@@ -257,7 +271,7 @@ class DiscordBot(commands.Bot):
             await context.send(embed=embed)
         elif isinstance(error, commands.NotOwner):
             embed = discord.Embed(
-                description="You are not the owner of the bot!", color=discord.Color.dark_red()
+                description="huh", color=discord.Color.dark_red()
             )
             await context.send(embed=embed)
             if context.guild:
@@ -272,27 +286,43 @@ class DiscordBot(commands.Bot):
                 )
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
-                description="You are missing the permission(s) `"
+                description="Looks like *you* aren't setup to perform that command. You are missing the permission(s) `"
                 + ", ".join(error.missing_permissions)
-                + "` to execute this command!",
+                + "` to execute this command",
                 color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
+        elif isinstance(error, commands.MissingRole):
+            pass
         elif isinstance(error, commands.BotMissingPermissions):
             embed = discord.Embed(
-                description="I am missing the permission(s) `"
+                description="Looks like I'm not setup to perform that task. I am missing the permission(s) `"
                 + ", ".join(error.missing_permissions)
-                + "` to fully perform this command!",
+                + "` to fully perform this command.",
                 color=discord.Color.dark_red(),
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
-                title="Error!",
+                title="MissingRequiredArgument",
                 description=str(error),  # .capitalize(),
                 color=discord.Color.brand_red(),
             )
             await context.send(embed=embed)
+        elif isinstance(error, commands.CommandNotFound):
+            embed = discord.Embed(
+                description="Not sure about that one. Try /help.", color=discord.Color.dark_red()
+            )
+            await context.send(embed=embed)
+        elif isinstance(error, commands.CommandInvokeError):
+            timestamp = time.time()
+            embed = discord.Embed(
+                description="An internal error occurred while executing the command.\n"
+                            f"Error ID: `{timestamp}`",
+                color=discord.Color.dark_red(),
+            )
+            await context.send(embed=embed, ephemeral=True)
+            await BotLogger.log_critical_simple(self, str(int(timestamp)), f"An error occurred while executing a command: {error}\n", discord.Colour.brand_red())
         else:
             raise error
 
