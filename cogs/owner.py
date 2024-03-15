@@ -63,7 +63,7 @@ class Owner(commands.Cog, name="developer"):
         """
 
         if scope == "global":
-            synced = await context.bot.tree.sync()
+            synced = await self.bot.tree.sync()
             embed = discord.Embed(
                 description=f"{len(synced)} slash commands have been globally synchronized.",
                 color=discord.Color.dark_blue(),
@@ -73,8 +73,8 @@ class Owner(commands.Cog, name="developer"):
                                                description="Slash commands have been globally synchronized.")
             return
         elif scope == "guild":
-            context.bot.tree.copy_global_to(guild=context.guild)
-            synced = await context.bot.tree.sync(guild=context.guild)
+            self.bot.tree.copy_global_to(guild=context.guild)
+            synced = await self.bot.tree.sync(guild=context.guild)
             embed = discord.Embed(
                 description=f"{len(synced)} slash commands have been synchronized in this guild.",
                 color=discord.Color.dark_blue(),
